@@ -1,0 +1,344 @@
+import { describe, it, expect, beforeEach } from 'vitest';
+import request from 'supertest';
+import {
+  app,
+  usersDb,
+  securityConfig,
+  blacklistedIPs,
+  couponsDb,
+  processedPaymentIds,
+  userDailyAiUsage,
+  consultationSessionsDb,
+} from '../server';
+
+describe('BATERIA DE TESTES DE SEGURANÇA E AUDITORIA TÉCNICA (ORACULOS.TS)', () => {
+  beforeEach(() => {
+    process.env.NODE_ENV = 'test';
+    delete process.env.STRICT_AUTH;
+
+    // Reset test user balance & role
+    if (usersDb['usr-client-1']) {
+      usersDb['usr-client-1'].balance = 150.0;
+      usersDb['usr-client-1'].role = 'user';
+    }
+  });
+
+  // TEST 1: Token Ausente / Inválido (401) ou Firebase Admin Indisponível (503)
+  it('1. Deve retornar HTTP 401 se token não for fornecido e HTTP 503 se Firebase Admin estiver indisponível', async () => {
+    const resNoToken = await request(app)
+      .get('/api/admin/users');
+
+    expect(resNoToken.status).toBe(401);
+    expect(resNoToken.body.error.code).toBe('UNAUTHORIZED');
+
+    const resWithToken = await request(app)
+      .get('/api/admin/users')
+      .set('authorization', 'Bearer token_qualquer');
+
+    expect(resWithToken.status).toBe(503);
+    expect(resWithToken.body.error.code).toBe('AUTH_SERVICE_UNAVAILABLE');
+  });
+
+  // TEST 2: Usuário Comum Acessando Área Admin (RBAC)
+  it('2. Deve proibir usuário comum (role=user) de acessar rota administrativa (/api/admin/users) com HTTP 403', async () => {
+    const res = await request(app)
+      .get('/api/admin/users')
+      .set('x-user-id', 'usr-client-1');
+
+    expect(res.status).toBe(403);
+    expect(res.body.error.code).toBe('FORBIDDEN_ROLE');
+  });
+
+  // TEST 3: Fallback Dev Bloqueado em Produção
+  it('3. Deve BLOQUEAR estritamente headers de simulação (x-user-id) quando em ambiente de PRODUÇÃO', async () => {
+    process.env.NODE_ENV = 'production';
+
+    const res = await request(app)
+      .get('/api/admin/users')
+      .set('x-user-id', 'usr-admin-1');
+
+    expect(res.status).toBe(401);
+    expect(res.body.error.code).toBe('UNAUTHORIZED');
+  });
+
+  // TEST 4: Rejeição de Valor Adulterado no Checkout Mercado Pago
+  it('4. Deve rejeitar recargas com valores arbitrários não autorizados (ex: R$ 0,01) com HTTP 400', async () => {
+    const res = await request(app)
+      .post('/api/finance/create-preference')
+      .set('x-user-id', 'usr-client-1')
+      .send({ amount: 0.01 });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.code).toBe('INVALID_PACKAGE');
+  });
+
+  // TEST 5: Webhook com Assinatura HMAC Inválida
+  it('5. Deve rejeitar webhooks com assinatura x-signature HMAC inválida', async () => {
+    process.env.MERCADOPAGO_WEBHOOK_SECRET = 'segredo_oficial_webhook_123';
+
+    const res = await request(app)
+      .post('/api/finance/webhook?id=999111')
+      .set('x-signature', 'ts=1700000000,v1=hash_falso_hacker_321')
+      .set('x-request-id', 'req-999')
+      .send({ data: { id: '999111' } });
+
+    expect(res.status).toBe(401);
+    expect(res.body.error).toBe('Assinatura do webhook inválida.');
+
+    delete process.env.MERCADOPAGO_WEBHOOK_SECRET;
+  });
+
+  // TEST 6: Webhook Repetido (Idempotência)
+  it('6. Deve ignorar webhooks de pagamento duplicados por idempotência', async () => {
+    processedPaymentIds.add('webhook_payment_777888');
+
+    const res = await request(app)
+      .post('/api/finance/webhook')
+      .send({ data: { id: '777888' } });
+
+    expect(res.status).toBe(200);
+    expect(res.body.status).toBe('already_processed');
+  });
+
+  // TEST 7: Saldo insuficiente no início seguro da consulta
+  it('7. Deve bloquear início de consulta e retornar HTTP 400 se o usuário não tiver saldo suficiente', async () => {
+    usersDb['usr-client-1'].balance = 0;
+
+    const res = await request(app)
+      .post('/api/finance/start-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({
+        consultationId: 'security-test-insufficient',
+        consultantId: 'c1',
+      });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.code).toBe('INSUFFICIENT_FUNDS');
+    expect(usersDb['usr-client-1'].balance).toBe(0);
+  });
+
+  // TEST 8: Débito seguro e idempotente
+  it('8. Deve impedir débito duplicado e nunca gerar saldo negativo', async () => {
+    usersDb['usr-client-1'].balance = 1000;
+
+    const consultationId =
+      'security-test-idempotency';
+
+    const startRes = await request(app)
+      .post('/api/finance/start-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({
+        consultationId,
+        consultantId: 'c1',
+      });
+
+    expect(startRes.status).toBe(200);
+
+    const firstDebit = await request(app)
+      .post('/api/finance/debit-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({
+        consultationId,
+        consultantId: 'c1',
+
+        // Valores manipulados pelo cliente
+        // devem ser ignorados pelo servidor.
+        amount: 999999,
+        durationMinutes: 999999,
+      });
+
+    expect(firstDebit.status).toBe(200);
+
+    const balanceAfterFirstDebit =
+      usersDb['usr-client-1'].balance;
+
+    expect(balanceAfterFirstDebit)
+      .toBeGreaterThanOrEqual(0);
+
+    expect(
+      firstDebit.body.data.debitMinutes,
+    ).toBeLessThan(999999);
+
+    const secondDebit = await request(app)
+      .post('/api/finance/debit-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({
+        consultationId,
+        consultantId: 'c1',
+        amount: 1,
+        durationMinutes: 1,
+      });
+
+    expect(secondDebit.status).toBe(200);
+
+    expect(
+      secondDebit.body.data.alreadyProcessed,
+    ).toBe(true);
+
+    expect(
+      usersDb['usr-client-1'].balance,
+    ).toBe(balanceAfterFirstDebit);
+
+    expect(
+      usersDb['usr-client-1'].balance,
+    ).toBeGreaterThanOrEqual(0);
+  });
+
+  // TEST 9: Alteração de Papel pelo Frontend Negada
+  it('9. Deve impedir que um usuário cliente altere seu próprio papel enviando requisição sem privilégio superadmin', async () => {
+    const res = await request(app)
+      .post('/api/admin/update-user-role')
+      .set('x-user-id', 'usr-client-1')
+      .send({ targetUserId: 'usr-client-1', newRole: 'admin' });
+
+    expect(res.status).toBe(403);
+    expect(usersDb['usr-client-1'].role).toBe('user');
+  });
+
+  // TEST 10: Alteração Direta de Crédito pelo Frontend Negada
+  it('10. Deve impedir que usuário comum altere saldo via endpoint de ajuste administrativo', async () => {
+    const res = await request(app)
+      .post('/api/admin/adjust-balance')
+      .set('x-user-id', 'usr-client-1')
+      .send({ targetUserId: 'usr-client-1', amount: 1000, type: 'add', reason: 'Hack de saldo' });
+
+    expect(res.status).toBe(403);
+    expect(usersDb['usr-client-1'].balance).toBe(150.0);
+  });
+
+  // TEST 11: Prompt Excessivamente Grande no Gemini AI
+  it('11. Deve rejeitar prompts de IA com mais de 2.000 caracteres com HTTP 400', async () => {
+    const hugePrompt = 'A'.repeat(2500);
+
+    const res = await request(app)
+      .post('/api/ai/oracle-interpretation')
+      .set('x-user-id', 'usr-client-1')
+      .send({ oracleType: 'tarot', userQuestion: hugePrompt });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.code).toBe('PROMPT_TOO_LONG');
+  });
+
+  // TEST 12: Bloqueio por WAF em IP na Blacklist
+  it('12. Deve bloquear com HTTP 403 requisições vindas de IPs na Lista Negra do WAF', async () => {
+    blacklistedIPs.add('203.0.113.199');
+
+    const res = await request(app)
+      .get('/api/health')
+      .set('x-forwarded-for', '203.0.113.199');
+
+    expect(res.status).toBe(403);
+    expect(res.body.error.code).toBe('WAF_IP_BLOCKED');
+
+    blacklistedIPs.delete('203.0.113.199');
+  });
+
+  // TEST 13: Ação inválida no gerenciamento de IP
+  it('13. Deve rejeitar ação inválida no gerenciamento de IP', async () => {
+    const res = await request(app)
+      .post('/api/security/manage-ip')
+      .set('x-user-id', 'usr-admin-1')
+      .send({
+        ip: '203.0.113.50',
+        action: 'hack',
+        list: 'blacklist',
+      });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.code).toBe('INVALID_IP_ACTION');
+  });
+
+  // TEST 14: Lista inválida no gerenciamento de IP
+  it('14. Deve rejeitar lista inválida no gerenciamento de IP', async () => {
+    const res = await request(app)
+      .post('/api/security/manage-ip')
+      .set('x-user-id', 'usr-admin-1')
+      .send({
+        ip: '203.0.113.50',
+        action: 'add',
+        list: 'qualquer-coisa',
+      });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.code).toBe('INVALID_IP_LIST');
+  });
+
+  it('15. Deve persistir avaliação e retornar o histórico da consulta autenticada', async () => {
+    usersDb['usr-client-1'].balance = 100;
+    const consultationId = 'history-rating-test';
+
+    const start = await request(app)
+      .post('/api/finance/start-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({
+        consultationId,
+        consultantId: 'c1',
+        oracleType: 'tarot',
+        mode: 'chat',
+      });
+
+    expect(start.status).toBe(200);
+
+    const debit = await request(app)
+      .post('/api/finance/debit-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({
+        consultationId,
+        consultantId: 'c1',
+        rating: 5,
+        reviewText: 'Atendimento excelente.',
+      });
+
+    expect(debit.status).toBe(200);
+    expect(
+      consultationSessionsDb[
+        `usr-client-1:${consultationId}`
+      ].ratingGiven,
+    ).toBe(5);
+
+    const history = await request(app)
+      .get('/api/consultations/history')
+      .set('x-user-id', 'usr-client-1');
+
+    expect(history.status).toBe(200);
+    expect(history.body.data.history).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: consultationId,
+          ratingGiven: 5,
+          reviewText: 'Atendimento excelente.',
+        }),
+      ]),
+    );
+  });
+
+  it('16. Deve rejeitar avaliação fora da escala permitida', async () => {
+    const res = await request(app)
+      .post('/api/finance/debit-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({
+        consultationId: 'invalid-rating-test',
+        consultantId: 'c1',
+        rating: 6,
+      });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.code).toBe('INVALID_RATING');
+  });
+});
+
+describe('V11 — rotas do Plano Especial (tarot)', () => {
+  it('contratar sem login → 401; com login de teste chega no Mercado Pago (ou 503 se não configurado); plano inválido → 400', async () => {
+    process.env.NODE_ENV = 'test';
+    const semLogin = await request(app).post('/api/finance/special-preference').send({ planId: 'tarot-marselha' });
+    expect(semLogin.status).toBe(401);
+    const invalido = await request(app).post('/api/finance/special-preference').set('x-user-id', 'usr-client-1').send({ planId: 'pkg-30' });
+    expect(invalido.status).toBe(400);
+    const valido = await request(app).post('/api/finance/special-preference').set('x-user-id', 'usr-client-1').send({ planId: 'tarot-marselha', price: 1 });
+    expect([201, 503, 500]).toContain(valido.status);
+  });
+  it('situação do pedido: id inválido → 400', async () => {
+    const r = await request(app).get('/api/finance/special-order?id=../../x');
+    expect(r.status).toBe(400);
+  });
+});

@@ -1,0 +1,73 @@
+{
+  "name": "ORACULOS.TS — Tarot, Astrologia e Oráculos Online",
+  "short_name": "ORACULOS.TS",
+  "description": "Plataforma de consultas oraculares online com especialistas qualificados e inteligência oracular canônica em Tarot, Baralho Cigano, Astrologia, Búzios, Runas e Numerologia.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050508",
+  "theme_color": "#050508",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["lifestyle", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/brand/logo-oraculos.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/image/logo-oraculo.ts.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Consultar Oráculos",
+      "short_name": "Oráculos",
+      "description": "Acesse os 10 motores oraculares canônicos",
+      "url": "/oraculos",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Ver Especialistas",
+      "short_name": "Especialistas",
+      "description": "Consulte especialistas online em tempo real",
+      "url": "/especialistas",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+import request from 'supertest';
+import {
+  app,
+  consultantProfilesDb,
+  consultantSettingsDb,
+  consultationSessionsDb,
+  workforceApplicationsDb,
+  usersDb,
+} from '../server';
+import { VIRTUAL_PROFILES } from '../src/data/virtualProfiles';
+
+describe('Gestão de profissionais em produção', () => {
+  beforeEach(() => {
+    process.env.NODE_ENV = 'test';
+    Object.keys(workforceApplicationsDb).forEach((key) => delete workforceApplicationsDb[key]);
+    Object.keys(consultantProfilesDb).forEach((key) => delete consultantProfilesDb[key]);
+    Object.keys(consultantSettingsDb).forEach((key) => delete consultantSettingsDb[key]);
+    if (usersDb['usr-client-1']) {
+      delete usersDb['usr-client-1'].activeConsultationId;
+      delete usersDb['usr-client-1'].pendingConsultationId;
+    }
+  });
+
+  it('recebe candidatura, permite aprovação administrativa e publica no marketplace', async () => {
+    const application = await request(app)
+      .post('/api/work-with-us/applications')
+      .set('x-user-id', 'usr-client-1')
+      .send({
+        fullName: 'Maria das Estrelas',
+        professionalName: 'Mestra Estrela Dourada',
+        email: 'maria.silva@exemplo.com',
+        phone: '11999999999',
+        city: 'São Paulo',
+        state: 'SP',
+        bio: 'Profissional com experiência responsável em Tarot e orientação espiritual.',
+        experienceYears: 8,
+        specialties: ['tarot'],
+        oracles: ['tarot'],
+        languages: ['Português'],
+        modality: 'chat',
+        termsAccepted: true,
+      });
+
+    expect(application.status).toBe(201);
+    const id = application.body.data.id;
+
+    const approval = await request(app)
+      .patch(`/api/admin/workforce-applications/${id}`)
+      .set('x-user-id', 'usr-admin-1')
+      .send({ status: 'approved', pricePerMinute: 4.5 });
+
+    expect(approval.status).toBe(200);
+
+    const marketplace = await request(app).get('/api/consultants/public');
+    expect(marketplace.status).toBe(200);
+    expect(marketplace.body.data.approved).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: 'Mestra Estrela Dourada',
+          pricePerMinute: 4.5,
+          active: true,
+        }),
+      ]),
+    );
+  });
+
+  it('permite somente ao administrador alterar o valor por minuto', async () => {
+    const forbidden = await request(app)
+      .patch('/api/admin/consultants/ai_c1/pricing')
+      .set('x-user-id', 'usr-client-1')
+      .send({ pricePerMinute: 6 });
+    expect(forbidden.status).toBe(403);
+
+    const approved = await request(app)
+      .patch('/api/admin/consultants/ai_c1/pricing')
+      .set('x-user-id', 'usr-admin-1')
+      .send({ pricePerMinute: 6 });
+    expect(approved.status).toBe(200);
+    expect(consultantSettingsDb.ai_c1.pricePerMinute).toBe(6);
+  });
+
+  it('usa uma imagem espiritual local e exclusiva para cada atendente de IA', () => {
+    const avatars = VIRTUAL_PROFILES.map((profile) => profile.avatar);
+    expect(new Set(avatars).size).toBe(VIRTUAL_PROFILES.length);
+    expect(avatars.every((avatar) => avatar.startsWith('/consultants/'))).toBe(true);
+  });
+
+  it('persiste chat humano e impede leitura por quem não participa da consulta', async () => {
+    consultationSessionsDb['usr-client-1:chat-real'] = {
+      id: 'chat-real', userId: 'usr-client-1', consultantId: 'human_real',
+      consultantName: 'Mestra Real', pricePerMinute: 4, startedAt: new Date().toISOString(), status: 'active',
+    };
+    const sent = await request(app).post('/api/consultations/chat-real/messages')
+      .set('x-user-id', 'usr-client-1').send({ text: 'Olá, preciso de orientação.' });
+    expect(sent.status).toBe(201);
+    expect(consultationSessionsDb['usr-client-1:chat-real'].messages?.[0].text).toBe('Olá, preciso de orientação.');
+
+    usersDb['intruder-test'] = { ...usersDb['usr-client-1'], id: 'intruder-test', email: 'intruder@example.com' };
+    const forbidden = await request(app).get('/api/consultations/chat-real/messages').set('x-user-id', 'intruder-test');
+    expect(forbidden.status).toBe(403);
+    delete usersDb['intruder-test'];
+    delete consultationSessionsDb['usr-client-1:chat-real'];
+  });
+
+  it('não permite cobrança de uma videochamada sem conexão remota real', async () => {
+    const response = await request(app).post('/api/finance/start-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({ consultationId: 'video-blocked', consultantId: 'c1', mode: 'video' });
+    expect(response.status).toBe(409);
+    expect(response.body.error.code).toBe('VIDEO_NOT_AVAILABLE');
+  });
+
+  it('usa o preço separado do vídeo quando o profissional habilita a modalidade', async () => {
+    consultantSettingsDb.c1 = { pricePerMinute: 3.5, videoPricePerMinute: 6.25, videoEnabled: true, active: true };
+    const response = await request(app).post('/api/finance/start-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({ consultationId: 'video-price-test', consultantId: 'c1', oracleType: 'tarot', mode: 'video' });
+    expect(response.status).toBe(200);
+    expect(response.body.data.mode).toBe('video');
+    expect(response.body.data.pricePerMinute).toBe(6.25);
+    expect(response.body.data.status).toBe('requested');
+    delete consultationSessionsDb['usr-client-1:video-price-test'];
+  });
+
+  it('exige conta autenticada para vincular a candidatura ao futuro painel', async () => {
+    const response = await request(app).post('/api/work-with-us/applications').send({});
+    expect(response.status).toBe(401);
+  });
+
+  it('profissional humano recebe chamada e decide aceitar antes do chat começar', async () => {
+    const started = await request(app).post('/api/finance/start-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({ consultationId: 'call-acceptance-test', consultantId: 'c1', oracleType: 'tarot', mode: 'chat' });
+
+    expect(started.status).toBe(200);
+    expect(started.body.data.status).toBe('requested');
+
+    const accepted = await request(app).post('/api/consultations/call-acceptance-test/decision')
+      .set('x-user-id', 'usr-consultant-1')
+      .send({ decision: 'accept' });
+
+    expect(accepted.status).toBe(200);
+    expect(accepted.body.data.status).toBe('active');
+    expect(consultationSessionsDb['usr-client-1:call-acceptance-test'].status).toBe('active');
+    delete consultationSessionsDb['usr-client-1:call-acceptance-test'];
+  });
+
+  it('permite que o cliente cancele uma chamada ainda aguardando o profissional', async () => {
+    const started = await request(app).post('/api/finance/start-consultation')
+      .set('x-user-id', 'usr-client-1')
+      .send({ consultationId: 'call-cancel-test', consultantId: 'c1', oracleType: 'tarot', mode: 'chat' });
+    expect(started.status).toBe(200);
+    expect(started.body.data.status).toBe('requested');
+
+    const canceled = await request(app).post('/api/consultations/call-cancel-test/cancel')
+      .set('x-user-id', 'usr-client-1');
+
+    expect(canceled.status).toBe(200);
+    expect(canceled.body.data.status).toBe('canceled');
+    expect(consultationSessionsDb['usr-client-1:call-cancel-test'].status).toBe('canceled');
+    expect(usersDb['usr-client-1'].pendingConsultationId).toBeUndefined();
+    delete consultationSessionsDb['usr-client-1:call-cancel-test'];
+  });
+
+  it('impede que outra conta cancele a solicitação do cliente', async () => {
+    consultationSessionsDb['usr-client-1:call-private-cancel'] = {
+      id: 'call-private-cancel', userId: 'usr-client-1', consultantId: 'c1',
+      consultantName: 'Oráculo', pricePerMinute: 4, requestedAt: new Date().toISOString(), status: 'requested',
+    };
+    usersDb['intruder-test'] = { ...usersDb['usr-client-1'], id: 'intruder-test', email: 'intruder@example.com' };
+
+    const forbidden = await request(app).post('/api/consultations/call-private-cancel/cancel')
+      .set('x-user-id', 'intruder-test');
+    expect(forbidden.status).toBe(403);
+    expect(consultationSessionsDb['usr-client-1:call-private-cancel'].status).toBe('requested');
+
+    delete usersDb['intruder-test'];
+    delete consultationSessionsDb['usr-client-1:call-private-cancel'];
+  });
+});

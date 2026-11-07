@@ -1,0 +1,329 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ==========================================
+    // HELPER FUNCTIONS & RBAC PRIMITIVES
+    // ==========================================
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated()
+        && request.auth.uid == userId;
+    }
+
+    function getUserRole() {
+      return 'role' in request.auth.token
+  ? request.auth.token.role
+  : 'user';
+    }
+
+    function isSupport() {
+      return isAuthenticated()
+        && (
+          getUserRole() == 'support'
+          || getUserRole() == 'admin'
+          || getUserRole() == 'superadmin'
+        );
+    }
+
+    function isAdmin() {
+      return isAuthenticated()
+        && (
+          getUserRole() == 'admin'
+          || getUserRole() == 'superadmin'
+          || (
+  'admin' in request.auth.token
+  && request.auth.token.admin == true
+)
+        );
+    }
+
+    function isSuperAdmin() {
+      return isAuthenticated()
+        && getUserRole() == 'superadmin';
+    }
+
+    function isValidId(id) {
+      return id is string
+        && id.size() <= 128
+        && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // ==========================================
+    // USER PROFILES & WALLET BALANCES
+    // ==========================================
+    match /users/{userId} {
+
+      allow read: if
+        isOwner(userId)
+        || isSupport()
+        || isAdmin();
+
+      /*
+       * Caso algum cliente crie seu próprio perfil
+       * diretamente pelo SDK web, nunca poderá
+       * nascer com privilégio ou saldo.
+       *
+       * O Firebase Admin SDK do backend ignora
+       * Firestore Security Rules.
+       */
+      allow create: if
+        isOwner(userId)
+        && request.resource.data.keys().hasOnly([
+          'id', 'name', 'birthFullName', 'email', 'birthDate', 'birthTime',
+          'doesNotKnowBirthTime', 'role', 'status', 'minuteBalance', 'balance',
+          'avatar', 'termsAccepted', 'privacyAccepted', 'birthDataConsent',
+          'favorites', 'createdAt', 'updatedAt'
+        ])
+        && request.resource.data.get(
+          'role',
+          'user'
+        ) == 'user'
+        && request.resource.data.get(
+          'status',
+          'active'
+        ) == 'active'
+        && request.resource.data.get(
+          'minuteBalance',
+          0
+        ) == 0
+        && request.resource.data.get(
+          'balance',
+          0
+        ) == 0
+        && request.resource.data.get(
+          'isAdmin',
+          false
+        ) == false;
+
+      /*
+       * Usuário comum pode alterar somente
+       * dados não privilegiados.
+       *
+       * UID, e-mail, cargo, status, saldo,
+       * criação da conta e flags administrativas
+       * são imutáveis pelo cliente.
+       */
+      allow update: if (
+        isOwner(userId)
+        && request.resource.data
+          .diff(resource.data)
+          .affectedKeys()
+          .hasOnly([
+            'name', 'birthFullName', 'birthDate', 'birthTime',
+            'doesNotKnowBirthTime', 'avatar', 'termsAccepted',
+            'privacyAccepted', 'birthDataConsent', 'favorites', 'updatedAt'
+          ])
+      ) || isSuperAdmin();
+
+      allow delete: if isSuperAdmin();
+    }
+
+    // ==========================================
+    // PRIVATE USER DATA / PII
+    // ==========================================
+    match /users/{userId}/private/{docId} {
+      allow read, write: if
+        isOwner(userId)
+        || isSuperAdmin();
+    }
+
+    // ==========================================
+    // FINANCIAL TRANSACTIONS
+    // IMMUTABLE SERVER-SIDE LEDGER
+    // ==========================================
+    match /transactions/{txId} {
+
+      allow read: if
+        isAuthenticated()
+        && (
+          resource.data.userId == request.auth.uid
+          || isAdmin()
+        );
+
+      /*
+       * Transações financeiras oficiais
+       * só podem ser criadas pelo backend
+       * através do Firebase Admin SDK.
+       *
+       * Nenhum navegador autenticado pode
+       * fabricar compras, créditos ou ajustes.
+       */
+      allow create: if false;
+
+      allow update, delete: if false;
+    }
+
+    // ==========================================
+    // CONSULTANTS CATALOG
+    // ==========================================
+    match /consultants/{consultantId} {
+
+      // Catálogo público.
+      allow read: if true;
+
+      /*
+       * Criação de consultores é operação
+       * administrativa.
+       *
+       * Impede que um usuário comum crie um
+       * documento se declarando consultor.
+       */
+      allow create: if isAdmin();
+
+      /*
+       * Administrador pode atualizar tudo.
+       *
+       * O próprio consultor pode alterar somente
+       * informações públicas/operacionais seguras.
+       *
+       * Campos financeiros, estatísticas,
+       * comissões, preço, permissões de oráculo
+       * e flags de IA não podem ser modificados
+       * diretamente pelo consultor.
+       */
+      allow update: if
+        isAdmin()
+        || (
+          isAuthenticated()
+          && request.auth.uid == consultantId
+          && !request.resource.data
+            .diff(resource.data)
+            .affectedKeys()
+            .hasAny([
+              'id',
+              'rating',
+              'totalReviews',
+              'totalConsultations',
+              'pricePerMinute',
+              'totalEarned',
+              'commissionRate',
+              'isAI',
+              'allowedOracles'
+            ])
+        );
+
+      allow delete: if isAdmin();
+    }
+
+    // ==========================================
+    // CONSULTATION SESSIONS & MESSAGES
+    // ==========================================
+    match /sessions/{sessionId} {
+
+      allow read: if
+        isAuthenticated()
+        && (
+          resource.data.clientId
+            == request.auth.uid
+          || resource.data.consultantId
+            == request.auth.uid
+          || isSupport()
+          || isAdmin()
+        );
+
+      /*
+       * Somente um dos participantes pode
+       * iniciar uma sessão.
+       */
+      allow create: if
+        isAuthenticated()
+        && isValidId(
+          request.resource.data.clientId
+        )
+        && isValidId(
+          request.resource.data.consultantId
+        )
+        && (
+          request.resource.data.clientId
+            == request.auth.uid
+          || request.resource.data.consultantId
+            == request.auth.uid
+        );
+
+      /*
+       * clientId e consultantId são imutáveis.
+       *
+       * Participantes também não podem alterar
+       * valores financeiros da sessão.
+       * Essas operações pertencem ao backend.
+       */
+      allow update: if
+        isAdmin()
+        || (
+          isAuthenticated()
+          && (
+            resource.data.clientId
+              == request.auth.uid
+            || resource.data.consultantId
+              == request.auth.uid
+          )
+          && request.resource.data.clientId
+            == resource.data.clientId
+          && request.resource.data.consultantId
+            == resource.data.consultantId
+          && !request.resource.data
+            .diff(resource.data)
+            .affectedKeys()
+            .hasAny([
+              'pricePerMinute',
+              'totalCost',
+              'adminCommission',
+              'consultantEarnings'
+            ])
+        );
+
+      allow delete: if isSuperAdmin();
+    }
+
+    // ==========================================
+    // COUPONS & DISCOUNTS
+    // ==========================================
+    match /coupons/{couponId} {
+
+      allow read: if isAuthenticated();
+
+      allow write: if isAdmin();
+    }
+
+    // ==========================================
+    // BLOG & PUBLIC CONTENT
+    // ==========================================
+    match /posts/{postId} {
+
+      allow read: if true;
+
+      allow write: if isAdmin();
+    }
+
+    // ==========================================
+    // SECURITY AUDIT LOGS & TELEMETRY
+    // ==========================================
+    match /auditLogs/{logId} {
+
+      allow read: if isAdmin();
+
+      /*
+       * Logs oficiais de segurança só podem
+       * ser inseridos pelo backend/Admin SDK.
+       *
+       * Impede fabricação de registros de
+       * auditoria pelo navegador.
+       */
+      allow create: if false;
+
+      allow update, delete: if false;
+    }
+
+    // ==========================================
+    // DEFAULT DENY
+    // ==========================================
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

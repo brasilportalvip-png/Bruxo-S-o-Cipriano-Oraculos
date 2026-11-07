@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+  }
+  .font-sans {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  .mystical-gradient {
+    background: radial-gradient(circle at 50% 30%, #1e1b4b 0%, #050508 100%);
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-card-gold {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+  }
+  .gold-accent {
+    color: #d4af37;
+  }
+  .gold-border {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  .status-online {
+    background-color: #10b981;
+  }
+  .status-busy {
+    background-color: #f59e0b;
+  }
+}
+
+/* Custom scrollbars for dark mystic aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
+/* Conteúdo pré-renderizado para buscadores (aparece só até o app carregar) */
+.prerender {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.prerender h1 { font-size: 1.75rem; color: #fff; margin: 1rem 0; font-family: 'Cormorant Garamond', serif; }
+.prerender h2 { font-size: 1.3rem; color: #d4af37; margin: 1.5rem 0 0.5rem; }
+.prerender h3 { font-size: 1.05rem; color: #fff; margin: 1rem 0 0.25rem; }
+.prerender a { color: #d4af37; }
+.prerender ul, .prerender ol { padding-left: 1.25rem; margin: 0.5rem 0; }
+.prerender li { margin: 0.35rem 0; }
+.prerender img { max-width: 160px; height: auto; border-radius: 1rem; }
+.prerender .trilha { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; font-size: 0.8rem; }
+.prerender .trilha li + li::before { content: '›'; margin-right: 0.5rem; color: #6b7280; }
+.prerender table { border-collapse: collapse; margin: 1rem 0; }
+.prerender td, .prerender th { border: 1px solid #333; padding: 0.25rem 0.5rem; }

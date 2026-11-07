@@ -1,0 +1,36 @@
+ORACULOS.TS — V11: PLANO ESPECIAL "MAGIA DO TAROT" (JOGO COM O CIGANO)
+
+O QUE ENTRA NO SITE
+- Na tela inicial, um cartão novo "Plano Especial":
+  Magia do Tarot: o Reino Encantado das Cartas
+  Faça um jogo com um profissional · Jogo com o Cigano
+  Tarot de Marselha completo, com as 78 cartas · Tempo: 1 hora
+  Por chamada de vídeo no WhatsApp ou por foto e áudio
+  Jogo completo: R$ 290,00
+- O mesmo plano aparece também dentro da janela "Recarregar minutos".
+
+COMO FUNCIONA (mesmo processo das recargas)
+1. "Contratar agora": a pessoa entra na conta e paga pelo Mercado Pago (Pix ou cartão).
+2. Ao voltar do Mercado Pago, aparece "Pagamento aprovado" com o botão do
+   WhatsApp (22) 99857-9764. A mensagem de agendamento JÁ VAI COM O COMPROVANTE
+   (número do pagamento no Mercado Pago + número do pedido) e pede o print anexado.
+3. Aviso claro: o jogo é realizado em até 3 dias após o envio do comprovante.
+- Pix pendente: a tela confere sozinha a cada 5 segundos.
+- Botão "Já paguei: enviar comprovante e agendar" sempre visível no cartão.
+
+SEGURANÇA
+- Preço definido no servidor (R$ 290). O navegador não consegue mudar o valor.
+- Webhook do Mercado Pago: cada pagamento conta uma vez só; valor errado não vira pago;
+  estorno marca o pedido como estornado. Pedidos ficam em "specialOrders".
+- NÃO credita minutos e não mexe nas recargas, cupons nem carteiras.
+
+TESTES
+- test/v11-plano-especial-tarot.test.tsx (dados, mensagem com comprovante, decisões do
+  pagamento, cartão na tela, botão pedindo login, tela "Pagamento aprovado").
+- test/security.test.ts: contratar sem login = 401; plano inválido = 400; pedido inválido = 400.
+- Teste de usuário real (computador e celular): cartão aparece, mostra 78 cartas / 1 hora /
+  R$ 290 / 3 dias, WhatsApp com comprovante e "Contratar" sem login abre o formulário.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+https://claude.ai/code/session_01VZGemAYS23vQYmwZTcWvcs
