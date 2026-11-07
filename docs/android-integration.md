@@ -1,14 +1,14 @@
-# Integração Android, TWA, Google Play e PWA — ORACULOS.TS
+# Integração Android, TWA, Google Play e PWA — Bruxo São Cipriano Oráculos
 
-Este documento técnico consolida a arquitetura, configurações de build, políticas do Google Play, permissões de sistema e Digital Asset Links para o aplicativo **ORACULOS.TS**.
+Este documento técnico consolida a arquitetura, configurações de build, políticas do Google Play, permissões de sistema e Digital Asset Links para o aplicativo **Bruxo São Cipriano Oráculos**.
 
 ---
 
 ## 1. Identificação do Aplicativo (Preservação Estrita)
 
-* **Nome do Aplicativo**: ORACULOS.TS — Tarot, Astrologia e Oráculos Online
-* **Package Name / Application ID**: `br.com.oraculos.app` (ou o package name registrado no Google Play Console)
-* **Domínio Oficial**: `https://oraculos-ts.vercel.app`
+* **Nome do Aplicativo**: Bruxo São Cipriano Oráculos — Tarot, Astrologia e Oráculos Online
+* **Package Name / Application ID**: `br.com.bruxosaocipriano.app` (ou o package name registrado no Google Play Console)
+* **Domínio Oficial**: `https://bruxo-s-o-cipriano-oraculos.vercel.app`
 * **Arquitetura Homologada**: Trusted Web Activity (TWA) com fallback para Chrome Custom Tabs e PWA instalável.
 
 > **Regra de Ouro**: Nunca alterar o `package_name` ou as chaves de assinatura (`keystore` / `upload-key.jks`) de um aplicativo já em esteira de testes fechados no Google Play Console, sob pena de perda de histórico de atualizações e rejeição de upload do bundle `.aab`.
@@ -20,7 +20,7 @@ Este documento técnico consolida a arquitetura, configurações de build, polí
 Para habilitar a experiência em tela cheia (sem barra de URL do navegador no Android TWA) e associar deep links e App Links com verificação automática (`autoVerify="true"`):
 
 ### Endpoint de Produção:
-`https://oraculos-ts.vercel.app/.well-known/assetlinks.json`
+`https://bruxo-s-o-cipriano-oraculos.vercel.app/.well-known/assetlinks.json`
 
 ### Conteúdo Configurado:
 ```json
@@ -32,7 +32,7 @@ Para habilitar a experiência em tela cheia (sem barra de URL do navegador no An
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "br.com.oraculos.app",
+      "package_name": "br.com.bruxosaocipriano.app",
       "sha256_cert_fingerprints": [
         "14:6D:E9:44:C5:9F:9C:23:86:60:A2:68:12:44:FE:33:4F:84:1B:6F:AC:6E:A4:F1:22:03:77:4F:21:76:AB:3D"
       ]
@@ -50,7 +50,7 @@ O aplicativo solicita estritamente as permissões essenciais para conexão de re
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.oraculos.app">
+    package="br.com.bruxosaocipriano.app">
 
     <!-- Permissões Estritas e Necessárias -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -88,7 +88,7 @@ O aplicativo solicita estritamente as permissões essenciais para conexão de re
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:scheme="https"
-                    android:host="oraculos-ts.vercel.app"
+                    android:host="bruxo-s-o-cipriano-oraculos.vercel.app"
                     android:pathPrefix="/" />
             </intent-filter>
         </activity>

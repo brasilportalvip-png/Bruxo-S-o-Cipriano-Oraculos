@@ -12,7 +12,7 @@ import { formatarConhecimentoDoSite } from '../src/data/siteKnowledge';
 
 describe('V8 — SEO no padrão Yoast', () => {
   it('títulos ficam entre 30 e 60 caracteres e a marca só entra se couber', () => {
-    expect(tituloSEO('Tarot Online')).toBe('Tarot Online | ORACULOS.TS');
+    expect(tituloSEO('Tarot Online')).toBe('Tarot Online | Bruxo São Cipriano Oráculos');
     const longo = tituloSEO('Política de Cancelamento, Estorno e Reembolso de Créditos e Minutos Comprados');
     expect(longo.length).toBeLessThanOrEqual(60);
   });
@@ -52,7 +52,7 @@ describe('V8 — SEO no padrão Yoast', () => {
   it('gera breadcrumb e FAQ estruturados válidos', () => {
     const b: any = breadcrumbJsonLd([{ nome: 'Oráculos', caminho: '/oraculos' }]);
     expect(b.itemListElement[0].name).toBe('Início');
-    expect(b.itemListElement[1].item).toBe('https://oraculos-ts.vercel.app/oraculos');
+    expect(b.itemListElement[1].item).toBe('https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos');
     const f: any = faqJsonLd(seoOraculo('tarot')!.faq);
     expect(f['@type']).toBe('FAQPage');
     expect(JSON.parse(JSON.stringify(f)).mainEntity).toHaveLength(3);
@@ -66,7 +66,7 @@ describe('V8 — Atendentes conhecem o site', () => {
         { title: 'Pacote Bronze R$ 10', priceBrl: 10, minutes: 10, bonusMinutes: 1, active: true },
         { title: 'Inativo', priceBrl: 99, minutes: 99, active: false },
       ],
-      { name: 'Aura Celeste', pricePerMinute: 3.5, authorizedOracles: ['tarot'] },
+      { name: 'Justina das Sete Velas', pricePerMinute: 3.5, authorizedOracles: ['tarot'] },
     );
     expect(texto).toContain('Pacote Bronze R$ 10: R$ 10,00 = 10 min + 1 min de bônus');
     expect(texto).not.toContain('Inativo');

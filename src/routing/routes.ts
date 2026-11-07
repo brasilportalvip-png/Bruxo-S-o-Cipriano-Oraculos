@@ -1,6 +1,6 @@
 import type { OracleType } from '../types.js';
 
-export const SITE_ORIGIN = 'https://oraculos-ts.vercel.app';
+export const SITE_ORIGIN = 'https://bruxo-s-o-cipriano-oraculos.vercel.app';
 
 export type PublicView =
   | 'showcase'

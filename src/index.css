@@ -70,3 +70,151 @@
 .prerender .trilha li + li::before { content: '›'; margin-right: 0.5rem; color: #6b7280; }
 .prerender table { border-collapse: collapse; margin: 1rem 0; }
 .prerender td, .prerender th { border: 1px solid #333; padding: 0.25rem 0.5rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   BRUXO SÃO CIPRIANO ORÁCULOS — identidade visual e efeitos
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --bruxo-preto: #0a0202;
+  --bruxo-sangue: #7f1d1d;
+  --bruxo-vermelho: #dc2626;
+  --bruxo-brasa: #f97316;
+  --bruxo-ouro: #d4af37;
+  --bruxo-ouro-claro: #fde68a;
+}
+
+@layer utilities {
+  .font-gotica { font-family: 'UnifrakturMaguntia', 'Cinzel', 'Georgia', serif; letter-spacing: 0.01em; }
+  .font-cinzel { font-family: 'Cinzel', 'Cormorant Garamond', 'Georgia', serif; }
+  .mystical-gradient { background: radial-gradient(circle at 50% 25%, #3b0707 0%, #0a0202 70%); }
+  .glass-card {
+    background: linear-gradient(160deg, rgba(127, 29, 29, 0.10), rgba(10, 2, 2, 0.55));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.14);
+  }
+  .glass-card-gold {
+    background: linear-gradient(160deg, rgba(127, 29, 29, 0.14), rgba(10, 2, 2, 0.6));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+  }
+  .texto-ouro {
+    background: linear-gradient(100deg, #7c5a12 0%, #fde68a 22%, #d4af37 45%, #fff7d6 52%, #d4af37 60%, #7c5a12 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: bruxo-brilho-ouro 6s linear infinite;
+    filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.35));
+  }
+  .texto-sangue {
+    background: linear-gradient(180deg, #fca5a5 0%, #dc2626 45%, #7f1d1d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 12px rgba(220, 38, 38, 0.55));
+  }
+  .aura-vermelha { animation: bruxo-pulso 3.8s ease-in-out infinite; }
+  .chama-vela { animation: bruxo-vela 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
+  .flutuar { animation: bruxo-flutuar 7s ease-in-out infinite; }
+  .borda-runica { position: relative; isolation: isolate; }
+  .borda-runica::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(from var(--bruxo-giro, 0deg), transparent 0deg, rgba(212,175,55,.85) 60deg, rgba(220,38,38,.75) 120deg, transparent 180deg, transparent 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: bruxo-giro 6s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+@property --bruxo-giro { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+/* Fundo do site: a arte do Bruxo, escurecida, fixa atrás de tudo */
+.fundo-bruxo { position: relative; isolation: isolate; background-color: var(--bruxo-preto); }
+.fundo-bruxo::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(220, 38, 38, 0.22), transparent 55%),
+    linear-gradient(180deg, rgba(10, 2, 2, 0.80) 0%, rgba(10, 2, 2, 0.93) 45%, rgba(10, 2, 2, 0.98) 100%),
+    url('/brand/fundo-bruxo-sao-cipriano.webp') center top / cover no-repeat;
+}
+@media (max-width: 767px) {
+  .fundo-bruxo::before {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(220, 38, 38, 0.22), transparent 55%),
+      linear-gradient(180deg, rgba(10, 2, 2, 0.82) 0%, rgba(10, 2, 2, 0.94) 45%, rgba(10, 2, 2, 0.98) 100%),
+      url('/brand/fundo-bruxo-sao-cipriano-mobile.webp') center top / cover no-repeat;
+  }
+}
+
+/* Brasas que sobem e névoa vermelha */
+.camada-efeitos { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+.brasa {
+  position: absolute;
+  bottom: -12px;
+  width: var(--t, 4px);
+  height: var(--t, 4px);
+  border-radius: 9999px;
+  background: radial-gradient(circle, #fff7d6 0%, #f97316 45%, rgba(220, 38, 38, 0) 70%);
+  box-shadow: 0 0 10px 2px rgba(249, 115, 22, 0.55);
+  opacity: 0;
+  animation: bruxo-brasa var(--d, 12s) linear var(--a, 0s) infinite;
+}
+.nevoa {
+  position: absolute;
+  left: -20%;
+  width: 140%;
+  height: 40vh;
+  bottom: -10vh;
+  background: radial-gradient(ellipse at center, rgba(127, 29, 29, 0.30), transparent 65%);
+  filter: blur(30px);
+  animation: bruxo-nevoa 26s ease-in-out infinite alternate;
+}
+.nevoa.segunda { bottom: auto; top: -15vh; animation-duration: 34s; opacity: .6; }
+
+/* Cartões de oraculistas e oráculos com brilho ao passar o mouse */
+[data-testid^="consultant-card-"], .glass-card { transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease; }
+[data-testid^="consultant-card-"]:hover {
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.35), 0 18px 45px -12px rgba(220, 38, 38, 0.45);
+  transform: translateY(-2px);
+}
+
+@keyframes bruxo-brilho-ouro { from { background-position: 220% 0; } to { background-position: -20% 0; } }
+@keyframes bruxo-pulso {
+  0%, 100% { box-shadow: 0 0 18px 2px rgba(220, 38, 38, 0.35), 0 0 0 1px rgba(212, 175, 55, 0.35); }
+  50% { box-shadow: 0 0 38px 8px rgba(220, 38, 38, 0.6), 0 0 0 1px rgba(253, 230, 138, 0.6); }
+}
+@keyframes bruxo-vela {
+  0%, 100% { opacity: 1; transform: scaleY(1) rotate(-1deg); }
+  30% { opacity: .85; transform: scaleY(1.08) rotate(1.5deg); }
+  60% { opacity: .95; transform: scaleY(.95) rotate(-1.5deg); }
+}
+@keyframes bruxo-flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes bruxo-giro { to { --bruxo-giro: 360deg; } }
+@keyframes bruxo-brasa {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
+  10% { opacity: .95; }
+  70% { opacity: .6; }
+  100% { transform: translate3d(var(--x, 30px), -105vh, 0) scale(.3); opacity: 0; }
+}
+@keyframes bruxo-nevoa { from { transform: translateX(-6%); } to { transform: translateX(6%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .texto-ouro, .aura-vermelha, .chama-vela, .flutuar, .borda-runica::before, .brasa, .nevoa { animation: none !important; }
+  .brasa { display: none; }
+}
+
+/* Barra de rolagem no tom do Bruxo */
+::-webkit-scrollbar-track { background: #0a0202; }
+::-webkit-scrollbar-thumb { background: rgba(220, 38, 38, 0.35); }
+::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 55, 0.6); }

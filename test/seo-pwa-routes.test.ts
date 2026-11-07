@@ -10,7 +10,7 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
     const res = await request(app).get('/api/health');
     expect(res.status).toBe(200);
     expect(res.body.status).toBe('degraded');
-    expect(res.body.system).toBe('ORACULOS.TS');
+    expect(res.body.system).toBe('Bruxo São Cipriano Oráculos');
   });
 
   it('GET /api/packages deve retornar lista de pacotes de minutos oficiais sem erro 500', async () => {
@@ -28,7 +28,7 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
     const res = await request(app).get('/robots.txt');
     expect(res.status).toBe(200);
     expect(res.headers['content-type']).toContain('text/plain');
-    expect(res.text).toContain('Sitemap: https://oraculos-ts.vercel.app/sitemap.xml');
+    expect(res.text).toContain('Sitemap: https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap.xml');
     expect(res.text).toContain('Disallow: /admin');
     expect(res.text).toContain('Disallow: /painel');
     expect(res.text).toContain('Disallow: /api/');
@@ -41,10 +41,10 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
     expect(res.headers['content-type']).toContain('xml');
     expect(res.text).toContain('<?xml version="1.0" encoding="UTF-8"?>');
     expect(res.text).toContain('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
-    expect(res.text).toContain('https://oraculos-ts.vercel.app/sitemap-static.xml');
-    expect(res.text).toContain('https://oraculos-ts.vercel.app/sitemap-oraculos.xml');
-    expect(res.text).toContain('https://oraculos-ts.vercel.app/sitemap-especialistas.xml');
-    expect(res.text).toContain('https://oraculos-ts.vercel.app/sitemap-blog.xml');
+    expect(res.text).toContain('https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap-static.xml');
+    expect(res.text).toContain('https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap-oraculos.xml');
+    expect(res.text).toContain('https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap-especialistas.xml');
+    expect(res.text).toContain('https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap-blog.xml');
     expect(res.text).not.toContain('/admin');
     expect(res.text).not.toContain('/painel');
     expect(res.text).not.toContain('/api/');
@@ -54,11 +54,11 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
   it('GET /sitemap-static.xml deve conter páginas públicas essenciais', async () => {
     const res = await request(app).get('/sitemap-static.xml');
     expect(res.status).toBe(200);
-    expect(res.text).toContain('<loc>https://oraculos-ts.vercel.app/</loc>');
-    expect(res.text).toContain('<loc>https://oraculos-ts.vercel.app/especialistas</loc>');
-    expect(res.text).toContain('<loc>https://oraculos-ts.vercel.app/oraculos</loc>');
-    expect(res.text).toContain('<loc>https://oraculos-ts.vercel.app/termos</loc>');
-    expect(res.text).toContain('<loc>https://oraculos-ts.vercel.app/privacidade</loc>');
+    expect(res.text).toContain('<loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/</loc>');
+    expect(res.text).toContain('<loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas</loc>');
+    expect(res.text).toContain('<loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos</loc>');
+    expect(res.text).toContain('<loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/termos</loc>');
+    expect(res.text).toContain('<loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/privacidade</loc>');
   });
 
   it('GET /sitemap-oraculos.xml deve conter todos os 11 oráculos canônicos', async () => {
@@ -78,21 +78,21 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
       'sao-cipriano',
     ];
     for (const oracle of oracles) {
-      expect(res.text).toContain(`https://oraculos-ts.vercel.app/oraculos/${oracle}`);
+      expect(res.text).toContain(`https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/${oracle}`);
     }
   });
 
   it('GET /sitemap-especialistas.xml deve conter perfis públicos e canônicos', async () => {
     const res = await request(app).get('/sitemap-especialistas.xml');
     expect(res.status).toBe(200);
-    expect(res.text).toContain('https://oraculos-ts.vercel.app/especialistas/c1');
-    expect(res.text).toContain('https://oraculos-ts.vercel.app/especialistas/ai_c1');
+    expect(res.text).toContain('https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/c1');
+    expect(res.text).toContain('https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/ai_c1');
   });
 
   it('GET /sitemap-blog.xml deve conter artigos publicados', async () => {
     const res = await request(app).get('/sitemap-blog.xml');
     expect(res.status).toBe(200);
-    expect(res.text).toContain('https://oraculos-ts.vercel.app/blog/portal-do-tarot-2026');
+    expect(res.text).toContain('https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/portal-do-tarot-2026');
   });
 
   // 5. Digital Asset Links
@@ -102,7 +102,7 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
     expect(res.headers['content-type']).toContain('json');
     expect(Array.isArray(res.body)).toBe(true);
     expect(res.body[0].target.namespace).toBe('android_app');
-    expect(res.body[0].target.package_name).toBe('br.com.oraculos.app');
+    expect(res.body[0].target.package_name).toBe('br.com.bruxosaocipriano.app');
     expect(Array.isArray(res.body[0].target.sha256_cert_fingerprints)).toBe(true);
   });
 
@@ -110,7 +110,7 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
   it('GET /manifest.webmanifest deve retornar manifesto com nome, start_url e ícones', async () => {
     const res = await request(app).get('/manifest.webmanifest');
     expect(res.status).toBe(200);
-    expect(res.body.name).toContain('ORACULOS.TS');
+    expect(res.body.name).toContain('Bruxo São Cipriano Oráculos');
     expect(res.body.start_url).toBe('/');
     expect(res.body.display).toBe('standalone');
     expect(Array.isArray(res.body.icons)).toBe(true);
@@ -130,8 +130,8 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
       'public/manifest.json',
       'public/sw.js',
       'public/.well-known/assetlinks.json',
-      'public/brand/logo-oraculos.png',
-      'public/image/logo-oraculo.ts.png',
+      'public/brand/logo-bruxo-sao-cipriano.png',
+      'public/image/logo-bruxo-sao-cipriano.png',
     ];
 
     for (const file of files) {

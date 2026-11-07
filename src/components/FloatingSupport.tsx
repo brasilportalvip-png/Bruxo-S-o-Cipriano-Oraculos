@@ -63,7 +63,7 @@ export const FloatingSupport: React.FC = () => {
           </div>
 
           <div className="mt-4 pt-3 border-t border-white/5 text-[10px] text-gray-400 text-center">
-            Atendimento Rápido e Seguro • ORACULOS.TS
+            Atendimento Rápido e Seguro • Bruxo São Cipriano Oráculos
           </div>
         </div>
       )}

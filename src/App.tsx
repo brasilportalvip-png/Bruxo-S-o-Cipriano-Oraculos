@@ -9,6 +9,7 @@ import { MercadoPagoRechargeModal } from './components/MercadoPagoRechargeModal'
 import SpecialTarotPlan, { SpecialOrderReturn } from './components/SpecialTarotPlan';
 
 import { SEOHead } from './components/SEOHead';
+import { EfeitosMisticos } from './components/brand/EfeitosMisticos';
 import { SEO_PAGINAS, breadcrumbJsonLd } from './seo/yoast';
 import { Consultant, OracleType } from './types';
 import { LegalDocType } from './components/LegalPage';
@@ -145,7 +146,8 @@ function MainAppContent() {
 };
 
   return (
-    <div className="min-h-screen bg-[#050508] text-gray-200 flex flex-col font-sans selection:bg-[#d4af37] selection:text-black">
+    <div className="fundo-bruxo min-h-screen text-gray-200 flex flex-col font-sans selection:bg-[#dc2626] selection:text-white">
+      <EfeitosMisticos />
       {/* Top Header Navigation */}
       <Header currentTab={currentRoute.view} setCurrentTab={navigateTo} />
 
@@ -297,7 +299,7 @@ function MainAppContent() {
             <>
               <SEOHead
                 title="Minha Conta"
-                description="Área privada da conta ORACULOS.TS."
+                description="Área privada da conta Bruxo São Cipriano Oráculos."
                 canonicalPath="/painel"
                 noIndex
               />
@@ -314,7 +316,7 @@ function MainAppContent() {
             <>
               <SEOHead
                 title="Painel Profissional"
-                description="Área privada de profissionais do ORACULOS.TS."
+                description="Área privada de profissionais do Bruxo São Cipriano Oráculos."
                 canonicalPath="/painel/consultor"
                 noIndex
               />
@@ -331,7 +333,7 @@ function MainAppContent() {
             <>
               <SEOHead
                 title="Administração"
-                description="Área administrativa privada do ORACULOS.TS."
+                description="Área administrativa privada do Bruxo São Cipriano Oráculos."
                 canonicalPath="/admin"
                 noIndex
               />

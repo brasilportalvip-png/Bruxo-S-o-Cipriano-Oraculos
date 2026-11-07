@@ -10,16 +10,16 @@ export const LEGAL_DOCS: Record<LegalDocType, {
   sections: { title: string; content: string[] }[];
 }> = {
   termos: {
-    title: 'Termos de Uso e Condições Gerais — ORACULOS.TS',
+    title: 'Termos de Uso e Condições Gerais — Bruxo São Cipriano Oráculos',
     h1: 'Termos e Condições Gerais de Uso da Plataforma',
-    subtitle: 'Diretrizes legais, direitos e deveres dos consulentes e especialistas credenciados na plataforma ORACULOS.TS.',
+    subtitle: 'Diretrizes legais, direitos e deveres dos consulentes e especialistas credenciados na plataforma Bruxo São Cipriano Oráculos.',
     canonical: '/termos',
     lastUpdated: '8 de Setembro de 2026',
     sections: [
       {
         title: '1. Objeto e Natureza dos Serviços',
         content: [
-          'A plataforma ORACULOS.TS é um ecossistema digital que conecta consulentes a especialistas em artes oraculares e disponibiliza ferramentas virtuais de orientação intuitiva.',
+          'A plataforma Bruxo São Cipriano Oráculos é um ecossistema digital que conecta consulentes a especialistas em artes oraculares e disponibiliza ferramentas virtuais de orientação intuitiva.',
           'Os atendimentos prestados têm caráter estritamente de aconselhamento intuitivo, autoconhecimento e reflexão espiritual. Nenhuma consulta substitui orientação médica, psicológica, jurídica ou financeira profissional.',
         ],
       },
@@ -48,7 +48,7 @@ export const LEGAL_DOCS: Record<LegalDocType, {
     ],
   },
   privacidade: {
-    title: 'Política de Privacidade e Proteção de Dados LGPD — ORACULOS.TS',
+    title: 'Política de Privacidade e Proteção de Dados LGPD — Bruxo São Cipriano Oráculos',
     h1: 'Política de Privacidade e Proteção de Dados Pessoais',
     subtitle: 'Compromisso com a Lei Geral de Proteção de Dados (Lei Nº 13.709/2018 - LGPD) e sigilo absoluto das consultas.',
     canonical: '/privacidade',
@@ -57,7 +57,7 @@ export const LEGAL_DOCS: Record<LegalDocType, {
       {
         title: '1. Tratamento de Dados e Bases Legais (LGPD)',
         content: [
-          'A ORACULOS.TS coleta apenas os dados essenciais para execução do contrato (art. 7º, V da LGPD) e cumprimento de obrigações legais fiscais (art. 7º, II da LGPD).',
+          'A Bruxo São Cipriano Oráculos coleta apenas os dados essenciais para execução do contrato (art. 7º, V da LGPD) e cumprimento de obrigações legais fiscais (art. 7º, II da LGPD).',
           'Os dados coletados incluem: nome completo de nascimento, data de nascimento (para confecção de mapas astrológicos e numerológicos), e-mail e registros de transações de créditos.',
         ],
       },
@@ -67,7 +67,7 @@ export const LEGAL_DOCS: Record<LegalDocType, {
           'O conteúdo das mensagens trocadas nas salas de consulta privadas é protegido por sigilo oracular e criptografia em trânsito e repouso.',
           'Nenhum dado sensível de consulta é vendido, compartilhado ou comercializado com terceiros sob qualquer pretexto publicitário.',
           'Para apuração de reclamações, fraudes, disputas de cobrança, incidentes de segurança ou solicitações de suporte, administradores autorizados poderão acessar o registro original do atendimento pelo tempo estritamente necessário.',
-          'Quando a modalidade de vídeo for escolhida, câmera, microfone e mídia da chamada são processados pela infraestrutura de videoconferência Jitsi Meet incorporada à plataforma, mediante permissão do navegador. A ORACULOS.TS não grava a mídia da videochamada em seus registros de atendimento.',
+          'Quando a modalidade de vídeo for escolhida, câmera, microfone e mídia da chamada são processados pela infraestrutura de videoconferência Jitsi Meet incorporada à plataforma, mediante permissão do navegador. A Bruxo São Cipriano Oráculos não grava a mídia da videochamada em seus registros de atendimento.',
         ],
       },
       {
@@ -80,13 +80,13 @@ export const LEGAL_DOCS: Record<LegalDocType, {
       {
         title: '4. Encarregado de Proteção de Dados (DPO)',
         content: [
-          'Para exercer seus direitos de titular ou esclarecer qualquer dúvida sobre privacidade, contate nosso Encarregado de Proteção de Dados através do canal oficial: dpo@oraculos.ts ou pelo suporte da plataforma.',
+          'Para exercer seus direitos de titular ou esclarecer qualquer dúvida sobre privacidade, contate nosso Encarregado de Proteção de Dados através do canal oficial: dpo@bruxosaocipriano.com.br ou pelo suporte da plataforma.',
         ],
       },
     ],
   },
   cookies: {
-    title: 'Política de Cookies e Tecnologias de Rastreamento — ORACULOS.TS',
+    title: 'Política de Cookies e Tecnologias de Rastreamento — Bruxo São Cipriano Oráculos',
     h1: 'Política de Cookies e Armazenamento Local',
     subtitle: 'Explicação detalhada sobre o uso de cookies necessários, de sessão e de preferências de navegação.',
     canonical: '/cookies',
@@ -114,7 +114,7 @@ export const LEGAL_DOCS: Record<LegalDocType, {
     ],
   },
   reembolso: {
-    title: 'Política de Cancelamento, Estorno e Reembolso — ORACULOS.TS',
+    title: 'Política de Cancelamento, Estorno e Reembolso — Bruxo São Cipriano Oráculos',
     h1: 'Política de Cancelamento e Reembolso de Créditos',
     subtitle: 'Procedimentos claros para solicitação de estorno em conformidade com o Código de Defesa do Consumidor (Lei 8.078/90).',
     canonical: '/reembolso',

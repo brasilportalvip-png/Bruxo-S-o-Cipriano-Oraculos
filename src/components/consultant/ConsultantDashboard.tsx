@@ -98,9 +98,9 @@ export const ConsultantDashboard: React.FC = () => {
       if (!notifiedCallsRef.current.has(session.id)) {
         notifiedCallsRef.current.add(session.id);
         if ('Notification' in window && Notification.permission === 'granted') {
-          const options = { body: `${session.mode === 'video' ? 'Vídeo' : 'Chat'} aguardando sua resposta.`, icon: '/brand/logo-oraculos.png', tag: `consultation-${session.id}`, requireInteraction: true };
-          if ('serviceWorker' in navigator) void navigator.serviceWorker.ready.then((registration) => registration.showNotification('Novo atendimento — ORACULOS.TS', options));
-          else try { new Notification('Novo atendimento — ORACULOS.TS', options); } catch {}
+          const options = { body: `${session.mode === 'video' ? 'Vídeo' : 'Chat'} aguardando sua resposta.`, icon: '/brand/logo-bruxo-sao-cipriano.png', tag: `consultation-${session.id}`, requireInteraction: true };
+          if ('serviceWorker' in navigator) void navigator.serviceWorker.ready.then((registration) => registration.showNotification('Novo atendimento — Bruxo São Cipriano Oráculos', options));
+          else try { new Notification('Novo atendimento — Bruxo São Cipriano Oráculos', options); } catch {}
         }
       }
     }

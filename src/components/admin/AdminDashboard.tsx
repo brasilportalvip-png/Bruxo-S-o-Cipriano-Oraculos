@@ -327,7 +327,7 @@ export const AdminDashboard: React.FC = () => {
               Painel de Controle Operacional
             </h1>
             <span className="px-2.5 py-1 rounded-full bg-[#d4af37]/20 gold-accent border border-[#d4af37]/40 text-xs font-bold font-mono">
-              ORACULOS.TS Admin
+              Bruxo São Cipriano Oráculos Admin
             </span>
           </div>
           <p className="text-xs text-gray-400 font-light mt-1">

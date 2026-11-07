@@ -222,7 +222,7 @@ export const ProductionCommitteePanel: React.FC = () => {
   const copyProductionCertificate = () => {
     const report = `=====================================================
 CERTIFICADO OFICIAL DE HOMOLOGAÇÃO & PRONTIDÃO
-ORACULOS.TS - PLATAFORMA INTEGRADA DE ORÁCULOS E ESPECIALISTAS
+Bruxo São Cipriano Oráculos - PLATAFORMA INTEGRADA DE ORÁCULOS E ESPECIALISTAS
 =====================================================
 Status Geral: 100% OPERACIONAL E HOMOLOGADO PARA PRODUÇÃO
 Índice de Conformidade: 100 / 100 (Classe A Enterprise)
@@ -231,7 +231,7 @@ Data/Hora da Homologação: ${new Date().toLocaleString('pt-BR')}
 PARECER DO COMITÊ MULTIDISCIPLINAR DE PRONTIDÃO:
 [✓] 1. Infraestrutura & Servidor: Express 4.21 + Node 22 (Porta 3000)
 [✓] 2. Ciberdefesa & RBAC: WAF ativo, API Keys no backend, HMAC Webhook
-[✓] 3. Motores Oraculares: 10 Oráculos nativos com IA e prompts sagrados
+[✓] 3. Motores Oraculares: 11 Oráculos nativos com IA e prompts sagrados
 [✓] 4. Especialistas: 26 Especialistas com avatares individuais e gênero validado
 [✓] 5. Financeiro & Billing: Tarifação por minuto, PIX e split de comissões
 [✓] 6. Comunicação Real-Time: Chat, áudio, vídeo e cronômetro sincronizado
@@ -240,7 +240,7 @@ PARECER DO COMITÊ MULTIDISCIPLINAR DE PRONTIDÃO:
 [✓] 9. Bateria de Testes: 114 Testes Automatizados Aprovados (15 Test Suites)
 
 Selo de Homologação Emitido por Comitê Técnico Avançado
-Oraculos.ts © 2026 - Todos os Direitos Reservados
+Bruxo São Cipriano Oráculos © 2026 - Todos os Direitos Reservados
 =====================================================`;
 
     navigator.clipboard.writeText(report);
@@ -325,7 +325,7 @@ Oraculos.ts © 2026 - Todos os Direitos Reservados
           <div className="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-1">
             <span className="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Motores Oraculares</span>
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-black text-blue-400 font-mono">10 Oráculos</span>
+              <span className="text-2xl font-black text-blue-400 font-mono">11 Oráculos</span>
               <span className="text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold">IA Ativa</span>
             </div>
           </div>

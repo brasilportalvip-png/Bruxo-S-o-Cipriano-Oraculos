@@ -61,7 +61,7 @@ const humanIdSet = new Set(humanConsultants.map((c) => c.id));
 const configCollisionIds = VIRTUAL_PROFILES.filter((p) => humanIdSet.has(p.id)).map((p) => p.id);
 if (configCollisionIds.length > 0) {
   console.error(
-    `[ORACULOS.TS CONFIG ERROR] Colisão de identificadores entre consultores humanos e virtuais: ${configCollisionIds.join(', ')}`
+    `[Bruxo São Cipriano Oráculos CONFIG ERROR] Colisão de identificadores entre consultores humanos e virtuais: ${configCollisionIds.join(', ')}`
   );
 }
 
@@ -197,7 +197,6 @@ app.use(
               'data:',
               'blob:',
               'https://images.unsplash.com',
-              'https://portalvipbrasil.com.br',
             ],
             mediaSrc: ["'self'", 'blob:'],
             workerSrc: ["'self'", 'blob:'],
@@ -308,11 +307,11 @@ try {
     firebaseAdminInitialized = true;
 
     console.log(
-      '[ORACULOS.TS] Firebase Admin Auth e Firestore inicializados.',
+      '[Bruxo São Cipriano Oráculos] Firebase Admin Auth e Firestore inicializados.',
     );
   } else {
     console.warn(
-      '[ORACULOS.TS] Firebase Admin não configurado.',
+      '[Bruxo São Cipriano Oráculos] Firebase Admin não configurado.',
     );
   }
 } catch (error: unknown) {
@@ -325,7 +324,7 @@ try {
       : 'Erro desconhecido';
 
   console.error(
-    '[ORACULOS.TS] Falha ao inicializar Firebase Admin:',
+    '[Bruxo São Cipriano Oráculos] Falha ao inicializar Firebase Admin:',
     message,
   );
 }
@@ -348,9 +347,9 @@ if (process.env.MERCADOPAGO_ACCESS_TOKEN) {
       accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN,
       options: { timeout: 10000 },
     });
-    console.log('[ORACULOS.TS] Mercado Pago SDK Configured with Access Token.');
+    console.log('[Bruxo São Cipriano Oráculos] Mercado Pago SDK Configured with Access Token.');
   } catch (e: any) {
-    console.error('[ORACULOS.TS] Mercado Pago SDK Init Error:', e.message);
+    console.error('[Bruxo São Cipriano Oráculos] Mercado Pago SDK Init Error:', e.message);
   }
 }
 
@@ -448,7 +447,7 @@ async function refreshIpRulesFromFirestore(
       now;
   } catch (error) {
     console.error(
-      '[ORACULOS.TS] Falha ao carregar regras de IP do Firestore:',
+      '[Bruxo São Cipriano Oráculos] Falha ao carregar regras de IP do Firestore:',
       error,
     );
   }
@@ -513,7 +512,7 @@ export const usersDb: Record<string, UserRecord> = {
   'usr-support-1': {
     id: 'usr-support-1',
     name: 'Atendimento Suporte',
-    email: 'suporte@oraculos.com',
+    email: 'suporte@bruxosaocipriano.com.br',
     role: 'support',
     balance: 0.00,
     status: 'active',
@@ -523,7 +522,7 @@ export const usersDb: Record<string, UserRecord> = {
   'usr-admin-1': {
     id: 'usr-admin-1',
     name: 'Administrador Geral',
-    email: 'admin@oraculos.com',
+    email: 'admin@bruxosaocipriano.com.br',
     role: 'admin',
     balance: 0.00,
     status: 'active',
@@ -533,7 +532,7 @@ export const usersDb: Record<string, UserRecord> = {
   'usr-superadmin-1': {
     id: 'usr-superadmin-1',
     name: 'Superadmin Mestre',
-    email: 'superadmin@oraculos.com',
+    email: 'superadmin@bruxosaocipriano.com.br',
     role: 'superadmin',
     balance: 0.00,
     status: 'active',
@@ -596,7 +595,7 @@ export const auditLogs: AuditLogEntry[] = [
     userName: 'Administrador Geral',
     userRole: 'admin',
     action: 'SYSTEM_BOOT',
-    details: 'Inicialização segura dos serviços e WAF do ORACULOS.TS',
+    details: 'Inicialização segura dos serviços e WAF do Bruxo São Cipriano Oráculos',
     ip: '127.0.0.1',
     status: 'SUCCESS',
   },
@@ -788,7 +787,7 @@ if (adminDb) {
     'system-waf',
   ).catch((error) => {
     console.error(
-      '[ORACULOS.TS] Falha ao persistir banimento automático de IP:',
+      '[Bruxo São Cipriano Oráculos] Falha ao persistir banimento automático de IP:',
       error,
     );
   });
@@ -1022,7 +1021,7 @@ export const requireAuth = async (
     };
 
     console.log(
-      '[ORACULOS.TS] Token Firebase autenticado.',
+      '[Bruxo São Cipriano Oráculos] Token Firebase autenticado.',
       {
         uid:
           req.user.uid,
@@ -1036,7 +1035,7 @@ export const requireAuth = async (
     return next();
   } catch (error) {
     console.error(
-      '[ORACULOS.TS] Token Firebase rejeitado:',
+      '[Bruxo São Cipriano Oráculos] Token Firebase rejeitado:',
       error,
     );
 
@@ -1112,7 +1111,7 @@ export const requireAuth = async (
       });
 
       console.warn(
-        '[ORACULOS.TS] Acesso RBAC negado.',
+        '[Bruxo São Cipriano Oráculos] Acesso RBAC negado.',
         {
           uid:
             req.user.uid,
@@ -1228,7 +1227,7 @@ const getGeminiClient = () => {
 
   if (!apiKey) {
     console.error(
-      '[ORACULOS.TS] GEMINI_API_KEY não configurada.',
+      '[Bruxo São Cipriano Oráculos] GEMINI_API_KEY não configurada.',
     );
 
     return null;
@@ -1239,7 +1238,7 @@ const getGeminiClient = () => {
     httpOptions: {
       headers: {
         'User-Agent':
-          'ORACULOS.TS/production',
+          'Bruxo São Cipriano Oráculos/production',
       },
     },
   });
@@ -1428,7 +1427,7 @@ app.get('/api/health', (_req: Request, res: Response) => {
   const healthy = firebaseAdminStatus === 'ok' && firestoreStatus === 'ok' && geminiStatus === 'ok' && mercadoPagoStatus === 'ok';
   res.status(200).json({
     status: healthy ? 'ok' : 'degraded',
-    system: 'ORACULOS.TS',
+    system: 'Bruxo São Cipriano Oráculos',
     version: commitVersion,
     timestamp: new Date().toISOString(),
     services: {
@@ -1444,8 +1443,8 @@ app.get('/api/health', (_req: Request, res: Response) => {
 // Production Readiness & Verification Committee Audit Endpoint
 app.get('/api/admin/readiness-audit', ...requireAdmin, (_req: Request, res: Response) => {
   const assetsChecked = [
-    'public/brand/logo-oraculos.png',
-    'public/image/logo-oraculo.ts.png',
+    'public/brand/logo-bruxo-sao-cipriano.png',
+    'public/image/logo-bruxo-sao-cipriano.png',
     'public/icons/icon-192x192.png',
     'public/icons/icon-512x512.png',
     'public/apple-touch-icon.png',
@@ -1532,10 +1531,10 @@ app.get(['/sitemap.xml', '/sitemap_index.xml'], (_req: Request, res: Response) =
     'public/sitemap.xml',
     `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>https://oraculos-ts.vercel.app/sitemap-static.xml</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod></sitemap>
-  <sitemap><loc>https://oraculos-ts.vercel.app/sitemap-oraculos.xml</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod></sitemap>
-  <sitemap><loc>https://oraculos-ts.vercel.app/sitemap-especialistas.xml</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod></sitemap>
-  <sitemap><loc>https://oraculos-ts.vercel.app/sitemap-blog.xml</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod></sitemap>
+  <sitemap><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap-static.xml</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod></sitemap>
+  <sitemap><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap-oraculos.xml</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod></sitemap>
+  <sitemap><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap-especialistas.xml</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod></sitemap>
+  <sitemap><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap-blog.xml</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod></sitemap>
 </sitemapindex>`
   );
 });
@@ -1546,16 +1545,16 @@ app.get('/sitemap-static.xml', (_req: Request, res: Response) => {
     'public/sitemap-static.xml',
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://oraculos-ts.vercel.app/</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/como-funciona</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/trabalhe-conosco</loc><lastmod>2026-08-31T00:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/blog</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/suporte</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/termos</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/privacidade</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/cookies</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/como-funciona</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/trabalhe-conosco</loc><lastmod>2026-08-31T00:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/suporte</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/termos</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/privacidade</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/cookies</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>`
   );
 });
@@ -1566,17 +1565,17 @@ app.get('/sitemap-oraculos.xml', (_req: Request, res: Response) => {
     'public/sitemap-oraculos.xml',
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/tarot</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/baralho-cigano</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/astrologia</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/numerologia</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/buzios</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/ifa</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/runas</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/i-ching</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/cristais</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/mesa-radionica</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/oraculos/sao-cipriano</loc><lastmod>2026-11-07T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/tarot</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/baralho-cigano</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/astrologia</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/numerologia</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/buzios</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/ifa</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/runas</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/i-ching</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/cristais</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/mesa-radionica</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/sao-cipriano</loc><lastmod>2026-11-07T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 </urlset>`
   );
 });
@@ -1587,22 +1586,22 @@ app.get('/sitemap-especialistas.xml', (_req: Request, res: Response) => {
     'public/sitemap-especialistas.xml',
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/c1</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/c2</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/c3</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/c4</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/c5</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/c6</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-tarot</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-cigano</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-astrologia</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-numerologia</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-buzios</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-ifa</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-runas</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-iching</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-cristais</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://oraculos-ts.vercel.app/especialistas/v-mesaradionica</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/c1</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/c2</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/c3</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/c4</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/c5</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/c6</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-tarot</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-cigano</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-astrologia</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-numerologia</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-buzios</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-ifa</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-runas</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-iching</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-cristais</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas/v-mesaradionica</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>`
   );
 });
@@ -1614,66 +1613,66 @@ app.get('/sitemap-blog.xml', (_req: Request, res: Response) => {
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://oraculos-ts.vercel.app/blog</loc>
+    <loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://oraculos-ts.vercel.app/blog/portal-do-tarot-2026</loc>
+    <loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/portal-do-tarot-2026</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://oraculos-ts.vercel.app/blog/tarot-arcanos.svg</image:loc>
+      <image:loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/tarot-arcanos.svg</image:loc>
       <image:title>O Portal do Tarot em 2026: Entenda o Significado dos Arcanos Regentes</image:title>
-      <image:caption>Previsões e arquétipos dos Arcanos do Tarot para 2026 com consultas ao vivo no ORACULOS.TS</image:caption>
+      <image:caption>Previsões e arquétipos dos Arcanos do Tarot para 2026 com consultas ao vivo no Bruxo São Cipriano Oráculos</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://oraculos-ts.vercel.app/blog/baralho-cigano-vs-tarot</loc>
+    <loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/baralho-cigano-vs-tarot</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://oraculos-ts.vercel.app/blog/baralho-cigano.svg</image:loc>
+      <image:loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/baralho-cigano.svg</image:loc>
       <image:title>Baralho Cigano x Tarot Tradicional: Qual é a Diferença?</image:title>
       <image:caption>Guia definitivo para escolher entre Baralho Cigano Lenormand e Tarot Tradicional</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://oraculos-ts.vercel.app/blog/mesa-radionica-quantica</loc>
+    <loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/mesa-radionica-quantica</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://oraculos-ts.vercel.app/blog/mesa-radionica.svg</image:loc>
+      <image:loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/mesa-radionica.svg</image:loc>
       <image:title>Mesa Radiônica Quântica: Como Funciona a Limpeza Energética?</image:title>
       <image:caption>Desbloqueio de prosperidade e alinhamento de chakras com radiestesia quântica</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://oraculos-ts.vercel.app/blog/jogo-de-buzios-caminhos-orixas</loc>
+    <loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/jogo-de-buzios-caminhos-orixas</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://oraculos-ts.vercel.app/blog/jogo-buzios.svg</image:loc>
+      <image:loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/jogo-buzios.svg</image:loc>
       <image:title>Jogo de Búzios Online: O que os Orixás Revelam Sobre Seus Caminhos</image:title>
       <image:caption>Como funciona a leitura dos 16 búzios sagrados (Merindilogun) e abertura de caminhos</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://oraculos-ts.vercel.app/blog/mapa-astral-revolucao-solar-guia</loc>
+    <loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/mapa-astral-revolucao-solar-guia</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://oraculos-ts.vercel.app/blog/astrologia-mapa.svg</image:loc>
+      <image:loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/astrologia-mapa.svg</image:loc>
       <image:title>Mapa Astral e Revolução Solar: Como Prever Tendências do Seu Ano</image:title>
       <image:caption>Descubra como os trânsitos astrológicos e casas zodiacais apontam as melhores decisões</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://oraculos-ts.vercel.app/blog/limpeza-espiritual-banhos-ervas-protecao</loc>
+    <loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/limpeza-espiritual-banhos-ervas-protecao</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://oraculos-ts.vercel.app/blog/limpeza-espiritual.svg</image:loc>
+      <image:loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/limpeza-espiritual.svg</image:loc>
       <image:title>Limpeza Espiritual e Banhos de Ervas: Guia Completo para Blindar sua Energia</image:title>
       <image:caption>Receitas consagradas e orientações mediúnicas para banimento de inveja e atração de prosperidade</image:caption>
     </image:image>
@@ -1689,7 +1688,7 @@ app.get('/robots.txt', (_req: Request, res: Response) => {
   if (fs.existsSync(fullPath)) {
     return res.sendFile(fullPath);
   }
-  return res.send(`User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /painel\nDisallow: /api/\nSitemap: https://oraculos-ts.vercel.app/sitemap.xml\n`);
+  return res.send(`User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /painel\nDisallow: /api/\nSitemap: https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap.xml\n`);
 });
 
 app.get(['/.well-known/assetlinks.json', '/assetlinks.json'], (_req: Request, res: Response) => {
@@ -1706,10 +1705,9 @@ app.get(['/.well-known/assetlinks.json', '/assetlinks.json'], (_req: Request, re
       ],
       target: {
         namespace: 'android_app',
-        package_name: 'br.com.oraculos.app',
-        sha256_cert_fingerprints: [
-          '14:6D:E9:44:C5:9F:9C:23:86:60:A2:68:12:44:FE:33:4F:84:1B:6F:AC:6E:A4:F1:22:03:77:4F:21:76:AB:3D',
-        ],
+        package_name: 'br.com.bruxosaocipriano.app',
+        // Preencha com a impressão digital SHA-256 da chave do app Android do Bruxo São Cipriano Oráculos.
+        sha256_cert_fingerprints: [],
       },
     },
   ]);
@@ -1913,7 +1911,7 @@ app.post(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Falha ao atualizar regra de IP:',
+        '[Bruxo São Cipriano Oráculos] Falha ao atualizar regra de IP:',
         error,
       );
 
@@ -2256,7 +2254,7 @@ const totalMinutes =
 
       const appUrl = (
         process.env.APP_URL ||
-        'https://oraculos-ts.vercel.app'
+        'https://bruxo-s-o-cipriano-oraculos.vercel.app'
       ).replace(/\/+$/, '');
 
       const preference =
@@ -2272,7 +2270,7 @@ const totalMinutes =
                 title:
                   selectedPackage.title,
                 description:
-                  `${totalMinutes} minutos para utilização no ORACULOS.TS`,
+                  `${totalMinutes} minutos para utilização no Bruxo São Cipriano Oráculos`,
                 unit_price:
                   requestedAmount,
                 quantity: 1,
@@ -2378,7 +2376,7 @@ const totalMinutes =
       });
     } catch (error: unknown) {
       console.error(
-        '[ORACULOS.TS] Erro ao criar preferência do Mercado Pago:',
+        '[Bruxo São Cipriano Oráculos] Erro ao criar preferência do Mercado Pago:',
         error,
       );
 
@@ -2421,7 +2419,7 @@ app.post('/api/finance/special-preference', requireAuth, async (req: Authenticat
       return res.status(503).json({ success: false, error: { code: 'FIRESTORE_NOT_AVAILABLE', message: 'Banco de dados temporariamente indisponível.' } });
     }
     const orderId = `esp_${Date.now().toString(36)}${crypto.randomBytes(5).toString('hex')}`;
-    const appUrl = (process.env.APP_URL || 'https://oraculos-ts.vercel.app').replace(/\/+$/, '');
+    const appUrl = (process.env.APP_URL || 'https://bruxo-s-o-cipriano-oraculos.vercel.app').replace(/\/+$/, '');
     const back = (st: string) => `${appUrl}/?especial=${orderId}&pagamento=${st}`;
     const result = await new Preference(mpConfig).create({
       body: {
@@ -2442,7 +2440,7 @@ app.post('/api/finance/special-preference', requireAuth, async (req: Authenticat
     });
     return res.status(201).json({ success: true, data: { orderId, initPoint: result.init_point, amount: plan.price } });
   } catch (error: unknown) {
-    console.error('[ORACULOS.TS] Erro ao criar pagamento do plano especial:', error);
+    console.error('[Bruxo São Cipriano Oráculos] Erro ao criar pagamento do plano especial:', error);
     return res.status(500).json({ success: false, error: { code: 'MERCADOPAGO_PREFERENCE_ERROR', message: 'Não foi possível abrir o checkout do Mercado Pago.' } });
   }
 });
@@ -2479,7 +2477,7 @@ app.get(
   (_req: Request, res: Response) => {
     return res.status(200).json({
       status: 'ok',
-      system: 'ORACULOS.TS Mercado Pago Webhook',
+      system: 'Bruxo São Cipriano Oráculos Mercado Pago Webhook',
       message:
         'Endpoint ativo. As notificações do Mercado Pago devem ser enviadas por POST.',
       environment:
@@ -2582,7 +2580,7 @@ if (
           .MERCADOPAGO_WEBHOOK_SECRET;
 
       if (process.env.NODE_ENV === 'production' && !webhookSecret) {
-        console.error('[ORACULOS.TS] Webhook rejeitado: MERCADOPAGO_WEBHOOK_SECRET é obrigatório em produção.');
+        console.error('[Bruxo São Cipriano Oráculos] Webhook rejeitado: MERCADOPAGO_WEBHOOK_SECRET é obrigatório em produção.');
         return res.status(500).json({
           error: 'Configuração de segurança do webhook ausente no servidor de produção.',
         });
@@ -2604,7 +2602,7 @@ if (
 
       if (webhookSecret) {
         if (!xSignature || !xRequestId) {
-          console.error('[ORACULOS.TS] Webhook rejeitado: cabeçalhos de assinatura ausentes.');
+          console.error('[Bruxo São Cipriano Oráculos] Webhook rejeitado: cabeçalhos de assinatura ausentes.');
           return res.status(401).json({
             error: 'Assinatura do webhook ausente ou cabeçalhos incompletos.',
           });
@@ -2625,7 +2623,7 @@ if (
         }
 
         if (!timestamp || !receivedHash) {
-          console.error('[ORACULOS.TS] Webhook rejeitado: formato de assinatura inválido (ts/v1 ausentes).');
+          console.error('[Bruxo São Cipriano Oráculos] Webhook rejeitado: formato de assinatura inválido (ts/v1 ausentes).');
           return res.status(401).json({
             error: 'Formato de assinatura inválido.',
           });
@@ -2645,7 +2643,7 @@ if (
           crypto.timingSafeEqual(receivedBuffer, expectedBuffer);
 
         if (!validSignature) {
-          console.error('[ORACULOS.TS] Assinatura inválida no webhook Mercado Pago.', {
+          console.error('[Bruxo São Cipriano Oráculos] Assinatura inválida no webhook Mercado Pago.', {
             paymentId,
             requestId: xRequestId,
           });
@@ -2660,7 +2658,7 @@ if (
           const tsNumber = Number(timestamp);
           const nowSec = Math.floor(Date.now() / 1000);
           if (isNaN(tsNumber) || Math.abs(nowSec - tsNumber) > 300) {
-            console.error('[ORACULOS.TS] Webhook rejeitado: timestamp expirado ou fora da janela de tolerância de 5 minutos.');
+            console.error('[Bruxo São Cipriano Oráculos] Webhook rejeitado: timestamp expirado ou fora da janela de tolerância de 5 minutos.');
             return res.status(401).json({
               error: 'Timestamp do webhook expirado ou fora da janela permitida.',
             });
@@ -2670,7 +2668,7 @@ if (
 
       if (!mpConfig) {
         console.error(
-          '[ORACULOS.TS] Webhook recebido sem Mercado Pago configurado.',
+          '[Bruxo São Cipriano Oráculos] Webhook recebido sem Mercado Pago configurado.',
         );
 
         return res.status(503).json({
@@ -2681,7 +2679,7 @@ if (
 
       if (!adminDb) {
         console.error(
-          '[ORACULOS.TS] Webhook recebido sem Firestore disponível.',
+          '[Bruxo São Cipriano Oráculos] Webhook recebido sem Firestore disponível.',
         );
 
         return res.status(503).json({
@@ -2771,7 +2769,7 @@ if (
         !preferenceInternalId
       ) {
         console.error(
-          '[ORACULOS.TS] Pagamento sem identificação interna.',
+          '[Bruxo São Cipriano Oráculos] Pagamento sem identificação interna.',
           {
             paymentId,
             metadata,
@@ -2788,7 +2786,7 @@ if (
         currency !== 'BRL'
       ) {
         console.error(
-          '[ORACULOS.TS] Moeda inválida no pagamento.',
+          '[Bruxo São Cipriano Oráculos] Moeda inválida no pagamento.',
           {
             paymentId,
             currency,
@@ -2828,7 +2826,7 @@ const preferenceDocument =
 
 if (!preferenceDocument.exists) {
   console.error(
-    '[ORACULOS.TS] Preferência interna não encontrada.',
+    '[Bruxo São Cipriano Oráculos] Preferência interna não encontrada.',
     {
       paymentId,
       preferenceInternalId,
@@ -2893,7 +2891,7 @@ if (
     expectedTotalMinutes
 ) {
   console.error(
-    '[ORACULOS.TS] Divergência entre pagamento e preferência salva.',
+    '[Bruxo São Cipriano Oráculos] Divergência entre pagamento e preferência salva.',
     {
       paymentId,
       preferenceInternalId,
@@ -3188,7 +3186,7 @@ paymentMethod:
           .alreadyCredited
       ) {
         console.log(
-          '[ORACULOS.TS] Webhook ignorado por idempotência.',
+          '[Bruxo São Cipriano Oráculos] Webhook ignorado por idempotência.',
           {
             paymentId,
             userId,
@@ -3246,7 +3244,7 @@ paymentMethod:
 
             if (!couponDocument.exists) {
               console.warn(
-                '[ORACULOS.TS] Cupom do pagamento não encontrado ao contabilizar uso.',
+                '[Bruxo São Cipriano Oráculos] Cupom do pagamento não encontrado ao contabilizar uso.',
                 {
                   paymentId,
                   couponCode,
@@ -3361,7 +3359,7 @@ paymentMethod:
       });
 
       console.log(
-        '[ORACULOS.TS] Pagamento aprovado e minutos creditados.',
+        '[Bruxo São Cipriano Oráculos] Pagamento aprovado e minutos creditados.',
         {
           paymentId,
           userId,
@@ -3403,7 +3401,7 @@ processedPaymentIds.add(
           : String(error);
 
       console.error(
-        '[ORACULOS.TS] Erro no webhook Mercado Pago:',
+        '[Bruxo São Cipriano Oráculos] Erro no webhook Mercado Pago:',
         error,
       );
 
@@ -3499,7 +3497,7 @@ async function saveCandidatePhotoIfBase64(photoStr: string): Promise<string> {
     const [signedUrl] = await object.getSignedUrl({ action: 'read', expires: '2500-01-01' });
     return signedUrl;
   } catch (err) {
-    console.error('[ORACULOS.TS] Erro ao salvar foto de candidato:', err);
+    console.error('[Bruxo São Cipriano Oráculos] Erro ao salvar foto de candidato:', err);
     return '';
   }
 }
@@ -3516,7 +3514,7 @@ app.post('/api/work-with-us/upload-photo', requireAuth, async (req: Request, res
     }
     return res.status(200).json({ success: true, url: savedUrl });
   } catch (err) {
-    console.error('[ORACULOS.TS] Erro no upload de foto:', err);
+    console.error('[Bruxo São Cipriano Oráculos] Erro no upload de foto:', err);
     return res.status(500).json({ success: false, error: { message: 'Erro ao enviar imagem.' } });
   }
 });
@@ -3609,7 +3607,7 @@ app.post('/api/work-with-us/applications', requireAuth, async (req: Authenticate
 
     return res.status(201).json({ success: true, data: { id, status: 'submitted' } });
   } catch (error) {
-    console.error('[ORACULOS.TS] Falha ao cadastrar candidatura:', error);
+    console.error('[Bruxo São Cipriano Oráculos] Falha ao cadastrar candidatura:', error);
     return res.status(500).json({ success: false, error: { code: 'APPLICATION_FAILED', message: 'Não foi possível enviar a candidatura.' } });
   }
 });
@@ -3671,7 +3669,7 @@ app.patch(
         id: consultantId,
         name: application.professionalName,
         title: application.specialties.join(' • ') || 'Especialista Oracular',
-        avatar: application.profilePhoto || '/brand/logo-oraculos.png?v=20260831',
+        avatar: application.profilePhoto || '/brand/logo-bruxo-sao-cipriano.png?v=20260831',
         bio: application.bio,
         specialties: application.oracles,
         authorizedOracles: application.oracles,
@@ -3749,7 +3747,7 @@ app.patch(
       try {
         await adminDb.collection('consultantProfiles').doc(consultantId).set({ pricePerMinute: setting.pricePerMinute, videoPricePerMinute: setting.videoPricePerMinute, videoEnabled, active }, { merge: true });
       } catch (profileErr) {
-        console.warn('[ORACULOS.TS] Aviso ao atualizar consultantProfiles:', profileErr);
+        console.warn('[Bruxo São Cipriano Oráculos] Aviso ao atualizar consultantProfiles:', profileErr);
       }
     }
     consultantSettingsDb[consultantId] = setting;
@@ -3773,7 +3771,7 @@ app.get(
         id: 'consultant_demo',
         name: 'Consultor Oracular',
         title: 'Tarot • Astrologia • Baralho Cigano',
-        avatar: '/brand/logo-oraculos.png?v=20260831',
+        avatar: '/brand/logo-bruxo-sao-cipriano.png?v=20260831',
         status: 'online',
         rating: 5.0,
         pricePerMinute: 3.5,
@@ -3812,7 +3810,7 @@ app.get(
           id: `human_${apps.docs[0].id.replace(/^candidate_/, '')}`,
           name: appData.professionalName || appData.fullName,
           title: (appData.specialties as string[])?.join(' • ') || 'Especialista Oracular',
-          avatar: appData.profilePhoto || '/brand/logo-oraculos.png?v=20260831',
+          avatar: appData.profilePhoto || '/brand/logo-bruxo-sao-cipriano.png?v=20260831',
           status: 'online',
           rating: 5,
           pricePerMinute: 3.5,
@@ -4176,7 +4174,7 @@ app.get('/api/finance/active-consultation', requireAuth, async (req: Authenticat
 
     return res.json({ success: true, data: { activeSession: session } });
   } catch (error) {
-    console.error('[ORACULOS.TS] Falha ao recuperar consulta ativa:', error);
+    console.error('[Bruxo São Cipriano Oráculos] Falha ao recuperar consulta ativa:', error);
     return res.status(500).json({
       success: false,
       error: { code: 'ACTIVE_CONSULTATION_LOOKUP_FAILED', message: 'Não foi possível recuperar a consulta ativa.' },
@@ -4854,7 +4852,7 @@ if (
       }
 
       console.error(
-        '[ORACULOS.TS] Erro ao iniciar consulta segura:',
+        '[Bruxo São Cipriano Oráculos] Erro ao iniciar consulta segura:',
         error,
       );
 
@@ -5726,7 +5724,7 @@ app.post(
         );
 
       console.log(
-        '[ORACULOS.TS] Consulta encerrada e debitada no Firestore.',
+        '[Bruxo São Cipriano Oráculos] Consulta encerrada e debitada no Firestore.',
         {
           userId,
           consultationId,
@@ -5828,7 +5826,7 @@ app.post(
       }
 
       console.error(
-        '[ORACULOS.TS] Erro ao encerrar e debitar consulta:',
+        '[Bruxo São Cipriano Oráculos] Erro ao encerrar e debitar consulta:',
         error,
       );
 
@@ -5921,7 +5919,7 @@ app.get(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao consultar histórico de atendimentos:',
+        '[Bruxo São Cipriano Oráculos] Erro ao consultar histórico de atendimentos:',
         error,
       );
 
@@ -6047,7 +6045,7 @@ app.get(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao carregar histórico financeiro:',
+        '[Bruxo São Cipriano Oráculos] Erro ao carregar histórico financeiro:',
         error,
       );
 
@@ -6222,7 +6220,7 @@ app.post(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao validar cupom:',
+        '[Bruxo São Cipriano Oráculos] Erro ao validar cupom:',
         error,
       );
 
@@ -6304,7 +6302,7 @@ app.get(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao listar cupons:',
+        '[Bruxo São Cipriano Oráculos] Erro ao listar cupons:',
         error,
       );
 
@@ -6508,7 +6506,7 @@ app.post(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao criar cupom:',
+        '[Bruxo São Cipriano Oráculos] Erro ao criar cupom:',
         error,
       );
 
@@ -6744,7 +6742,7 @@ app.post(
       ? formatarVozParaPrompt(consultantProfileForVoice.name, obterVozAtendente(consultantProfileForVoice.id))
       : '';
 
-    const systemInstruction = `Você é um mestre oraculista especializado no oráculo ${normalizedOracleId}, atendendo no ORACULOS.TS.
+    const systemInstruction = `Você é um mestre oraculista especializado no oráculo ${normalizedOracleId}, atendendo no Bruxo São Cipriano Oráculos.
 Suas respostas são profundas, éticas, acolhedoras e espiritualmente elevadas, com a autoridade de quem está vendo o jogo na mesa.
 Idioma: Português do Brasil. Formato: texto humano e fluido (Markdown leve, sem relatório).
 
@@ -6863,7 +6861,7 @@ INSTRUÇÕES DE INTERPRETAÇÃO:
         },
       });
     } catch (geminiError: any) {
-      console.error('[ORACULOS.TS] Erro atômico na execução Gemini:', geminiError?.message || geminiError);
+      console.error('[Bruxo São Cipriano Oráculos] Erro atômico na execução Gemini:', geminiError?.message || geminiError);
 
       const isTimeout =
         controller.signal.aborted ||
@@ -6904,7 +6902,7 @@ INSTRUÇÕES DE INTERPRETAÇÃO:
       ? parsedStatus
       : 500;
 
-    console.error('[ORACULOS.TS] Erro geral na rota de interpretação oracular:', error);
+    console.error('[Bruxo São Cipriano Oráculos] Erro geral na rota de interpretação oracular:', error);
 
     return res.status(statusCode).json({
       success: false,
@@ -7077,7 +7075,7 @@ const conhecimentoDoSite = formatarConhecimentoDoSite(pacotesParaAtendente, {
   authorizedOracles: attendant.authorizedOracles,
 });
 
-const systemInstruction = `Você é ${attendant.name}, ${attendant.title}, oraculista do ORACULOS.TS.
+const systemInstruction = `Você é ${attendant.name}, ${attendant.title}, oraculista do Bruxo São Cipriano Oráculos.
 Apresentação: ${attendant.bio}.
 Estilo de comunicação: ${attendant.communicationStyle}.
 Sua personalidade: ${attendant.personality}.
@@ -7257,7 +7255,7 @@ for (
 
   try {
     console.log(
-      '[ORACULOS.TS] Tentativa Gemini iniciada.',
+      '[Bruxo São Cipriano Oráculos] Tentativa Gemini iniciada.',
       {
         userId,
         model,
@@ -7316,7 +7314,7 @@ for (
       model;
 
     console.log(
-      '[ORACULOS.TS] Gemini respondeu com sucesso.',
+      '[Bruxo São Cipriano Oráculos] Gemini respondeu com sucesso.',
       {
         userId,
         model,
@@ -7373,7 +7371,7 @@ for (
     });
 
     console.warn(
-      '[ORACULOS.TS] Modelo Gemini falhou.',
+      '[Bruxo São Cipriano Oráculos] Modelo Gemini falhou.',
       {
         userId,
         model,
@@ -7403,7 +7401,7 @@ if (
   !modelUsed
 ) {
   console.error(
-    '[ORACULOS.TS] Todos os modelos Gemini falharam.',
+    '[Bruxo São Cipriano Oráculos] Todos os modelos Gemini falharam.',
     {
       userId,
       attemptedModels:
@@ -7610,7 +7608,7 @@ for (const model of blogModels) {
 
   try {
     console.log(
-      '[ORACULOS.TS] Tentativa Gemini para blog iniciada.',
+      '[Bruxo São Cipriano Oráculos] Tentativa Gemini para blog iniciada.',
       {
         model,
         timeoutMs:
@@ -7673,7 +7671,7 @@ for (const model of blogModels) {
         ) as Record<string, unknown>;
     } catch {
       console.warn(
-        '[ORACULOS.TS] Gemini retornou JSON inválido para o blog.',
+        '[Bruxo São Cipriano Oráculos] Gemini retornou JSON inválido para o blog.',
         {
           model,
 
@@ -7726,7 +7724,7 @@ for (const model of blogModels) {
       model;
 
     console.log(
-      '[ORACULOS.TS] Blog gerado com sucesso.',
+      '[Bruxo São Cipriano Oráculos] Blog gerado com sucesso.',
       {
         model,
         elapsedMs:
@@ -7825,7 +7823,7 @@ for (const model of blogModels) {
     });
 
     console.warn(
-      '[ORACULOS.TS] Modelo Gemini falhou ao gerar blog.',
+      '[Bruxo São Cipriano Oráculos] Modelo Gemini falhou ao gerar blog.',
       {
         model,
         reason,
@@ -7849,7 +7847,7 @@ if (
   !blogModelUsed
 ) {
   console.error(
-    '[ORACULOS.TS] Todos os modelos falharam na geração do blog.',
+    '[Bruxo São Cipriano Oráculos] Todos os modelos falharam na geração do blog.',
     {
       attemptedModels:
         blogModels,
@@ -7960,7 +7958,7 @@ app.post('/api/ai/moderate-and-support', async (req: Request, res: Response) => 
       reply = 'Nossos atendimentos combinam especialistas qualificados e atendentes virtuais inteligentes desenvolvidos com conhecimento oracular canônico. O débito é calculado com precisão de minutos reais consumidos e transparência absoluta. Você pode iniciar um atendimento selecionando seu oráculo favorito no Marketplace.';
       suggestedAction = 'view_marketplace';
     } else {
-      reply = 'Olá! O Assistente de Apoio ORACULOS.TS está à sua disposição. Como podemos orientar sua experiência na plataforma hoje? Caso necessite de atendimento humano especializado, você pode registrar um ticket a qualquer momento.';
+      reply = 'Olá! O Assistente de Apoio Bruxo São Cipriano Oráculos está à sua disposição. Como podemos orientar sua experiência na plataforma hoje? Caso necessite de atendimento humano especializado, você pode registrar um ticket a qualquer momento.';
       suggestedAction = 'open_ticket';
     }
 
@@ -8142,7 +8140,7 @@ app.post(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao criar ticket:',
+        '[Bruxo São Cipriano Oráculos] Erro ao criar ticket:',
         error,
       );
 
@@ -8244,7 +8242,7 @@ app.post(
         generatedAt:
           new Date().toISOString(),
         summary:
-          `Relatório Executivo ORACULOS.TS: período ${timeframe}. Dados calculados a partir do Firestore. Usuários cadastrados: ${totalUsers}. Transações de minutos: ${totalTransactions}. Tickets de suporte: ${totalTickets}.`,
+          `Relatório Executivo Bruxo São Cipriano Oráculos: período ${timeframe}. Dados calculados a partir do Firestore. Usuários cadastrados: ${totalUsers}. Transações de minutos: ${totalTransactions}. Tickets de suporte: ${totalTickets}.`,
         kpis: {
           activeUsers:
             totalUsers,
@@ -8293,7 +8291,7 @@ app.post(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao gerar relatório administrativo:',
+        '[Bruxo São Cipriano Oráculos] Erro ao gerar relatório administrativo:',
         error,
       );
 
@@ -8357,7 +8355,7 @@ app.get(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao listar usuários administrativos:',
+        '[Bruxo São Cipriano Oráculos] Erro ao listar usuários administrativos:',
         error,
       );
 
@@ -8408,7 +8406,7 @@ app.patch('/api/admin/users/:id', ...requireAdmin, async (req: AuthenticatedRequ
     await adminDb.collection('auditLogs').doc(auditEntry.id).set(auditEntry);
     return res.json({ success: true, data: { user: { id: targetUserId, ...current, ...userPatch } } });
   } catch (error) {
-    console.error('[ORACULOS.TS] Falha ao editar conta:', error);
+    console.error('[Bruxo São Cipriano Oráculos] Falha ao editar conta:', error);
     return res.status(500).json({ success: false, error: { code: 'ADMIN_USER_UPDATE_FAILED', message: 'Não foi possível atualizar a conta.' } });
   }
 });
@@ -8439,7 +8437,7 @@ app.delete('/api/admin/users/:id', ...requireAdmin, async (req: AuthenticatedReq
     await adminDb.collection('auditLogs').doc(auditEntry.id).set(auditEntry);
     return res.json({ success: true, data: { deletedUserId: targetUserId } });
   } catch (error) {
-    console.error('[ORACULOS.TS] Falha ao excluir conta:', error);
+    console.error('[Bruxo São Cipriano Oráculos] Falha ao excluir conta:', error);
     return res.status(500).json({ success: false, error: { code: 'ADMIN_USER_DELETE_FAILED', message: 'Não foi possível excluir a conta.' } });
   }
 });
@@ -8467,7 +8465,7 @@ app.get('/api/admin/consultation-audit', ...requireAdmin, async (req: Authentica
       : null;
     return res.json({ success: true, data: { sessions, nextCursor } });
   } catch (error) {
-    console.error('[ORACULOS.TS] Falha ao listar auditoria de consultas:', error);
+    console.error('[Bruxo São Cipriano Oráculos] Falha ao listar auditoria de consultas:', error);
     return res.status(500).json({ success: false, error: { code: 'AUDIT_FETCH_FAILED', message: 'Não foi possível carregar os atendimentos.' } });
   }
 });
@@ -8486,7 +8484,7 @@ app.post('/api/admin/consultation-audit/:id/access', ...requireAdmin, async (req
       : found.session.messages || [];
     return res.json({ success: true, data: { session: { ...found.session, messages: archivedMessages }, accessedAt: now } });
   } catch (error) {
-    console.error('[ORACULOS.TS] Falha ao abrir auditoria:', error);
+    console.error('[Bruxo São Cipriano Oráculos] Falha ao abrir auditoria:', error);
     return res.status(500).json({ success: false, error: { code: 'AUDIT_ACCESS_FAILED', message: 'Não foi possível abrir o atendimento.' } });
   }
 });
@@ -8607,7 +8605,7 @@ app.post(
             );
         } catch (rollbackError) {
           console.error(
-            '[ORACULOS.TS] Falha ao restaurar claim do usuário:',
+            '[Bruxo São Cipriano Oráculos] Falha ao restaurar claim do usuário:',
             rollbackError,
           );
         }
@@ -8655,7 +8653,7 @@ app.post(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao alterar papel do usuário:',
+        '[Bruxo São Cipriano Oráculos] Erro ao alterar papel do usuário:',
         error,
       );
 
@@ -8857,7 +8855,7 @@ app.post(
       }
 
       console.error(
-        '[ORACULOS.TS] Erro ao ajustar saldo administrativo:',
+        '[Bruxo São Cipriano Oráculos] Erro ao ajustar saldo administrativo:',
         error,
       );
 
@@ -9027,12 +9025,12 @@ app.get(
               supportTickets,
             ),
           privacyPolicyNotice:
-            'Exportação dos dados pessoais e registros operacionais localizados nas coleções atuais do ORACULOS.TS, conforme os direitos do titular previstos na LGPD (Lei 13.709/2018).',
+            'Exportação dos dados pessoais e registros operacionais localizados nas coleções atuais do Bruxo São Cipriano Oráculos, conforme os direitos do titular previstos na LGPD (Lei 13.709/2018).',
         },
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro na exportação LGPD:',
+        '[Bruxo São Cipriano Oráculos] Erro na exportação LGPD:',
         error,
       );
 
@@ -9221,7 +9219,7 @@ app.post(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro na exclusão LGPD:',
+        '[Bruxo São Cipriano Oráculos] Erro na exclusão LGPD:',
         error,
       );
 
@@ -9285,7 +9283,7 @@ async function startLocalServer(): Promise<void> {
 
   app.listen(PORT, '0.0.0.0', () => {
     console.log(
-      `[ORACULOS.TS Server] Running at http://0.0.0.0:${PORT}`,
+      `[Bruxo São Cipriano Oráculos Server] Running at http://0.0.0.0:${PORT}`,
     );
   });
 }
@@ -9293,7 +9291,7 @@ async function startLocalServer(): Promise<void> {
 if (process.env.VERCEL !== '1' && !process.env.VERCEL_ENV && process.env.NODE_ENV !== 'test') {
   startLocalServer().catch((error: unknown) => {
     console.error(
-      '[ORACULOS.TS] Erro ao iniciar servidor local:',
+      '[Bruxo São Cipriano Oráculos] Erro ao iniciar servidor local:',
       error,
     );
 

@@ -139,7 +139,7 @@ export const ConsultationProvider: React.FC<{ children: React.ReactNode }> = ({ 
         clientName: user.name,
         consultantId: String(session.consultantId || ''),
         consultantName: String(session.consultantName || consultant?.name || 'Especialista'),
-        consultantAvatar: consultant?.avatar || '/brand/logo-oraculos.png',
+        consultantAvatar: consultant?.avatar || '/brand/logo-bruxo-sao-cipriano.png',
         oracleType: (session.oracleType || 'tarot') as OracleType,
         mode: session.mode === 'video' ? 'video' : 'chat',
         status: session.status === 'requested' ? 'waiting' : 'active',
@@ -157,7 +157,7 @@ export const ConsultationProvider: React.FC<{ children: React.ReactNode }> = ({ 
       });
       return true;
     } catch (error) {
-      console.warn('[ORACULOS.TS] Não foi possível retomar a consulta ativa:', error);
+      console.warn('[Bruxo São Cipriano Oráculos] Não foi possível retomar a consulta ativa:', error);
       return false;
     }
   }, [isAuthenticated, user?.id, user?.name]);
@@ -235,7 +235,7 @@ export const ConsultationProvider: React.FC<{ children: React.ReactNode }> = ({ 
             }
           : current);
       } catch (error) {
-        console.warn('[ORACULOS.TS] Falha temporária ao sincronizar conversa:', error);
+        console.warn('[Bruxo São Cipriano Oráculos] Falha temporária ao sincronizar conversa:', error);
       }
     };
     void refreshMessages();
@@ -341,7 +341,7 @@ const uniqueApproved = approved.filter(
             });
         });
       } catch (error) {
-        console.error('[ORACULOS.TS] Falha ao carregar profissionais publicados:', error);
+        console.error('[Bruxo São Cipriano Oráculos] Falha ao carregar profissionais publicados:', error);
       }
     };
     void loadPublicConsultants();
@@ -458,7 +458,7 @@ const uniqueApproved = approved.filter(
         );
       } catch (error) {
         console.error(
-          '[ORACULOS.TS] Não foi possível sincronizar os históricos:',
+          '[Bruxo São Cipriano Oráculos] Não foi possível sincronizar os históricos:',
           error,
         );
       }
@@ -580,7 +580,7 @@ const handleAutoReply = async (
     isAutoReplyInProgressRef.current
   ) {
     console.warn(
-      '[ORACULOS.TS] Mensagem ignorada: o especialista ainda está respondendo.',
+      '[Bruxo São Cipriano Oráculos] Mensagem ignorada: o especialista ainda está respondendo.',
     );
 
     return;
@@ -1112,7 +1112,7 @@ try {
   }
 } catch (error) {
   console.error(
-    '[ORACULOS.TS] Falha ao registrar consulta no servidor:',
+    '[Bruxo São Cipriano Oráculos] Falha ao registrar consulta no servidor:',
     error,
   );
 
@@ -1128,7 +1128,7 @@ const initialMessage: ChatMessage = {
 
       id: `msg_${Date.now()}`,
       senderId: 'system',
-      senderName: 'ORACULOS.TS',
+      senderName: 'Bruxo São Cipriano Oráculos',
       
 
 text: serverSessionStatus === 'waiting'
@@ -1221,7 +1221,7 @@ const sendMessage = (text: string) => {
     isAutoReplyInProgressRef.current
   ) {
     console.warn(
-      '[ORACULOS.TS] Aguarde o especialista concluir a resposta.',
+      '[Bruxo São Cipriano Oráculos] Aguarde o especialista concluir a resposta.',
     );
 
     return;
@@ -1271,7 +1271,7 @@ const sendMessage = (text: string) => {
           ? { ...current, messages: [...current.messages.filter((item) => item.id !== persisted.id), persisted] }
           : current);
       } catch (error) {
-        console.error('[ORACULOS.TS] Falha ao enviar mensagem:', error);
+        console.error('[Bruxo São Cipriano Oráculos] Falha ao enviar mensagem:', error);
       }
     })();
     return;
@@ -1336,7 +1336,7 @@ const sendMessage = (text: string) => {
     const systemMsg: ChatMessage = {
       id: `msg_card_${Date.now()}`,
       senderId: 'system',
-      senderName: 'ORACULOS.TS',
+      senderName: 'Bruxo São Cipriano Oráculos',
       text: `Um símbolo sagrado (${drawnItem.name} — ${drawnItem.category}) foi revelado pelo Oráculo para a consulta de ${user.name}!`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       isSystem: true,
@@ -1499,7 +1499,7 @@ const endConsultation = async (
       !transactionId
     ) {
       console.error(
-        '[ORACULOS.TS] Resposta financeira inválida do servidor:',
+        '[Bruxo São Cipriano Oráculos] Resposta financeira inválida do servidor:',
         body.data,
       );
 
@@ -1809,7 +1809,7 @@ const endConsultation = async (
     };
   } catch (error) {
     console.error(
-      '[ORACULOS.TS] Falha ao finalizar consulta:',
+      '[Bruxo São Cipriano Oráculos] Falha ao finalizar consulta:',
       error,
     );
 

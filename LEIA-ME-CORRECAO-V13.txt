@@ -1,0 +1,72 @@
+BRUXO SAO CIPRIANO ORACULOS - V13: O SITE NOVO DE VERDADE (NOME, LOGO, FUNDO, EQUIPE E EFEITOS)
+
+ESTE PACOTE JA CONTEM A V12 (Oraculo de Sao Cipriano). Se o PR da V12 ainda estiver aberto,
+pode fechar sem mesclar: o PR da V13 traz tudo.
+
+COMO INSTALAR
+1. Extraia o ZIP nos Downloads (botao direito > Extrair tudo).
+2. Dois cliques em INSTALAR_TESTAR_E_ABRIR_PR_V13.cmd
+3. Ele baixa o projeto, aplica a V13, apaga as imagens e arquivos antigos, instala, roda TODOS
+   os testes, o teste de usuario real e abre o Pull Request.
+4. Quando os testes do GitHub ficarem verdes, clique em "Merge pull request".
+
+1) NOME EM TODO O SITE: BRUXO SAO CIPRIANO ORACULOS
+- Topo, rodape, paginas, avisos legais, e-mails de atendimento, notificacoes, painel admin,
+  manifesto do app (nome curto no celular: "Bruxo Cipriano"), blog, SEO, dados para o Google,
+  llms.txt, sitemaps e imagens do blog. Nenhuma pagina cita mais o nome ou o endereco antigo
+  (um teste automatico barra isso).
+- Endereco do site: https://bruxo-s-o-cipriano-oraculos.vercel.app
+  (e o endereco que a Vercel cria para o repositorio Bruxo-S-o-Cipriano-Oraculos.
+   Se o seu for outro, me avise que eu troco em um lugar so.)
+- Pagina inicial no Google: "Bruxo Sao Cipriano: Cartas, Tarot e Oraculos Online".
+
+2) LOGO, FUNDO, ICONES E IMAGEM DE COMPARTILHAMENTO (DAS SUAS ARTES)
+- Logo: a arte quadrada do Bruxo (/brand/logo-bruxo-sao-cipriano.png e versao HD .webp).
+- Fundo do site inteiro: a arte larga, escurecida e fixa atras do conteudo
+  (no celular usa a arte quadrada).
+- Icones do app, favicon e icone "maskable" do Android: o rosto do Bruxo.
+- Imagem ao compartilhar no WhatsApp/Facebook: a arte larga em 1200x630.
+
+3) VISUAL, ANIMACOES E EFEITOS
+- Paleta preto, vermelho-sangue e ouro. Titulos em letra gotica (como no logo) e Cinzel.
+- Capa nova na pagina inicial: arte do Bruxo, nome em gotico com brilho dourado correndo,
+  "Oraculos" em vermelho incandescente, logo flutuando com aura vermelha pulsando,
+  moldura com runa de luz girando e botao "Cartas de Sao Cipriano" com vela tremulando.
+- Brasas subindo pela tela e nevoa vermelha se movendo ao fundo.
+- Cartoes dos oraculistas com brilho vermelho e dourado ao passar o mouse.
+- Quem ativa "reduzir movimento" no celular/computador ve o site sem animacoes.
+- A capa e compacta: o logo e a lista de oraculistas continuam aparecendo sem rolar.
+
+4) EQUIPE NOVA - 27 ATENDENTES, NENHUM NOME OU IMAGEM REPETIDO
+  Bruxo Cipriano, Justina das Sete Velas, Mestre Anselmo de Antioquia, Cigana Esmeralda do
+  Caminho, Mestre Bartolomeu das Pedras, Mae Benedita dos Ventos, Dona Laurinda da Fonte,
+  Frei Tome dos Numeros, Onix das Encruzilhadas, Ramiro da Galiza, Madalena das Estrelas,
+  Mae Conceicao da Cachoeira, Mestre Eusebio do Livro, Irma Clemencia dos Anjos, Dom Rodrigo
+  do Pentaculo, Mestra Isaura das Ervas, Cigano Vladimir das Estradas, Selene da Lua Vermelha,
+  Guardia Brigida do Corvo, Sentinela Ebano da Mata Escura, Mestre Lazaro do Relicario,
+  Rosalia de Evora, Mestre Joaquim dos Astros, Mae Josefa da Ventania, Teresa de Castela,
+  Sabio Afonso do Norte e Dona Filomena das Cartas.
+- Cada um tem retrato proprio no estilo do Bruxo: figura encapuzada com a sua cor, simbolo
+  proprio (vela, corvo, chave, pentaculo, lua...) e moldura dourada.
+- Corrigido um erro que vinha do site-base: "Mae Serena de Oya" era o nome de DUAS pessoas.
+- As 26 fotos antigas foram APAGADAS do site.
+- Teste novo (v13-identidade-bruxo): ERRO FATAL se houver nome repetido, imagem repetida,
+  nome ou imagem do site-base, ou o nome/endereco antigo em qualquer pagina.
+- Autores e revisores do blog seguem os novos nomes.
+
+5) APP ANDROID
+- Pacote novo: br.com.bruxosaocipriano.app. A impressao digital da chave do app antigo foi
+  retirada do assetlinks.json. Quando gerar a chave do app do Bruxo, coloque a impressao
+  digital SHA-256 em public/.well-known/assetlinks.json.
+
+6) LIMPEZA
+- Removidos os instaladores e LEIA-ME V1 a V11 do Oraculos.ts: eles enviavam para o
+  repositorio do Oraculos.ts e poderiam mexer no site antigo por engano.
+
+ATENCAO - O QUE SO VOCE PODE FAZER
+- BANCO DE DADOS: o arquivo firebase-applet-config.json ainda aponta para o projeto
+  "oraculots" (o MESMO banco do Oraculos.ts em producao: usuarios, saldos e pagamentos).
+  Crie um projeto novo no Firebase e coloque os dados nas variaveis VITE_FIREBASE_* e
+  FIREBASE_* da Vercel deste site (o codigo ja le essas variaveis primeiro). Depois me mande
+  os dados publicos (projectId, appId, apiKey) que eu atualizo o arquivo.
+- Mercado Pago e WhatsApp do Plano Especial continuam os mesmos do Oraculos.ts.

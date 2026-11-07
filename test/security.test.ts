@@ -11,7 +11,7 @@ import {
   consultationSessionsDb,
 } from '../server';
 
-describe('BATERIA DE TESTES DE SEGURANÇA E AUDITORIA TÉCNICA (ORACULOS.TS)', () => {
+describe('BATERIA DE TESTES DE SEGURANÇA E AUDITORIA TÉCNICA (Bruxo São Cipriano Oráculos)', () => {
   beforeEach(() => {
     process.env.NODE_ENV = 'test';
     delete process.env.STRICT_AUTH;

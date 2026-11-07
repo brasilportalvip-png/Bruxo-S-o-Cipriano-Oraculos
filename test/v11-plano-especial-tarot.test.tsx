@@ -24,7 +24,7 @@ describe('V11 — Plano Especial: Magia do Tarot (jogo com o Cigano)', () => {
 
   it('agendamento já vai com o comprovante (nº do pagamento e do pedido)', () => {
     const msg = bookingMessage(TAROT_PLAN, { orderId: 'esp_abc12345', paymentId: '987654321' });
-    expect(msg).toMatch(/ORACULOS\.TS/);
+    expect(msg).toMatch(/Bruxo São Cipriano Oráculos/);
     expect(msg).toMatch(/Pagamento Mercado Pago nº 987654321/);
     expect(msg).toMatch(/Pedido no site: esp_abc12345/);
     expect(msg).toMatch(/até 3 dias/);

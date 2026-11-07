@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — Montagem completa do contexto de uma consulta
+ * Bruxo São Cipriano Oráculos — Montagem completa do contexto de uma consulta
  *
  * Fórmula da leitura:
  *   dados natal do consulente
@@ -157,7 +157,7 @@ export function montarContextoConsulta(params: {
         }),
       );
     } catch (erro) {
-      console.error('[ORACULOS.TS] Falha ao abrir o jogo do consulente:', erro);
+      console.error('[Bruxo São Cipriano Oráculos] Falha ao abrir o jogo do consulente:', erro);
     }
   }
 
@@ -191,7 +191,7 @@ export function montarContextoConsulta(params: {
       );
       if (jogo) linhas.push(jogo.split('\n').map((l) => `     ${l}`).join('\n'));
     } catch (erro) {
-      console.error('[ORACULOS.TS] Falha ao abrir o jogo da outra pessoa:', erro);
+      console.error('[Bruxo São Cipriano Oráculos] Falha ao abrir o jogo da outra pessoa:', erro);
     }
     perfisTerceiros[normalizarChave(pessoa.nome)] = linhas.join('\n');
   }

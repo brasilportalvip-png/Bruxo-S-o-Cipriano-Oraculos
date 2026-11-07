@@ -6,8 +6,8 @@ const PNG_MAGIC = Buffer.from([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]);
 const ICO_MAGIC = Buffer.from([0x00, 0x00, 0x01, 0x00]);
 const UTF8_REPLACEMENT_HEX = 'efbfbd';
 
-const BRAND_LOGO_PATH = path.resolve(__dirname, '../public/brand/logo-oraculos.png');
-const IMAGE_LOGO_PATH = path.resolve(__dirname, '../public/image/logo-oraculo.ts.png');
+const BRAND_LOGO_PATH = path.resolve(__dirname, '../public/brand/logo-bruxo-sao-cipriano.png');
+const IMAGE_LOGO_PATH = path.resolve(__dirname, '../public/image/logo-bruxo-sao-cipriano.png');
 const FAVICON_ICO_PATH = path.resolve(__dirname, '../public/favicon.ico');
 const FAVICON_PNG_PATH = path.resolve(__dirname, '../public/favicon.png');
 const APPLE_TOUCH_PATH = path.resolve(__dirname, '../public/apple-touch-icon.png');
@@ -15,7 +15,7 @@ const ICON_192_PATH = path.resolve(__dirname, '../public/icons/icon-192x192.png'
 const ICON_512_PATH = path.resolve(__dirname, '../public/icons/icon-512x512.png');
 const ICON_MASKABLE_PATH = path.resolve(__dirname, '../public/icons/icon-maskable-512x512.png');
 
-console.log('===> VALIDANDO ATIVOS BINÁRIOS OFICIAIS (ORACULOS.TS) <===');
+console.log('===> VALIDANDO ATIVOS BINÁRIOS OFICIAIS (Bruxo São Cipriano Oráculos) <===');
 
 function validateSinglePng(filePath, expectedWidth, expectedHeight) {
   if (!fs.existsSync(filePath)) {
@@ -101,7 +101,7 @@ validateSinglePng(FAVICON_PNG_PATH, 48, 48);
 validateIco(FAVICON_ICO_PATH);
 
 if (!brandLogo.buf.equals(imageLogo.buf)) {
-  console.error('[ERRO FATAL] Os arquivos public/brand/logo-oraculos.png e public/image/logo-oraculo.ts.png NÃO são idênticos byte a byte.');
+  console.error('[ERRO FATAL] Os arquivos public/brand/logo-bruxo-sao-cipriano.png e public/image/logo-bruxo-sao-cipriano.png NÃO são idênticos byte a byte.');
   process.exit(1);
 }
 

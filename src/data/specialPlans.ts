@@ -69,7 +69,7 @@ export function formatWhatsapp(digits: string): string {
  */
 export function bookingMessage(plan: SpecialPlan, info: { orderId?: string | null; paymentId?: string | null; name?: string | null } = {}): string {
   const lines = [
-    `Olá! ${info.name ? `Sou ${info.name}. ` : ''}Comprei pelo site ORACULOS.TS o ${plan.priceLabel} — ${plan.title} (${plan.professional}, Tarot de Marselha 78 cartas, 1 hora) por R$ ${formatBRL(plan.price)}.`,
+    `Olá! ${info.name ? `Sou ${info.name}. ` : ''}Comprei pelo site Bruxo São Cipriano Oráculos o ${plan.priceLabel} — ${plan.title} (${plan.professional}, Tarot de Marselha 78 cartas, 1 hora) por R$ ${formatBRL(plan.price)}.`,
     'COMPROVANTE DO PAGAMENTO:',
     info.paymentId ? `• Pagamento Mercado Pago nº ${info.paymentId}` : '• Segue o comprovante em anexo',
     info.orderId ? `• Pedido no site: ${info.orderId}` : null,

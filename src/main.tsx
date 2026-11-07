@@ -10,10 +10,10 @@ if (typeof window !== 'undefined' && 'serviceWorker' in navigator && import.meta
     navigator.serviceWorker
       .register('/sw.js')
       .then((reg) => {
-        console.log('[ORACULOS.TS] Service Worker registrado:', reg.scope);
+        console.log('[Bruxo São Cipriano Oráculos] Service Worker registrado:', reg.scope);
       })
       .catch((err) => {
-        console.warn('[ORACULOS.TS] Falha ao registrar Service Worker:', err);
+        console.warn('[Bruxo São Cipriano Oráculos] Falha ao registrar Service Worker:', err);
       });
   });
 }

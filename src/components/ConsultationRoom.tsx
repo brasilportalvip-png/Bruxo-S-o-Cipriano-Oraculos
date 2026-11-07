@@ -282,7 +282,7 @@ window.location.assign('/');
           oracleType: activeSession?.oracleType || 'tarot',
           cardOrSymbol: 'Tiragem em Tempo Real',
           userQuestion: aiQuestion || 'Orientação espiritual para a dúvida atual',
-          contextPrompt: 'Atendimento oracular na sala ORACULOS.TS',
+          contextPrompt: 'Atendimento oracular na sala Bruxo São Cipriano Oráculos',
           timezone: (() => {
             try {
               return Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/Sao_Paulo';

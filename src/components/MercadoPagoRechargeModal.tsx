@@ -358,10 +358,10 @@ export const MercadoPagoRechargeModal: React.FC<Props> = ({
           <div className="flex items-center justify-between border-b border-purple-900/40 bg-gradient-to-r from-purple-950/60 to-[#150F26] p-5">
             <div className="flex items-center gap-3">
               <img
-                src="/brand/logo-oraculos.png"
-                alt="ORACULOS.TS Logo"
+                src="/brand/logo-bruxo-sao-cipriano.png"
+                alt="Bruxo São Cipriano Oráculos Logo"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = 'https://portalvipbrasil.com.br/wp-content/uploads/2026/07/logo-oraculos.png';
+                  (e.currentTarget as HTMLImageElement).src = '/image/logo-bruxo-sao-cipriano.png';
                 }}
                 className="h-10 w-10 rounded-xl border border-amber-500/30 bg-[#07050e] p-0.5 object-contain shadow-md"
               />

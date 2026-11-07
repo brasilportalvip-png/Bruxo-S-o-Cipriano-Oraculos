@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — Corrige vulnerabilidades de dependências de produção
+ * Bruxo São Cipriano Oráculos — Corrige vulnerabilidades de dependências de produção
  * (exigido pelo "Production dependency security gate" do CI).
  *
  * - firebase-admin: sobe para a versão 14.x mais nova (corrige a cadeia uuid/@google-cloud/storage).

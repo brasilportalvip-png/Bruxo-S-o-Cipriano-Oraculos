@@ -24,26 +24,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   );
 
   return (
-    <footer className="bg-[#050508] border-t border-white/5 text-gray-400 py-12 px-4 sm:px-6 lg:px-8 mt-12">
+    <footer className="bg-[#0a0202]/85 backdrop-blur border-t border-[#d4af37]/15 text-gray-400 py-12 px-4 sm:px-6 lg:px-8 mt-12">
       <div className="max-w-7xl mx-auto space-y-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Col 1 Brand & Ethics */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/brand/logo-oraculos.png?v=20260831"
-                alt="ORACULOS.TS Logo"
+                src="/brand/logo-bruxo-sao-cipriano.png?v=20260831"
+                alt="Bruxo São Cipriano Oráculos Logo"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = 'https://portalvipbrasil.com.br/wp-content/uploads/2026/07/logo-oraculos.png';
+                  (e.currentTarget as HTMLImageElement).src = '/image/logo-bruxo-sao-cipriano.png';
                 }}
-                className="w-10 h-10 rounded-xl object-contain border border-[#d4af37]/30 shadow-md bg-[#0a0a12]/80 p-0.5"
+                className="w-12 h-12 rounded-full object-cover border border-[#d4af37]/50 aura-vermelha bg-[#0a0202]"
               />
-              <span className="text-lg font-bold text-white tracking-tight">
-                ORACULOS<span className="gold-accent">.TS</span>
+              <span className="leading-tight">
+                <span className="font-gotica text-xl text-gray-100">Bruxo </span>
+                <span className="font-gotica text-xl texto-ouro">São Cipriano</span>
+                <span className="block font-cinzel text-[10px] font-bold tracking-[0.35em] uppercase texto-sangue">Oráculos</span>
               </span>
             </div>
             <p className="text-xs text-gray-400 leading-relaxed">
-              Plataforma sagrada de consultas oraculares e orientação pessoal online em tempo real. Conectando consulentes aos mais experientes especialistas em Tarot, Baralho Cigano, Astrologia e Búzios com acolhimento, sigilo e respeito.
+              A casa do Bruxo São Cipriano: as cartas do Grande Livro do feiticeiro, Tarot, Baralho Cigano, Astrologia e Búzios, com oraculistas ao vivo, sigilo e respeito à fé de cada um.
             </p>
             <div className="pt-1">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-white/10 text-[11px] font-mono text-amber-300 rounded-full">
@@ -115,12 +117,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Disclaimer Ético e Legal Obrigatório */}
         <div className="p-4 rounded-xl bg-purple-950/20 border border-purple-900/30 text-center text-[11px] text-gray-400 leading-relaxed">
           <p>
-            <strong className="text-amber-200">Aviso Legal & Ético:</strong> As orientações e leituras oraculares oferecidas na plataforma ORACULOS.TS destinam-se exclusivamente ao autoconhecimento, reflexão e entretenimento espiritual. Nossos serviços não garantem resultados milagrosos, infalibilidade ou destino imutável, e não substituem sob nenhuma hipótese consultas, diagnósticos ou tratamentos médicos, psicológicos, psiquiátricos, jurídicos ou financeiros profissionais.
+            <strong className="text-amber-200">Aviso Legal & Ético:</strong> As orientações e leituras oraculares oferecidas na plataforma Bruxo São Cipriano Oráculos destinam-se exclusivamente ao autoconhecimento, reflexão e entretenimento espiritual. Nossos serviços não garantem resultados milagrosos, infalibilidade ou destino imutável, e não substituem sob nenhuma hipótese consultas, diagnósticos ou tratamentos médicos, psicológicos, psiquiátricos, jurídicos ou financeiros profissionais.
           </p>
         </div>
 
         <div className="pt-6 border-t border-white/5 text-center text-[11px] text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p>© {new Date().getFullYear()} ORACULOS.TS. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Bruxo São Cipriano Oráculos. Todos os direitos reservados.</p>
           <p className="flex items-center justify-center gap-1">
             Desenvolvido com integridade para Orientação Espiritual e Oracular
           </p>

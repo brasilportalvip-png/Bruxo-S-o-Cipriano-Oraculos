@@ -73,7 +73,7 @@ describe('TESTE DE BLOQUEIO ANTES DO GEMINI (400, 401, 403, 404, 422, 503)', () 
       .set('x-user-id', 'usr-client-1')
       .send({
         oracleType: 'runas',
-        consultantId: 'c1', // Helena da Luz só atende Tarot, Cigano e Mesa Radiônica
+        consultantId: 'c1', // Rosália de Évora só atende Tarot, Cigano e Mesa Radiônica
         userQuestion: 'Pergunta sobre runas',
         userProfile: validProfile,
       });

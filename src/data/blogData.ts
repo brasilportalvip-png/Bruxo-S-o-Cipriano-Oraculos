@@ -28,7 +28,7 @@ Cada carta dos Arcanos Maiores espelha uma fase crucial da jornada humana:
 ---
 
 > 🔮 **PRECISA DE RESPOSTAS CLARAS PARA SEU CORAÇÃO OU CARREIRA?**
-> Não deixe suas dúvidas tirarem sua paz de espírito. No **ORACULOS.TS**, nossos consultores credenciados estão online agora para realizar sua tiragem individual com sigilo absoluto, minutos bônus e atendimento em tempo real por Chat ou Vídeo.
+> Não deixe suas dúvidas tirarem sua paz de espírito. No **Bruxo São Cipriano Oráculos**, nossos consultores credenciados estão online agora para realizar sua tiragem individual com sigilo absoluto, minutos bônus e atendimento em tempo real por Chat ou Vídeo.
 >
 > 👉 **[CLIQUE AQUI PARA FALAR COM UM TARÓLOGO ONLINE AGORA](/especialistas?oracle=tarot)**
 
@@ -44,8 +44,8 @@ Para extrair a máxima precisão de uma tiragem de Tarot:
 Conecte-se com nossos especialistas e receba a luz que seu caminho merece hoje mesmo!
     `,
     category: 'tarot',
-    author: 'Helena da Luz',
-    reviewer: 'Mestre Gabriel Astros',
+    author: 'Rosália de Évora',
+    reviewer: 'Mestre Joaquim dos Astros',
     date: 'Hoje',
     publishedAt: '2026-09-05T08:00:00.000Z',
     updatedAt: '2026-09-05T08:00:00.000Z',
@@ -59,7 +59,7 @@ Conecte-se com nossos especialistas e receba a luz que seu caminho merece hoje m
     relatedKeywords: ['tarot do amor', 'significado arcanos maiores', 'tiragem de tarot confiavel', 'melhores tarologos online'],
     seoTitle: 'Consulta de Tarot Online: O Que as Cartas Revelam em 2026',
     seoDescription: 'Consulte o Tarot online ao vivo com especialistas credenciados. Tire dúvidas de amor, carreira e dinheiro com sigilo absoluto e minutos bônus nos pacotes.',
-    canonicalUrl: 'https://oraculos-ts.vercel.app/blog/portal-do-tarot-2026',
+    canonicalUrl: 'https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/portal-do-tarot-2026',
     internalLinks: ['/especialistas?oracle=tarot', '/oraculos/tarot', '/como-funciona'],
   },
   {
@@ -98,8 +98,8 @@ Composto por 78 lâminas (22 Arcanos Maiores e 56 Arcanos Menores):
 Se você precisa saber *"Essa pessoa tem sentimentos verdadeiros por mim?"* ou *"Vou conseguir aquele contrato esta semana?"*, escolha o **Baralho Cigano**. Se deseja entender *"O que preciso curar internamente para prosperar no amor?"*, o **Tarot** será sua melhor bússola.
     `,
     category: 'cigano',
-    author: 'Mística Vânia',
-    reviewer: 'Soraya Lenormand',
+    author: 'Dona Filomena das Cartas',
+    reviewer: 'Cigana Esmeralda do Caminho',
     date: 'Ontem',
     publishedAt: '2026-09-04T09:30:00.000Z',
     updatedAt: '2026-09-04T09:30:00.000Z',
@@ -113,7 +113,7 @@ Se você precisa saber *"Essa pessoa tem sentimentos verdadeiros por mim?"* ou *
     relatedKeywords: ['diferenca entre tarot e baralho cigano', 'baralho cigano respostas imediatas', 'cartas ciganas amor'],
     seoTitle: 'Baralho Cigano ou Tarot: Qual Escolher? Guia Completo',
     seoDescription: 'Entenda as diferenças entre Baralho Cigano e Tarot Tradicional. Descubra qual oráculo é ideal para finanças, amor e decisões rápidas com nossos consultores.',
-    canonicalUrl: 'https://oraculos-ts.vercel.app/blog/baralho-cigano-vs-tarot',
+    canonicalUrl: 'https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/baralho-cigano-vs-tarot',
     internalLinks: ['/especialistas?oracle=cigano', '/oraculos/baralho-cigano'],
   },
   {
@@ -146,8 +146,8 @@ Por meio do pêndulo e do relógio radiestésico (escala de frequências em Angs
 Os consulentes relatam frequentemente uma sensação profunda de leveza, melhora expressiva na qualidade do sono, desaparecimento de tensões inexplicáveis e a rápida desobstrução de processos burocráticos ou profissionais que pareciam estagnados.
     `,
     category: 'mesaradionica',
-    author: 'Aura Celeste',
-    reviewer: 'Helena da Luz',
+    author: 'Justina das Sete Velas',
+    reviewer: 'Rosália de Évora',
     date: '2 dias atrás',
     publishedAt: '2026-09-03T11:00:00.000Z',
     updatedAt: '2026-09-03T11:00:00.000Z',
@@ -161,7 +161,7 @@ Os consulentes relatam frequentemente uma sensação profunda de leveza, melhora
     relatedKeywords: ['como funciona mesa radionica', 'alinhamento de chakras a distancia', 'limpeza espiritual pendulo'],
     seoTitle: 'Mesa Radiônica Quântica: Benefícios e Limpeza Energética',
     seoDescription: 'Desbloqueie caminhos financeiros, afetivos e espirituais com a Mesa Radiônica Quântica. Consulta online ao vivo com terapeutas holísticos credenciados.',
-    canonicalUrl: 'https://oraculos-ts.vercel.app/blog/mesa-radionica-quantica',
+    canonicalUrl: 'https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/mesa-radionica-quantica',
     internalLinks: ['/especialistas?oracle=mesaradionica', '/oraculos/mesa-radionica'],
   },
   {
@@ -189,11 +189,11 @@ O **Jogo de Búzios** (conhecido na tradição Iorubá como *Merindilogun*) é u
 ---
 
 ## Respeito e Sigilo Sagrado
-Uma consulta oracular de matriz afro-brasileira deve ser sempre pautada pela ética, respeito à ancestralidade e acolhimento. No ORACULOS.TS, você encontra babalorixás e ialorixás comprometidos com a verdade da sua caminhada.
+Uma consulta oracular de matriz afro-brasileira deve ser sempre pautada pela ética, respeito à ancestralidade e acolhimento. No Bruxo São Cipriano Oráculos, você encontra babalorixás e ialorixás comprometidos com a verdade da sua caminhada.
     `,
     category: 'buzios',
-    author: 'Mãe Serena de Oya',
-    reviewer: 'Mestra Jurema da Terra',
+    author: 'Mãe Josefa da Ventania',
+    reviewer: 'Mestra Isaura das Ervas',
     date: '3 dias atrás',
     publishedAt: '2026-09-02T14:15:00.000Z',
     updatedAt: '2026-09-02T14:15:00.000Z',
@@ -207,7 +207,7 @@ Uma consulta oracular de matriz afro-brasileira deve ser sempre pautada pela ét
     relatedKeywords: ['consulta de buzios orixas', 'descobrir orixa de cabeca', 'jogo de buzios ifa online'],
     seoTitle: 'Jogo de Búzios Online Confiável: A Voz dos Orixás',
     seoDescription: 'Consulte os Búzios sagrados de Ifá ao vivo com sacerdotes e zeladores experientes. Respostas autênticas para seus caminhos espirituais e amorosos.',
-    canonicalUrl: 'https://oraculos-ts.vercel.app/blog/jogo-de-buzios-online-sagrado',
+    canonicalUrl: 'https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/jogo-de-buzios-online-sagrado',
     internalLinks: ['/especialistas?oracle=buzios', '/oraculos/buzios'],
   },
   {
@@ -241,8 +241,8 @@ O amor é o campo em que mais experimentamos incertezas, medos e paixões avassa
 Lembre-se: o Tarot não aprisiona você a um destino inalterável. Ele aponta tendências e ensina como agir com maturidade e magnetismo para atrair o amor verdadeiro.
     `,
     category: 'tarot',
-    author: 'Helena da Luz',
-    reviewer: 'Soraya Lenormand',
+    author: 'Rosália de Évora',
+    reviewer: 'Cigana Esmeralda do Caminho',
     date: '4 dias atrás',
     publishedAt: '2026-09-01T10:00:00.000Z',
     updatedAt: '2026-09-01T10:00:00.000Z',
@@ -256,7 +256,7 @@ Lembre-se: o Tarot não aprisiona você a um destino inalterável. Ele aponta te
     relatedKeywords: ['o que ele sente por mim tarot', 'futuro do casal cartas', 'tarot do amor confiavel'],
     seoTitle: 'Tarot do Amor Online: O Que as Cartas Revelam?',
     seoDescription: 'Tire suas dúvidas sobre o amor com consultas de Tarot ao vivo. Descubra sentimentos ocultos, intenções do parceiro e caminhos afetivos.',
-    canonicalUrl: 'https://oraculos-ts.vercel.app/blog/tarot-do-amor-como-funciona',
+    canonicalUrl: 'https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/tarot-do-amor-como-funciona',
     internalLinks: ['/especialistas?oracle=tarot', '/oraculos/tarot'],
   },
   {
@@ -283,7 +283,7 @@ Você já acordou com a sensação de ter carregado o mundo nas costas, mesmo ap
 ---
 
 > 🛡️ **FAÇA UMA LIMPEZA ENERGÉTICA PROFUNDA HOJE MESMO**
-> Converse com nossos terapeutas holísticos e mestres de cura vibracional no **ORACULOS.TS**. Blinde sua aura, afaste a negatividade e recupere seu brilho pessoal!
+> Converse com nossos terapeutas holísticos e mestres de cura vibracional no **Bruxo São Cipriano Oráculos**. Blinde sua aura, afaste a negatividade e recupere seu brilho pessoal!
 >
 > 👉 **[CLIQUE AQUI PARA CONVERSAR COM NOSSOS TERAPEUTAS](/especialistas?oracle=mesaradionica)**
 
@@ -292,8 +292,8 @@ Você já acordou com a sensação de ter carregado o mundo nas costas, mesmo ap
 Cultive orações de proteção diárias e mantenha seus pensamentos alinhados com a gratidão. A sua luz é a sua maior proteção!
     `,
     category: 'limpeza',
-    author: 'Aura Celeste',
-    reviewer: 'Mãe Serena de Oya',
+    author: 'Justina das Sete Velas',
+    reviewer: 'Mãe Josefa da Ventania',
     date: '5 dias atrás',
     publishedAt: '2026-08-31T16:00:00.000Z',
     updatedAt: '2026-08-31T16:00:00.000Z',
@@ -307,7 +307,7 @@ Cultive orações de proteção diárias e mantenha seus pensamentos alinhados c
     relatedKeywords: ['sintomas de energia negativa', 'como se proteger de inveja', 'banho de ervas descarrego'],
     seoTitle: 'Limpeza Espiritual e Blindagem Áurica: Guia Completo',
     seoDescription: 'Aprenda como fazer limpeza espiritual profunda, eliminar o olho gordo e blindar sua aura. Atendimento holístico com terapeutas online 24 horas.',
-    canonicalUrl: 'https://oraculos-ts.vercel.app/blog/limpeza-espiritual-e-blindagem-aurica',
+    canonicalUrl: 'https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/limpeza-espiritual-e-blindagem-aurica',
     internalLinks: ['/especialistas?oracle=mesaradionica', '/oraculos/mesa-radionica'],
   },
   {
@@ -341,8 +341,8 @@ A Astrologia não define um destino imutável; ela decifra a sinfonia cósmica d
 Alinhe seus planos com o relógio do universo e aproveite cada trânsito favorável para transformar sua realidade.
     `,
     category: 'astrologia',
-    author: 'Mestre Gabriel Astros',
-    reviewer: 'Clarice Mendonça',
+    author: 'Mestre Joaquim dos Astros',
+    reviewer: 'Teresa de Castela',
     date: '6 dias atrás',
     publishedAt: '2026-08-30T13:20:00.000Z',
     updatedAt: '2026-08-30T13:20:00.000Z',
@@ -356,7 +356,7 @@ Alinhe seus planos com o relógio do universo e aproveite cada trânsito favorá
     relatedKeywords: ['fazer mapa astral com astrologo', 'previsoes astrologicas 2026', 'sinastria amorosa signos'],
     seoTitle: 'Mapa Astral Online Completo e Previsões dos Astros',
     seoDescription: 'Consulte astrólogos credenciados e compreenda seu Mapa Astral, Sol, Lua e Ascendente. Previsões certeiras para o amor e carreira.',
-    canonicalUrl: 'https://oraculos-ts.vercel.app/blog/mapa-astral-e-transitos-2026',
+    canonicalUrl: 'https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/mapa-astral-e-transitos-2026',
     internalLinks: ['/especialistas?oracle=astrologia', '/oraculos/astrologia'],
   },
 ];

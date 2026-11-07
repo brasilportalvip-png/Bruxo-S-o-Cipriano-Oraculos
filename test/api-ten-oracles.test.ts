@@ -42,8 +42,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     city: 'Curitiba',
   };
 
-  // CASO 1: Tarot (Humano: c1 - Helena da Luz)
-  it('1. [TAROT] Deve processar consulta real com consultor humano c1 (Helena da Luz) e builder de Tarot', async () => {
+  // CASO 1: Tarot (Humano: c1 - Rosália de Évora)
+  it('1. [TAROT] Deve processar consulta real com consultor humano c1 (Rosália de Évora) e builder de Tarot', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -60,7 +60,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('tarot');
     expect(res.body.data.consultant).toEqual({
       id: 'c1',
-      name: 'Helena da Luz',
+      name: 'Rosália de Évora',
       kind: 'human',
     });
     expect(res.body.data.interpretation).toContain('Leitura Oracular Real');
@@ -73,8 +73,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.config.systemInstruction).toContain('tarot');
   });
 
-  // CASO 2: Baralho Cigano (Virtual: ai_c3 - Soraya Lenormand)
-  it('2. [BARALHO-CIGANO] Deve processar consulta real com consultora virtual ai_c3 (Soraya Lenormand) e builder Lenormand', async () => {
+  // CASO 2: Baralho Cigano (Virtual: ai_c3 - Cigana Esmeralda do Caminho)
+  it('2. [BARALHO-CIGANO] Deve processar consulta real com consultora virtual ai_c3 (Cigana Esmeralda do Caminho) e builder Lenormand', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -91,7 +91,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('baralho-cigano');
     expect(res.body.data.consultant).toEqual({
       id: 'ai_c3',
-      name: 'Soraya Lenormand',
+      name: 'Cigana Esmeralda do Caminho',
       kind: 'virtual',
     });
     expect(res.body.data.interpretation).toContain('Leitura Oracular Real');
@@ -102,8 +102,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.contents).toContain('baralho-cigano');
   });
 
-  // CASO 3: Astrologia (Humano: c2 - Mestre Gabriel Astros)
-  it('3. [ASTROLOGIA] Deve processar consulta real com consultor humano c2 (Mestre Gabriel Astros) e builder de Astrologia', async () => {
+  // CASO 3: Astrologia (Humano: c2 - Mestre Joaquim dos Astros)
+  it('3. [ASTROLOGIA] Deve processar consulta real com consultor humano c2 (Mestre Joaquim dos Astros) e builder de Astrologia', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -119,7 +119,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('astrologia');
     expect(res.body.data.consultant).toEqual({
       id: 'c2',
-      name: 'Mestre Gabriel Astros',
+      name: 'Mestre Joaquim dos Astros',
       kind: 'human',
     });
 
@@ -129,8 +129,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.contents).toContain('astrologia');
   });
 
-  // CASO 4: Numerologia (Virtual: ai_c7 - Gabriel Áurea)
-  it('4. [NUMEROLOGIA] Deve processar consulta real com consultor virtual ai_c7 (Gabriel Áurea) e builder de Numerologia', async () => {
+  // CASO 4: Numerologia (Virtual: ai_c7 - Frei Tomé dos Números)
+  it('4. [NUMEROLOGIA] Deve processar consulta real com consultor virtual ai_c7 (Frei Tomé dos Números) e builder de Numerologia', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -146,7 +146,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('numerologia');
     expect(res.body.data.consultant).toEqual({
       id: 'ai_c7',
-      name: 'Gabriel Áurea',
+      name: 'Frei Tomé dos Números',
       kind: 'virtual',
     });
 
@@ -156,8 +156,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.contents).toContain('numerologia');
   });
 
-  // CASO 5: Búzios (Humano: c3 - Mãe Serena de Oya)
-  it('5. [BUZIOS] Deve processar consulta real com consultora humana c3 (Mãe Serena de Oya) e builder de Búzios', async () => {
+  // CASO 5: Búzios (Humano: c3 - Mãe Josefa da Ventania)
+  it('5. [BUZIOS] Deve processar consulta real com consultora humana c3 (Mãe Josefa da Ventania) e builder de Búzios', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -173,7 +173,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('buzios');
     expect(res.body.data.consultant).toEqual({
       id: 'c3',
-      name: 'Mãe Serena de Oya',
+      name: 'Mãe Josefa da Ventania',
       kind: 'human',
     });
 
@@ -183,8 +183,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.contents).toContain('buzios');
   });
 
-  // CASO 6: Ifá (Virtual: ai_c5 - Mãe Serena de Oya)
-  it('6. [IFA] Deve processar consulta real com consultora virtual ai_c5 (Mãe Serena de Oya) e builder de Odù / Ifá', async () => {
+  // CASO 6: Ifá (Virtual: ai_c5 - Mãe Benedita dos Ventos)
+  it('6. [IFA] Deve processar consulta real com consultora virtual ai_c5 (Mãe Benedita dos Ventos) e builder de Odù / Ifá', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -200,7 +200,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('ifa');
     expect(res.body.data.consultant).toEqual({
       id: 'ai_c5',
-      name: 'Mãe Serena de Oya',
+      name: 'Mãe Benedita dos Ventos',
       kind: 'virtual',
     });
 
@@ -210,8 +210,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.contents).toContain('ifa');
   });
 
-  // CASO 7: Runas (Humano: c5 - Sábio Liam Nordic)
-  it('7. [RUNAS] Deve processar consulta real com consultor humano c5 (Sábio Liam Nordic) e builder de Runas Nórdicas', async () => {
+  // CASO 7: Runas (Humano: c5 - Sábio Afonso do Norte)
+  it('7. [RUNAS] Deve processar consulta real com consultor humano c5 (Sábio Afonso do Norte) e builder de Runas Nórdicas', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -228,7 +228,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('runas');
     expect(res.body.data.consultant).toEqual({
       id: 'c5',
-      name: 'Sábio Liam Nordic',
+      name: 'Sábio Afonso do Norte',
       kind: 'human',
     });
 
@@ -238,8 +238,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.contents).toContain('runas');
   });
 
-  // CASO 8: I Ching (Virtual: ai_c12 - Samuel Sagrado)
-  it('8. [I-CHING] Deve processar consulta real com consultor virtual ai_c12 (Samuel Sagrado) e builder do Livro das Mutações', async () => {
+  // CASO 8: I Ching (Virtual: ai_c12 - Mestre Eusébio do Livro)
+  it('8. [I-CHING] Deve processar consulta real com consultor virtual ai_c12 (Mestre Eusébio do Livro) e builder do Livro das Mutações', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -256,7 +256,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('i-ching');
     expect(res.body.data.consultant).toEqual({
       id: 'ai_c12',
-      name: 'Samuel Sagrado',
+      name: 'Mestre Eusébio do Livro',
       kind: 'virtual',
     });
 
@@ -266,8 +266,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.contents).toContain('i-ching');
   });
 
-  // CASO 9: Cristais (Humano: c4 - Aura Celeste)
-  it('9. [CRISTAIS] Deve processar consulta real com consultora humana c4 (Clarice Mendonça) e builder de Litoterapia / Cristais', async () => {
+  // CASO 9: Cristais (Humano: c4 - Justina das Sete Velas)
+  it('9. [CRISTAIS] Deve processar consulta real com consultora humana c4 (Teresa de Castela) e builder de Litoterapia / Cristais', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -284,7 +284,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('cristais');
     expect(res.body.data.consultant).toEqual({
       id: 'c4',
-      name: 'Clarice Mendonça',
+      name: 'Teresa de Castela',
       kind: 'human',
     });
 
@@ -294,8 +294,8 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(callArgs.contents).toContain('cristais');
   });
 
-  // CASO 10: Mesa Radiônica (Virtual: ai_c1 - Aura Celeste)
-  it('10. [MESA-RADIONICA] Deve processar consulta real com consultora virtual ai_c1 (Aura Celeste) e builder de Mesa Radiônica', async () => {
+  // CASO 10: Mesa Radiônica (Virtual: ai_c1 - Justina das Sete Velas)
+  it('10. [MESA-RADIONICA] Deve processar consulta real com consultora virtual ai_c1 (Justina das Sete Velas) e builder de Mesa Radiônica', async () => {
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -311,7 +311,7 @@ describe('BATERIA PARAMETRIZADA: 10 TESTES REAIS DA API (POST /api/ai/oracle-int
     expect(res.body.data.normalizedOracleId).toBe('mesa-radionica');
     expect(res.body.data.consultant).toEqual({
       id: 'ai_c1',
-      name: 'Aura Celeste',
+      name: 'Justina das Sete Velas',
       kind: 'virtual',
     });
 

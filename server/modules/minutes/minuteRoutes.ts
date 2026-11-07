@@ -46,7 +46,7 @@ minuteRoutes.get(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao carregar pacotes:',
+        '[Bruxo São Cipriano Oráculos] Erro ao carregar pacotes:',
         error,
       );
 
@@ -85,7 +85,7 @@ minuteRoutes.get(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao carregar pacotes administrativos:',
+        '[Bruxo São Cipriano Oráculos] Erro ao carregar pacotes administrativos:',
         error,
       );
 
@@ -206,7 +206,7 @@ minuteRoutes.post(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao salvar pacote:',
+        '[Bruxo São Cipriano Oráculos] Erro ao salvar pacote:',
         error,
       );
 
@@ -265,7 +265,7 @@ minuteRoutes.get(
           : 'Erro desconhecido';
 
       console.error(
-        '[ORACULOS.TS] Erro ao buscar transações:',
+        '[Bruxo São Cipriano Oráculos] Erro ao buscar transações:',
         message,
       );
 

@@ -29,8 +29,8 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type, onBack, onNavigateDo
           description: doc.subtitle,
           publisher: {
             '@type': 'Organization',
-            name: 'ORACULOS.TS',
-            url: 'https://oraculos-ts.vercel.app',
+            name: 'Bruxo São Cipriano Oráculos',
+            url: 'https://bruxo-s-o-cipriano-oraculos.vercel.app',
           },
         }}
       />

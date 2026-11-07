@@ -222,8 +222,8 @@ describe('TESTES DA INTERFACE REAL: ConsultantProfileModal E OraclesDirectory', 
     const astroCards = getAllByText('Astrologia & Mapa Astral');
     fireEvent.click(astroCards[0]);
 
-    // O modal deve ter aberto com Mestre Gabriel Astros
-    expect(getByText('Mestre Gabriel Astros')).toBeTruthy();
+    // O modal deve ter aberto com Mestre Joaquim dos Astros
+    expect(getByText('Mestre Joaquim dos Astros')).toBeTruthy();
 
     // Vídeo permanece bloqueado enquanto o profissional não habilitar a modalidade.
     const videoButton = getByText('Vídeo indisponível').closest('button');
@@ -239,14 +239,14 @@ describe('TESTES DA INTERFACE REAL: ConsultantProfileModal E OraclesDirectory', 
 
     // Reabre o modal pelo diretório mobile
     fireEvent.click(astroCards[0]);
-    expect(getByText('Mestre Gabriel Astros')).toBeTruthy();
+    expect(getByText('Mestre Joaquim dos Astros')).toBeTruthy();
 
     // Fecha o modal via botão de fechar
     const closeBtn = screen.getByLabelText('Fechar modal');
     fireEvent.click(closeBtn);
 
     // Confirma que o modal fechou
-    expect(queryByText('Mestre Gabriel Astros')).toBeNull();
+    expect(queryByText('Mestre Joaquim dos Astros')).toBeNull();
   });
 
   it('7. Deve exibir somente consultores realmente autorizados para o oráculo selecionado', () => {
@@ -261,15 +261,15 @@ describe('TESTES DA INTERFACE REAL: ConsultantProfileModal E OraclesDirectory', 
     );
 
     // Consultores realmente autorizados para Cristais devem aparecer.
-    expect(screen.getByText('Clarice Mendonça')).toBeTruthy();
-    expect(screen.getByText('Mestra Jurema da Terra')).toBeTruthy();
+    expect(screen.getByText('Teresa de Castela')).toBeTruthy();
+    expect(screen.getByText('Mestra Isaura das Ervas')).toBeTruthy();
 
     // Estes atendentes possuem "cristais" apenas em specialties,
     // mas NÃO estão autorizados para atender esse oráculo.
-    expect(screen.queryByText('Aura Celeste')).toBeNull();
-    expect(screen.queryByText('Mestre Valerio')).toBeNull();
-    expect(screen.queryByText('Iara das Águas')).toBeNull();
-    expect(screen.queryByText('Yanis Místico')).toBeNull();
+    expect(screen.queryByText('Justina das Sete Velas')).toBeNull();
+    expect(screen.queryByText('Mestre Bartolomeu das Pedras')).toBeNull();
+    expect(screen.queryByText('Dona Laurinda da Fonte')).toBeNull();
+    expect(screen.queryByText('Ônix das Encruzilhadas')).toBeNull();
   });
 
   it('8. Deve impedir atendente virtual de selecionar oráculo presente apenas em specialties, mas não autorizado', () => {
@@ -285,7 +285,7 @@ describe('TESTES DA INTERFACE REAL: ConsultantProfileModal E OraclesDirectory', 
       />
     );
 
-    // Aura Celeste é autorizada somente para Tarot e Mesa Radiônica.
+    // Justina das Sete Velas é autorizada somente para Tarot e Mesa Radiônica.
     expect(screen.getByText('Tarot')).toBeTruthy();
     expect(screen.getByText('Mesa Radiônica')).toBeTruthy();
 

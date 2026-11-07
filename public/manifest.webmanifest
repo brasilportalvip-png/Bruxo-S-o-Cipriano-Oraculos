@@ -1,12 +1,12 @@
 {
-  "name": "ORACULOS.TS — Tarot, Astrologia e Oráculos Online",
-  "short_name": "ORACULOS.TS",
-  "description": "Plataforma de consultas oraculares online com especialistas qualificados e inteligência oracular canônica em Tarot, Baralho Cigano, Astrologia, Búzios, Runas e Numerologia.",
+  "name": "Bruxo São Cipriano Oráculos — Cartas de São Cipriano, Tarot e Oráculos",
+  "short_name": "Bruxo Cipriano",
+  "description": "Bruxo São Cipriano Oráculos: as cartas do Grande Livro de São Cipriano, Tarot, Baralho Cigano, Astrologia, Búzios, Runas e Numerologia com oraculistas ao vivo.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#050508",
-  "theme_color": "#050508",
+  "background_color": "#0a0202",
+  "theme_color": "#0a0202",
   "lang": "pt-BR",
   "dir": "ltr",
   "categories": ["lifestyle", "utilities"],
@@ -30,14 +30,14 @@
       "purpose": "maskable"
     },
     {
-      "src": "/brand/logo-oraculos.png",
-      "sizes": "512x512",
+      "src": "/brand/logo-bruxo-sao-cipriano.png",
+      "sizes": "300x300",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/image/logo-oraculo.ts.png",
-      "sizes": "512x512",
+      "src": "/image/logo-bruxo-sao-cipriano.png",
+      "sizes": "300x300",
       "type": "image/png",
       "purpose": "any"
     }
