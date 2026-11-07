@@ -332,6 +332,7 @@ window.location.assign('/');
       case 'iching': return 'Jogar Moedas I Ching';
       case 'cristais': return 'Emanar Cristal';
       case 'mesaradionica': return 'Medir no Pêndulo';
+      case 'saocipriano': return 'Deitar as Cartas de São Cipriano';
       default: return 'Tirar Carta do Oráculo';
     }
   };

@@ -13,13 +13,14 @@ import {
   buildIChingSupremo,
   buildCristaisSupremos,
   buildMesaRadionicaSuprema,
+  buildSaoCiprianoSupremo,
 } from '../src/oracle-engine';
 import { INITIAL_CONSULTANTS } from '../src/data/mockData';
 import { VIRTUAL_PROFILES } from '../src/data/virtualProfiles';
 import { ORACLE_CATEGORIES } from '../src/data/oracleConfig';
 import { verifyConsultantOracleAuthorization } from '../server';
 
-describe('VERIFICAÇÃO ESTRUTURAL DOS 10 ORÁCULOS CANÔNICOS', () => {
+describe('VERIFICAÇÃO ESTRUTURAL DOS 11 ORÁCULOS CANÔNICOS', () => {
   const CANONICAL_ORACLES: OracleProfileId[] = [
     'tarot',
     'baralho-cigano',
@@ -31,11 +32,12 @@ describe('VERIFICAÇÃO ESTRUTURAL DOS 10 ORÁCULOS CANÔNICOS', () => {
     'i-ching',
     'cristais',
     'mesa-radionica',
+    'sao-cipriano',
   ];
 
-  it('1. Deve conter exatamente dez perfis oraculares canônicos registrados no ORACLE_PROFILES', () => {
+  it('1. Deve conter exatamente onze perfis oraculares canônicos registrados no ORACLE_PROFILES', () => {
     const registeredKeys = Object.keys(ORACLE_PROFILES);
-    expect(registeredKeys).toHaveLength(10);
+    expect(registeredKeys).toHaveLength(11);
     expect(registeredKeys.sort()).toEqual([...CANONICAL_ORACLES].sort());
   });
 
@@ -59,6 +61,7 @@ describe('VERIFICAÇÃO ESTRUTURAL DOS 10 ORÁCULOS CANÔNICOS', () => {
       'i-ching': buildIChingSupremo,
       cristais: buildCristaisSupremos,
       'mesa-radionica': buildMesaRadionicaSuprema,
+      'sao-cipriano': buildSaoCiprianoSupremo,
     };
 
     for (const oracleId of CANONICAL_ORACLES) {
@@ -81,7 +84,7 @@ describe('VERIFICAÇÃO ESTRUTURAL DOS 10 ORÁCULOS CANÔNICOS', () => {
     }
   });
 
-  it('3. Cada um dos dez oráculos deve possuir pelo menos um consultor humano ou virtual autorizado', () => {
+  it('3. Cada um dos onze oráculos deve possuir pelo menos um consultor humano ou virtual autorizado', () => {
     for (const oracleId of CANONICAL_ORACLES) {
       const humanConsultants = INITIAL_CONSULTANTS.filter((c) => {
         if (c.isAI) return false;
@@ -104,7 +107,7 @@ describe('VERIFICAÇÃO ESTRUTURAL DOS 10 ORÁCULOS CANÔNICOS', () => {
 
   it('4. Cada categoria deve aparecer no diretório de oráculos (ORACLE_CATEGORIES) e mapear para um oráculo canônico', () => {
     const categoryEntries = Object.values(ORACLE_CATEGORIES);
-    expect(categoryEntries.length).toBeGreaterThanOrEqual(10);
+    expect(categoryEntries.length).toBeGreaterThanOrEqual(11);
 
     for (const oracleId of CANONICAL_ORACLES) {
       const matchingCategory = categoryEntries.find((cat) => {
@@ -151,7 +154,7 @@ describe('VERIFICAÇÃO ESTRUTURAL DOS 10 ORÁCULOS CANÔNICOS', () => {
     }
   });
 
-  it('6. Aliases diversos da interface devem ser corretamente normalizados para os 10 IDs canônicos', () => {
+  it('6. Aliases diversos da interface devem ser corretamente normalizados para os 11 IDs canônicos', () => {
     const aliasMapping: Record<string, OracleProfileId> = {
       // Tarot
       Tarot: 'tarot',

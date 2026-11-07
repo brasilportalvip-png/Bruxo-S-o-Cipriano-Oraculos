@@ -11,6 +11,8 @@ https://oraculos-ts.vercel.app/oraculos/runas
 https://oraculos-ts.vercel.app/oraculos/i-ching
 https://oraculos-ts.vercel.app/oraculos/cristais
 https://oraculos-ts.vercel.app/oraculos/mesa-radionica
+https://oraculos-ts.vercel.app/oraculos/sao-cipriano
+https://oraculos-ts.vercel.app/especialistas/ai_c21
 https://oraculos-ts.vercel.app/especialistas/ai_c1
 https://oraculos-ts.vercel.app/especialistas/ai_c2
 https://oraculos-ts.vercel.app/especialistas/ai_c3

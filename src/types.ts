@@ -67,7 +67,8 @@ export type OracleType =
   | 'runas'
   | 'iching'
   | 'cristais'
-  | 'mesaradionica';
+  | 'mesaradionica'
+  | 'saocipriano';
 
 export type ConsultantStatus = 'online' | 'busy' | 'offline';
 

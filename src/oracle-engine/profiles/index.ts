@@ -8,6 +8,7 @@ import buildRunasSupremas from './runas.js';
 import buildIChingSupremo from './i-ching.js';
 import buildCristaisSupremos from './cristais.js';
 import buildMesaRadionicaSuprema from './mesa-radionica.js';
+import buildSaoCiprianoSupremo from './sao-cipriano.js';
 
 export type OracleProfileId =
   | 'tarot'
@@ -19,7 +20,8 @@ export type OracleProfileId =
   | 'runas'
   | 'i-ching'
   | 'cristais'
-  | 'mesa-radionica';
+  | 'mesa-radionica'
+  | 'sao-cipriano';
 
 export interface OracleProfileInput {
   fullName: string;
@@ -190,6 +192,20 @@ export const ORACLE_PROFILES: Record<
         birthDate: input.birthDate,
         question: input.question
       })
+  },
+
+  'sao-cipriano': {
+    id: 'sao-cipriano',
+    nome: 'Oráculo de São Cipriano',
+    descricao:
+      'Cartomancia do Grande Livro de São Cipriano com o baralho de 40 cartas: Cruz de São Cipriano e Cartomancia Cruzada.',
+    requiredFields: ['fullName', 'birthDate'],
+    builder: (input) =>
+      buildSaoCiprianoSupremo({
+        fullName: input.fullName,
+        birthDate: input.birthDate,
+        question: input.question
+      })
   }
 };
 
@@ -325,7 +341,13 @@ export function normalizarOracleProfileId(
 
     'mesa-radionica': 'mesa-radionica',
     mesaradionica: 'mesa-radionica',
-    mesa: 'mesa-radionica'
+    mesa: 'mesa-radionica',
+
+    'sao-cipriano': 'sao-cipriano',
+    saocipriano: 'sao-cipriano',
+    cipriano: 'sao-cipriano',
+    'sao-cipriano-cartas': 'sao-cipriano',
+    'cartomancia-cruzada': 'sao-cipriano'
   };
 
   return aliases[id] || null;
@@ -460,7 +482,8 @@ export {
   buildRunasSupremas,
   buildIChingSupremo,
   buildCristaisSupremos,
-  buildMesaRadionicaSuprema
+  buildMesaRadionicaSuprema,
+  buildSaoCiprianoSupremo
 };
 
 export const buildIfaSupremo =

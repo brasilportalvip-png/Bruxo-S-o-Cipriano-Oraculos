@@ -24,6 +24,7 @@ const PAGINAS = [
   { nome: 'Início', url: '/' },
   { nome: 'Oráculos', url: '/oraculos' },
   { nome: 'Tarot', url: '/oraculos/tarot' },
+  { nome: 'Oráculo de São Cipriano', url: '/oraculos/sao-cipriano' },
   { nome: 'Baralho Cigano', url: '/oraculos/baralho-cigano' },
   { nome: 'Búzios', url: '/oraculos/buzios' },
   { nome: 'Astrologia', url: '/oraculos/astrologia' },
