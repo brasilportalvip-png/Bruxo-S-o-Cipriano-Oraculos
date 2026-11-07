@@ -1,6 +1,6 @@
 # ==============================================================================
-# ORACULOS.TS — Robots Exclusion Protocol
-# Domínio Oficial: https://oraculos-ts.vercel.app/
+# Bruxo São Cipriano Oráculos — Robots Exclusion Protocol
+# Domínio Oficial: https://bruxo-s-o-cipriano-oraculos.vercel.app/
 # ==============================================================================
 
 User-agent: *
@@ -38,5 +38,5 @@ Disallow: /*?*session=*
 Disallow: /*?*preference_id=*
 
 # Índice Oficial de Sitemaps XML
-Sitemap: https://oraculos-ts.vercel.app/sitemap.xml
-Sitemap: https://oraculos-ts.vercel.app/sitemap.txt
+Sitemap: https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap.xml
+Sitemap: https://bruxo-s-o-cipriano-oraculos.vercel.app/sitemap.txt

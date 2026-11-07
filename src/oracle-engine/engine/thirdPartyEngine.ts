@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — Detector de outras pessoas na pergunta
+ * Bruxo São Cipriano Oráculos — Detector de outras pessoas na pergunta
  *
  * Reconhece quando a pergunta envolve outra pessoa e QUAL é o vínculo:
  * amor, sociedade/parceria de negócio, quem decide uma vaga de emprego,

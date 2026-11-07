@@ -1,22 +1,22 @@
 // ==============================================================================
-// ORACULOS.TS — Service Worker PWA de Produção
+// Bruxo São Cipriano Oráculos — Service Worker PWA de Produção
 // Versão: 2.8.0
 // ==============================================================================
 
-const CACHE_NAME = 'oraculos-ts-v2.8.0';
+const CACHE_NAME = 'bruxo-sao-cipriano-v1.0.0';
 const OFFLINE_URL = '/index.html';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
-  '/brand/logo-oraculos.png',
-  '/consultants/mestra-jurema-terra.webp',
-  '/consultants/mestre-zahir-oriente.webp',
-  '/consultants/guardia-morgana-lua.webp',
-  '/consultants/guardiao-rowan-mata.webp',
-  '/consultants/mestre-dante-sete-chaves.webp',
-  '/image/logo-oraculo.ts.png',
+  '/brand/logo-bruxo-sao-cipriano.png',
+  '/consultants/mestra-isaura-ervas.webp',
+  '/consultants/cigano-vladimir-estradas.webp',
+  '/consultants/guardia-brigida-corvo.webp',
+  '/consultants/sentinela-ebano-mata.webp',
+  '/consultants/mestre-lazaro-relicario.webp',
+  '/image/logo-bruxo-sao-cipriano.png',
   '/favicon.ico',
   '/favicon.png',
   '/favicon-32x32.png',
@@ -46,7 +46,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(PRECACHE_ASSETS).catch((err) => {
-        console.warn('[ORACULOS.TS SW] Precache parcial:', err);
+        console.warn('[Bruxo São Cipriano Oráculos SW] Precache parcial:', err);
       });
     }).then(() => self.skipWaiting())
   );
@@ -58,7 +58,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
-            console.log('[ORACULOS.TS SW] Removendo cache antigo:', key);
+            console.log('[Bruxo São Cipriano Oráculos SW] Removendo cache antigo:', key);
             return caches.delete(key);
           }
         })

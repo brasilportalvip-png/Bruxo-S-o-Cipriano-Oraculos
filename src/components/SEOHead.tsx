@@ -44,8 +44,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   description,
   canonicalPath,
   ogType = 'website',
-  ogImage = `${SITE_ORIGIN}/brand/logo-oraculos.png`,
-  ogImageAlt = 'ORACULOS.TS — consultas oraculares online',
+  ogImage = `${SITE_ORIGIN}/brand/logo-bruxo-sao-cipriano.png`,
+  ogImageAlt = 'Bruxo São Cipriano Oráculos — consultas oraculares online',
   noIndex = false,
   jsonLd,
   keywords,
@@ -78,7 +78,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     canonicalLink.href = fullCanonicalUrl;
 
     setMeta('meta[property="og:locale"]', 'property', 'og:locale', 'pt_BR');
-    setMeta('meta[property="og:site_name"]', 'property', 'og:site_name', 'ORACULOS.TS');
+    setMeta('meta[property="og:site_name"]', 'property', 'og:site_name', 'Bruxo São Cipriano Oráculos');
     setMeta('meta[property="og:title"]', 'property', 'og:title', fullTitle);
     setMeta('meta[property="og:description"]', 'property', 'og:description', description);
     setMeta('meta[property="og:url"]', 'property', 'og:url', fullCanonicalUrl);

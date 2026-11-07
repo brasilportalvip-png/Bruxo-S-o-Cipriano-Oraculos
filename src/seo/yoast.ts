@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — SEO no padrão Yoast
+ * Bruxo São Cipriano Oráculos — SEO no padrão Yoast
  *
  * Regras aplicadas em todas as páginas:
  *  - Título SEO entre 30 e 60 caracteres, palavra-chave foco no início.
@@ -8,8 +8,8 @@
  *  - Dados estruturados: BreadcrumbList em todas as páginas internas, FAQPage nos oráculos.
  */
 
-export const SITE = 'https://oraculos-ts.vercel.app';
-export const MARCA = 'ORACULOS.TS';
+export const SITE = 'https://bruxo-s-o-cipriano-oraculos.vercel.app';
+export const MARCA = 'Bruxo São Cipriano Oráculos';
 
 export const TITULO_MAX = 60;
 export const DESCRICAO_MIN = 120;
@@ -31,7 +31,7 @@ function cortarNaPalavra(texto: string, limite: number): string {
 /** Título final: acrescenta a marca só se couber em 60 caracteres. */
 export function tituloSEO(titulo: string): string {
   const limpo = String(titulo || '').replace(/\s+/g, ' ').trim();
-  if (limpo.toUpperCase().includes(MARCA)) return cortarNaPalavra(limpo, TITULO_MAX);
+  if (limpo.toUpperCase().includes(MARCA.toUpperCase())) return cortarNaPalavra(limpo, TITULO_MAX);
   const comMarca = `${limpo} | ${MARCA}`;
   if (comMarca.length <= TITULO_MAX) return comMarca;
   return cortarNaPalavra(limpo, TITULO_MAX);
@@ -91,16 +91,16 @@ export interface SeoPagina {
 
 export const SEO_PAGINAS: Record<string, SeoPagina> = {
   inicio: {
-    palavraChave: 'consulta de tarot online',
-    titulo: 'Consulta de Tarot Online ao Vivo e Oráculos',
+    palavraChave: 'bruxo são cipriano',
+    titulo: 'Bruxo São Cipriano: Cartas, Tarot e Oráculos Online',
     descricao:
-      'Consulta de tarot online, baralho cigano, búzios e astrologia ao vivo com oraculistas experientes. Leitura com seus dados natal e o dia certo. Comece agora.',
+      'Bruxo São Cipriano online: as cartas do Grande Livro de São Cipriano, tarot, baralho cigano e búzios com oraculistas ao vivo por chat e vídeo. Consulte já.',
   },
   oraculos: {
     palavraChave: 'oráculos online',
-    titulo: 'Oráculos Online: Tarot, Cigano, Búzios e Mais',
+    titulo: 'Oráculos Online: São Cipriano, Tarot, Búzios e Mais',
     descricao:
-      'Oráculos online para cada pergunta: Tarot, Baralho Cigano, Búzios, Ifá, Runas, Astrologia, Numerologia, I Ching, Cristais e Mesa Radiônica. Escolha o seu.',
+      'Oráculos online para cada pergunta: Cartas de São Cipriano, Tarot, Baralho Cigano, Búzios, Ifá, Runas, Astrologia, Numerologia, I Ching e Cristais.',
   },
   blog: {
     palavraChave: 'blog de tarot e espiritualidade',
@@ -118,13 +118,13 @@ export const SEO_PAGINAS: Record<string, SeoPagina> = {
     palavraChave: 'central de ajuda e privacidade',
     titulo: 'Central de Ajuda, Privacidade e LGPD',
     descricao:
-      'Central de ajuda e privacidade do ORACULOS.TS: dúvidas sobre minutos, pagamentos, reembolso, segurança da conta e direitos pela LGPD. Fale com o suporte.',
+      'Central de ajuda e privacidade do Bruxo São Cipriano Oráculos: minutos, pagamentos, reembolso, segurança da conta e seus direitos pela LGPD.',
   },
   trabalheConosco: {
     palavraChave: 'trabalhe como tarólogo',
     titulo: 'Trabalhe como Tarólogo e Oraculista Online',
     descricao:
-      'Trabalhe como tarólogo e oraculista online no ORACULOS.TS: atenda clientes de todo o Brasil por chat e vídeo, defina sua agenda e receba repasses semanais.',
+      'Trabalhe como tarólogo e oraculista online no Bruxo São Cipriano Oráculos: atenda o Brasil todo por chat e vídeo, com agenda livre e repasse semanal.',
   },
 };
 

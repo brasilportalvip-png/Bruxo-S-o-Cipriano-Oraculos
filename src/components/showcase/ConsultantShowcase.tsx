@@ -201,30 +201,75 @@ export const ConsultantShowcase: React.FC<Props> = ({
 
   return (
     <div className="space-y-8 pb-12" id="consultant-showcase-section">
-      {/* Topo: somente o logo em destaque; logo abaixo vêm os oraculistas */}
-      <section aria-labelledby="hero-titulo" className="flex flex-col items-center justify-center pt-2 sm:pt-4">
-        <h1 id="hero-titulo" className="sr-only">
-          Consulta de Tarot Online ao Vivo com os melhores oraculistas do Brasil — ORACULOS.TS
-        </h1>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          className="relative group"
-        >
-          <div className="absolute -inset-3 bg-gradient-to-r from-amber-500/25 via-purple-500/25 to-amber-500/25 rounded-3xl blur-lg opacity-80 group-hover:opacity-100 transition-opacity"></div>
-          <img
-            id="hero-logo"
-            src="/brand/logo-oraculos.png?v=20260831b"
-            alt="ORACULOS.TS Logo Oficial"
-            width="160"
-            height="160"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = 'https://portalvipbrasil.com.br/wp-content/uploads/2026/07/logo-oraculos.png';
-            }}
-            className="relative w-32 h-32 sm:w-40 sm:h-40 object-contain rounded-3xl border border-[#d4af37]/50 shadow-2xl bg-[#06060c]/90 p-2"
-          />
-        </motion.div>
+      {/* Capa: a arte do Bruxo, o nome em letra gótica e o caminho para as cartas de São Cipriano.
+          Compacta de propósito: os oraculistas continuam aparecendo sem rolar a tela. */}
+      <section
+        aria-labelledby="hero-titulo"
+        className="borda-runica relative overflow-hidden rounded-3xl"
+        data-testid="capa-bruxo"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: "url('/brand/fundo-bruxo-sao-cipriano.webp')" }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0202] via-[#0a0202]/85 to-[#0a0202]/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0202] via-transparent to-transparent" aria-hidden="true" />
+
+        <div className="relative flex items-center gap-4 sm:gap-7 px-4 py-4 sm:px-8 sm:py-7">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            className="relative shrink-0 flutuar"
+          >
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-red-600/50 via-amber-500/30 to-red-900/50 blur-lg" aria-hidden="true" />
+            <img
+              id="hero-logo"
+              src="/brand/logo-bruxo-sao-cipriano-720.webp"
+              alt="Bruxo São Cipriano Oráculos — logo oficial"
+              width="160"
+              height="160"
+              fetchPriority="high"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = '/image/logo-bruxo-sao-cipriano.png';
+              }}
+              className="aura-vermelha relative w-20 h-20 sm:w-36 sm:h-36 object-cover rounded-full border-2 border-[#d4af37]/70 bg-[#0a0202]"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 18 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="min-w-0 space-y-1.5 sm:space-y-3"
+          >
+            <h1 id="hero-titulo" className="leading-none">
+              <span className="font-gotica block text-xl sm:text-4xl text-gray-100 drop-shadow">Bruxo</span>
+              <span className="font-gotica block text-[1.65rem] sm:text-6xl texto-ouro">São Cipriano</span>
+              <span className="font-cinzel block text-[11px] sm:text-base font-black tracking-[0.4em] uppercase texto-sangue mt-1">
+                Oráculos
+              </span>
+            </h1>
+            <p className="hidden sm:block text-sm text-gray-300/90 max-w-xl font-light">
+              Hoje santo, outrora feiticeiro. As cartas do Grande Livro de São Cipriano, o Tarot, o Baralho Cigano,
+              os Búzios e os astros, com oraculistas ao vivo, por chat e vídeo.
+            </p>
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <button
+                type="button"
+                onClick={() => handleOracleChange('saocipriano')}
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-red-800 via-red-600 to-red-800 px-3.5 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white border border-[#d4af37]/60 shadow-lg shadow-red-900/50 hover:shadow-red-600/60 hover:brightness-110 transition-all cursor-pointer"
+              >
+                <span className="chama-vela inline-block" aria-hidden="true">🕯</span>
+                Cartas de São Cipriano
+              </button>
+              <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] text-amber-200/80 font-cinzel tracking-widest uppercase">
+                <Sparkles className="w-3.5 h-3.5" /> Sigilo · Ao vivo · 24h
+              </span>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Advanced Filter & Search Hub */}

@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — O que todo atendente sabe sobre o site
+ * Bruxo São Cipriano Oráculos — O que todo atendente sabe sobre o site
  *
  * Os atendentes conhecem o site de ponta a ponta para tirar qualquer dúvida
  * do consulente sem sair do personagem: minutos, pacotes, bônus, pagamento,
@@ -37,7 +37,7 @@ export function formatarConhecimentoDoSite(pacotes: PacoteResumo[], atendente: A
 
   const consumo = Number(atendente.pricePerMinute || 0);
 
-  return `O QUE VOCÊ SABE SOBRE O ORACULOS.TS (responda dúvidas do site com segurança, do seu jeito, e volte para a consulta)
+  return `O QUE VOCÊ SABE SOBRE O BRUXO SÃO CIPRIANO ORÁCULOS (responda dúvidas do site com segurança, do seu jeito, e volte para a consulta)
 1. COMO FUNCIONA: a pessoa se cadastra com nome completo de solteiro(a) e data de nascimento (hora de nascimento é opcional). Esses dados natal são a base de toda leitura. Depois escolhe um oraculista, compra minutos e conversa por chat ou vídeo.
 2. MINUTOS E PACOTES (pagamento pelo Mercado Pago, com Pix ou cartão; os minutos entram assim que o pagamento é aprovado):
 ${listaPacotes}

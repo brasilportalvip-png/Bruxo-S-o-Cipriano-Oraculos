@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — Identidade anti-abuso de cupons e bônus
+ * Bruxo São Cipriano Oráculos — Identidade anti-abuso de cupons e bônus
  *
  * Impede que a mesma pessoa crie várias contas para reaproveitar cupons e
  * bônus. Além do ID da conta, o uso é contado por:
@@ -23,7 +23,7 @@ export interface CouponIdentityInput {
 export const IP_TOLERANCE_MULTIPLIER = 3;
 
 function hash(valor: string): string {
-  const segredo = process.env.COUPON_IDENTITY_SALT || 'oraculos-ts-coupon-identity';
+  const segredo = process.env.COUPON_IDENTITY_SALT || 'bruxo-sao-cipriano-coupon-identity';
   return crypto.createHmac('sha256', segredo).update(valor).digest('hex').slice(0, 32);
 }
 

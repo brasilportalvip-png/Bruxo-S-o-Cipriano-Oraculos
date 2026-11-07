@@ -23,7 +23,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    console.error('[ORACULOS.TS UI ErrorBoundary]:', error, errorInfo);
+    console.error('[Bruxo São Cipriano Oráculos UI ErrorBoundary]:', error, errorInfo);
 
     // Auto-recover from stale dynamic module imports after dev server restart or deployment
     const isChunkError =
@@ -65,7 +65,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
             <div className="space-y-2">
               <h1 className="text-2xl font-bold font-serif gold-accent">
-                ORACULOS.TS
+                Bruxo São Cipriano Oráculos
               </h1>
               <p className="text-sm text-gray-300">
                 Ocorreu uma instabilidade inesperada na visualização.

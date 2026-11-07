@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — Páginas públicas para os buscadores
+ * Bruxo São Cipriano Oráculos — Páginas públicas para os buscadores
  *
  * O site é montado no navegador (React). Sem isto, Google e Bing recebiam o MESMO
  * HTML da página inicial em todos os endereços (mesmo título, mesma descrição e
@@ -105,7 +105,8 @@ export function gerarPaginasPublicas(): PaginaPublica[] {
   const paginas: PaginaPublica[] = [];
   const consultores = consultoresPublicos();
   const posts = getDailyBlogPosts().filter((p) => p.status !== 'draft');
-  const logo = `${SITE}/brand/logo-oraculos.png`;
+  const logo = `${SITE}/brand/logo-bruxo-sao-cipriano.png`;
+  const ogPadrao = `${SITE}/brand/og-bruxo-sao-cipriano.jpg`;
 
   // ----- Início
   paginas.push({
@@ -114,10 +115,11 @@ export function gerarPaginasPublicas(): PaginaPublica[] {
     descricao: descricaoSEO(SEO_PAGINAS.inicio.descricao),
     palavraChave: SEO_PAGINAS.inicio.palavraChave,
     ogType: 'website',
-    ogImage: logo,
+    ogImage: ogPadrao,
     jsonLd: [],
-    corpoHtml: `<img src="/brand/logo-oraculos.png" alt="ORACULOS.TS Logo Oficial" width="160" height="160">
-<h1>Consulta de Tarot Online ao Vivo com os melhores oraculistas do Brasil — ORACULOS.TS</h1>
+    corpoHtml: `<img src="/brand/logo-bruxo-sao-cipriano.png" alt="Bruxo São Cipriano Oráculos Logo Oficial" width="160" height="160">
+<h1>Bruxo São Cipriano Oráculos: as Cartas do Feiticeiro, o Tarot e os Oráculos ao Vivo</h1>
+<p>Hoje santo, outrora feiticeiro. Consulte as <a href="/oraculos/sao-cipriano">cartas de São Cipriano</a>, o Tarot, o Baralho Cigano, os Búzios e os astros com oraculistas ao vivo, por chat e vídeo.</p>
 <p>${e(SEO_PAGINAS.inicio.descricao)}</p>
 <h2>Oraculistas credenciados</h2>
 <ul>${consultores.map(cartaoOraculista).join('')}</ul>
@@ -135,7 +137,7 @@ ${navegacao()}`,
     descricao: descricaoSEO(SEO_PAGINAS.oraculos.descricao),
     palavraChave: SEO_PAGINAS.oraculos.palavraChave,
     ogType: 'website',
-    ogImage: logo,
+    ogImage: ogPadrao,
     jsonLd: [breadcrumbJsonLd([{ nome: 'Oráculos', caminho: '/oraculos' }])],
     corpoHtml: `${trilha([{ nome: 'Oráculos', caminho: '/oraculos' }])}
 <h1>Oráculos online: escolha o seu</h1>
@@ -159,7 +161,7 @@ ${navegacao()}`,
     ),
     palavraChave: 'oraculistas online',
     ogType: 'website',
-    ogImage: logo,
+    ogImage: ogPadrao,
     jsonLd: [breadcrumbJsonLd([{ nome: 'Especialistas', caminho: '/especialistas' }])],
     corpoHtml: `${trilha([{ nome: 'Especialistas', caminho: '/especialistas' }])}
 <h1>Oraculistas online credenciados</h1>
@@ -183,7 +185,7 @@ ${navegacao()}`,
       descricao: descricaoSEO(seo.descricao),
       palavraChave: seo.palavraChave,
       ogType: 'website',
-      ogImage: logo,
+      ogImage: ogPadrao,
       jsonLd: [
         {
           '@context': 'https://schema.org',
@@ -191,7 +193,7 @@ ${navegacao()}`,
           name: det?.h1 || seo.titulo,
           serviceType: seo.palavraChave,
           description: seo.descricao,
-          provider: { '@type': 'Organization', name: 'ORACULOS.TS', url: SITE },
+          provider: { '@type': 'Organization', name: 'Bruxo São Cipriano Oráculos', url: SITE },
           areaServed: 'BR',
           availableLanguage: 'pt-BR',
         },
@@ -230,7 +232,7 @@ ${navegacao()}`,
       descricao: descricaoSEO(`${c.name}, ${c.title}. ${c.bio}`),
       palavraChave: `${c.name}`,
       ogType: 'profile',
-      ogImage: absoluto(c.avatar || '/brand/logo-oraculos.png'),
+      ogImage: absoluto(c.avatar || '/brand/logo-bruxo-sao-cipriano.png'),
       jsonLd: [
         {
           '@context': 'https://schema.org',
@@ -238,9 +240,9 @@ ${navegacao()}`,
           name: c.name,
           jobTitle: c.title,
           description: c.bio,
-          image: absoluto(c.avatar || '/brand/logo-oraculos.png'),
+          image: absoluto(c.avatar || '/brand/logo-bruxo-sao-cipriano.png'),
           url: absoluto(caminho),
-          worksFor: { '@type': 'Organization', name: 'ORACULOS.TS', url: SITE },
+          worksFor: { '@type': 'Organization', name: 'Bruxo São Cipriano Oráculos', url: SITE },
           knowsAbout: oraculos.map((s) => NOMES_ORACULOS[s]),
         },
         breadcrumbJsonLd([
@@ -252,7 +254,7 @@ ${navegacao()}`,
         { nome: 'Especialistas', caminho: '/especialistas' },
         { nome: c.name, caminho },
       ])}
-<img src="${e(c.avatar || '/brand/logo-oraculos.png')}" alt="${e(c.name)}" width="144" height="144">
+<img src="${e(c.avatar || '/brand/logo-bruxo-sao-cipriano.png')}" alt="${e(c.name)}" width="144" height="144">
 <h1>${e(c.name)}</h1>
 <p><strong>${e(c.title)}</strong></p>
 <p>${e(c.bio)}</p>
@@ -274,7 +276,7 @@ ${navegacao()}`,
     descricao: descricaoSEO(SEO_PAGINAS.blog.descricao),
     palavraChave: SEO_PAGINAS.blog.palavraChave,
     ogType: 'website',
-    ogImage: logo,
+    ogImage: ogPadrao,
     jsonLd: [breadcrumbJsonLd([{ nome: 'Blog', caminho: '/blog' }])],
     corpoHtml: `${trilha([{ nome: 'Blog', caminho: '/blog' }])}
 <h1>Blog de tarot, astrologia e espiritualidade</h1>
@@ -308,7 +310,7 @@ ${navegacao()}`,
           description: p.seoDescription || p.summary,
           image: capa,
           author: { '@type': 'Person', name: p.author },
-          publisher: { '@type': 'Organization', name: 'ORACULOS.TS', url: SITE, logo: { '@type': 'ImageObject', url: logo } },
+          publisher: { '@type': 'Organization', name: 'Bruxo São Cipriano Oráculos', url: SITE, logo: { '@type': 'ImageObject', url: logo } },
           datePublished: p.publishedAt,
           dateModified: p.updatedAt || p.publishedAt,
           mainEntityOfPage: absoluto(caminho),
@@ -370,7 +372,7 @@ ${navegacao()}`,
       descricao: descricaoSEO(seo.descricao),
       palavraChave: seo.palavraChave,
       ogType: 'website',
-      ogImage: logo,
+      ogImage: ogPadrao,
       jsonLd: [breadcrumbJsonLd([{ nome: inst.nome, caminho: inst.caminho }])],
       corpoHtml: `${trilha([{ nome: inst.nome, caminho: inst.caminho }])}<h1>${e(inst.h1)}</h1><p>${e(seo.descricao)}</p>${inst.texto}${navegacao()}`,
       sitemap: 'static',
@@ -387,7 +389,7 @@ ${navegacao()}`,
       titulo: tituloSEO(doc.title),
       descricao: descricaoSEO(doc.subtitle),
       ogType: 'website',
-      ogImage: logo,
+      ogImage: ogPadrao,
       jsonLd: [breadcrumbJsonLd([{ nome: doc.h1, caminho: doc.canonical }])],
       corpoHtml: `${trilha([{ nome: doc.h1, caminho: doc.canonical }])}<h1>${e(doc.h1)}</h1><p>${e(doc.subtitle)}</p><p><em>Última atualização: ${e(doc.lastUpdated)}</em></p>${doc.sections
         .map((s) => `<h2>${e(s.title)}</h2>${s.content.map((t) => `<p>${e(t)}</p>`).join('')}`)

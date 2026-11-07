@@ -66,8 +66,8 @@ export const OracleDetailPage: React.FC<OracleDetailPageProps> = ({
             description: seoDoOraculo?.descricao || details.subtitle,
             provider: {
               '@type': 'Organization',
-              name: 'ORACULOS.TS',
-              url: 'https://oraculos-ts.vercel.app',
+              name: 'Bruxo São Cipriano Oráculos',
+              url: 'https://bruxo-s-o-cipriano-oraculos.vercel.app',
             },
             areaServed: 'BR',
             availableLanguage: 'pt-BR',
@@ -97,7 +97,7 @@ export const OracleDetailPage: React.FC<OracleDetailPageProps> = ({
         <div className="relative z-10 space-y-4 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-            Motor Oracular Oficial ORACULOS.TS
+            Motor Oracular Oficial Bruxo São Cipriano Oráculos
           </div>
           <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-light text-white leading-tight">
             {details.h1}

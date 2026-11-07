@@ -347,7 +347,7 @@ export async function getUserProfile(
 
   if (!normalizedEmail) {
     console.warn(
-      '[ORACULOS.TS] Perfil não encontrado pelo UID e token sem e-mail.',
+      '[Bruxo São Cipriano Oráculos] Perfil não encontrado pelo UID e token sem e-mail.',
       {
         uid: normalizedUserId,
       },
@@ -368,7 +368,7 @@ export async function getUserProfile(
 
   if (emailSnapshot.empty) {
     console.warn(
-      '[ORACULOS.TS] Perfil não encontrado pelo UID nem pelo e-mail.',
+      '[Bruxo São Cipriano Oráculos] Perfil não encontrado pelo UID nem pelo e-mail.',
       {
         uid: normalizedUserId,
         email: normalizedEmail,
@@ -423,7 +423,7 @@ const repairedProfile =
   );
 
   console.warn(
-    '[ORACULOS.TS] Perfil encontrado pelo e-mail e vinculado ao UID autenticado.',
+    '[Bruxo São Cipriano Oráculos] Perfil encontrado pelo e-mail e vinculado ao UID autenticado.',
     {
       oldDocumentId:
         oldDocument.id,
@@ -541,7 +541,7 @@ export async function createUserProfile(
   );
 
   console.log(
-    '[ORACULOS.TS] Perfil criado no Firestore.',
+    '[Bruxo São Cipriano Oráculos] Perfil criado no Firestore.',
     {
       uid: normalizedUserId,
       email: userProfile.email,

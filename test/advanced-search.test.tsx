@@ -28,8 +28,8 @@ vi.mock('../src/components/ConsultantCard', () => ({
 const mockUser = {
   id: 'user-1',
   name: 'Consulente Teste',
-  email: 'teste@oraculos.ts',
-  favorites: ['c1'], // Helena da Luz favorited
+  email: 'teste@bruxosaocipriano.com.br',
+  favorites: ['c1'], // Rosália de Évora favorited
 };
 
 vi.mock('../src/context/AuthContext', () => ({
@@ -73,14 +73,14 @@ describe('TESTE AVANÇADO DE USUÁRIO: BUSCA AVANÇADA, FILTROS E ORDENAÇÃO NO
     const initialCards = screen.getAllByTestId(/^consultant-card-/);
     expect(initialCards.length).toBe(INITIAL_CONSULTANTS.length);
 
-    // User types "Helena" into the search input
+    // User types "Rosália" into the search input
     const searchInput = screen.getByPlaceholderText(/Buscar por oraculista/i);
-    fireEvent.change(searchInput, { target: { value: 'Helena' } });
+    fireEvent.change(searchInput, { target: { value: 'Rosália' } });
 
-    // Should only show Helena da Luz
+    // Should only show Rosália de Évora
     const filteredCards = screen.getAllByTestId(/^consultant-card-/);
     expect(filteredCards.length).toBe(1);
-    expect(screen.getByText('Helena da Luz')).toBeTruthy();
+    expect(screen.getByText('Rosália de Évora')).toBeTruthy();
 
     // User clears search by clicking the clear 'X' button
     const clearBtn = screen.getByTitle(/Limpar busca/i);
@@ -115,7 +115,7 @@ describe('TESTE AVANÇADO DE USUÁRIO: BUSCA AVANÇADA, FILTROS E ORDENAÇÃO NO
 
     const favoriteCards = screen.getAllByTestId(/^consultant-card-/);
     expect(favoriteCards.length).toBe(1);
-    expect(screen.getByText('Helena da Luz')).toBeTruthy();
+    expect(screen.getByText('Rosália de Évora')).toBeTruthy();
   });
 
   it('3. Usuário seleciona categoria de oráculo (ex: Astrologia)', () => {
@@ -134,8 +134,8 @@ describe('TESTE AVANÇADO DE USUÁRIO: BUSCA AVANÇADA, FILTROS E ORDENAÇÃO NO
 
     expect(onSelectOracleCategory).toHaveBeenCalledWith('astrologia');
 
-    // Mestre Gabriel Astros is an astrologer
-    expect(screen.getByText('Mestre Gabriel Astros')).toBeTruthy();
+    // Mestre Joaquim dos Astros is an astrologer
+    expect(screen.getByText('Mestre Joaquim dos Astros')).toBeTruthy();
   });
 
   it('4. Usuário abre filtros avançados e filtra por faixa de preço por minuto', () => {

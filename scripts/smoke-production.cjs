@@ -120,7 +120,7 @@ async function main() {
       !pageResponse.ok ||
       !contentType.includes('text/html') ||
       !page.includes('<div id="root">') ||
-      !page.includes('<link rel="canonical" href="https://oraculos-ts.vercel.app/especialistas" />')
+      !page.includes('<link rel="canonical" href="https://bruxo-s-o-cipriano-oraculos.vercel.app/especialistas" />')
     ) {
       throw new Error(
         'O frontend (com a página pronta para buscadores) não foi servido pelo servidor de produção.',

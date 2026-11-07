@@ -193,7 +193,7 @@ describe('TESTES DE VALIDAÇÃO, AUTENTICAÇÃO E SINCRONIZAÇÃO (COMPLEMENTO C
   it('8. Deve validar seleção do initialOracle quando autorizado e fallback na primeira especialidade quando não autorizado', () => {
     const consultant = {
       id: 'c1',
-      name: 'Helena da Luz',
+      name: 'Rosália de Évora',
       specialties: ['tarot', 'baralho-cigano', 'mesa-radionica'] as const,
     };
 

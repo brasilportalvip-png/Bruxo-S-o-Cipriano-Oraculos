@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — Blindagem da linguagem oracular
+ * Bruxo São Cipriano Oráculos — Blindagem da linguagem oracular
  *
  * Última camada antes da resposta chegar ao consulente. Garante que:
  *  - nunca apareça "simbólico" (e variações) — o jogo é real;

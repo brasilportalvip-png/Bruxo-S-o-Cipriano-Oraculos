@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — Relógio Oracular
+ * Bruxo São Cipriano Oráculos — Relógio Oracular
  *
  * Dá ao site e a cada atendente a consciência do momento real da consulta:
  * dia, hora, data, mês, ano, saudação correta (bom dia / boa tarde / boa noite),

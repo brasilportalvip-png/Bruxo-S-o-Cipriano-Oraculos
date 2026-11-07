@@ -127,7 +127,7 @@ userRoutes.post(
           await adminAuth.deleteUser(createdUid);
         } catch (rollbackError) {
           console.error(
-            '[ORACULOS.TS] Falha ao desfazer usuário:',
+            '[Bruxo São Cipriano Oráculos] Falha ao desfazer usuário:',
             rollbackError,
           );
         }
@@ -176,7 +176,7 @@ userRoutes.post(
       }
 
       console.error(
-        '[ORACULOS.TS] Erro no cadastro:',
+        '[Bruxo São Cipriano Oráculos] Erro no cadastro:',
         error,
       );
 
@@ -275,7 +275,7 @@ userRoutes.get(
           );
 
           console.warn(
-            '[ORACULOS.TS] Perfil recuperado pelo e-mail e vinculado ao UID atual.',
+            '[Bruxo São Cipriano Oráculos] Perfil recuperado pelo e-mail e vinculado ao UID atual.',
             {
               oldDocumentId: oldDocument.id,
               currentUid: userId,
@@ -292,7 +292,7 @@ userRoutes.get(
       }
 
       console.warn(
-        '[ORACULOS.TS] Perfil não encontrado.',
+        '[Bruxo São Cipriano Oráculos] Perfil não encontrado.',
         {
           uid: userId,
           email: userEmail || null,
@@ -309,7 +309,7 @@ userRoutes.get(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao buscar perfil:',
+        '[Bruxo São Cipriano Oráculos] Erro ao buscar perfil:',
         error,
       );
 
@@ -382,7 +382,7 @@ userRoutes.patch(
       });
     } catch (error) {
       console.error(
-        '[ORACULOS.TS] Erro ao atualizar perfil:',
+        '[Bruxo São Cipriano Oráculos] Erro ao atualizar perfil:',
         error,
       );
 

@@ -127,7 +127,7 @@ export const requireAuth = async (
   try {
     if (getApps().length === 0) {
       console.error(
-        '[ORACULOS.TS] Firebase Admin não inicializado no middleware de autenticação.',
+        '[Bruxo São Cipriano Oráculos] Firebase Admin não inicializado no middleware de autenticação.',
       );
 
       return res.status(500).json({
@@ -238,7 +238,7 @@ export const requireAuth = async (
        * continua utilizando a custom claim.
        */
       console.error(
-        '[ORACULOS.TS] Não foi possível consultar o papel no Firestore:',
+        '[Bruxo São Cipriano Oráculos] Não foi possível consultar o papel no Firestore:',
         firestoreError,
       );
     }
@@ -252,7 +252,7 @@ export const requireAuth = async (
     };
 
     console.log(
-      '[ORACULOS.TS] Token Firebase autenticado.',
+      '[Bruxo São Cipriano Oráculos] Token Firebase autenticado.',
       {
         uid: req.user.uid,
         email:
@@ -266,7 +266,7 @@ export const requireAuth = async (
     return next();
   } catch (error) {
     console.error(
-      '[ORACULOS.TS] Token Firebase rejeitado:',
+      '[Bruxo São Cipriano Oráculos] Token Firebase rejeitado:',
       error,
     );
 
@@ -347,7 +347,7 @@ export const requireRole = (
       });
 
       console.warn(
-        '[ORACULOS.TS] Acesso RBAC negado.',
+        '[Bruxo São Cipriano Oráculos] Acesso RBAC negado.',
         {
           uid:
             req.user.uid,

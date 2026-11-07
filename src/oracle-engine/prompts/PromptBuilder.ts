@@ -32,7 +32,7 @@ export default class PromptBuilder {
 
     return `
 ============================================================
-ORACULOS.TS
+Bruxo São Cipriano Oráculos
 MOTOR DE PROMPT ENTERPRISE
 ============================================================
 

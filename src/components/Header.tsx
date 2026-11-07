@@ -119,34 +119,34 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab }) => 
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-[#050508]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+      <header className="sticky top-0 z-40 bg-[#0a0202]/90 backdrop-blur-xl border-b border-[#d4af37]/20 shadow-2xl shadow-red-950/40">
         <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 min-w-0">
           {/* Logo Brand */}
           <a
             href={hrefFor('showcase')}
             onClick={(event) => handleInternalLink(event, 'showcase')}
             className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink-0 min-w-0"
-            aria-label="ORACULOS.TS — página inicial"
+            aria-label="Bruxo São Cipriano Oráculos — página inicial"
           >
             <div className="relative">
               <img
-                src="/brand/logo-oraculos.png?v=20260831b"
-                alt="ORACULOS.TS Logo"
+                src="/brand/logo-bruxo-sao-cipriano.png?v=20260831b"
+                alt="Bruxo São Cipriano Oráculos Logo"
                 width="48"
                 height="48"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = 'https://portalvipbrasil.com.br/wp-content/uploads/2026/07/logo-oraculos.png';
+                  (e.currentTarget as HTMLImageElement).src = '/image/logo-bruxo-sao-cipriano.png';
                 }}
-                className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-xl border border-[#d4af37]/40 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform bg-[#0a0a12]/80 p-0.5"
+                className="aura-vermelha w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-full border border-[#d4af37]/60 group-hover:scale-105 transition-transform bg-[#0a0202]"
               />
             </div>
             <div className="hidden min-[430px]:block">
-              <div className="flex items-center gap-1">
-                <span className="text-xl font-semibold tracking-tighter text-white">ORACULOS</span>
-                <span className="text-xl font-extrabold gold-accent">.TS</span>
+              <div className="flex items-baseline gap-1.5 leading-none">
+                <span className="font-gotica text-lg sm:text-2xl text-gray-100">Bruxo</span>
+                <span className="font-gotica text-lg sm:text-2xl texto-ouro">São Cipriano</span>
               </div>
-              <p className="text-[10px] text-amber-300/80 font-medium tracking-widest uppercase font-serif italic">
-                Sabedoria Ancestral
+              <p className="font-cinzel text-[9px] sm:text-[10px] font-bold tracking-[0.35em] uppercase texto-sangue mt-0.5">
+                Oráculos
               </p>
             </div>
           </a>
@@ -405,7 +405,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab }) => 
             {isAuthenticated && (
               <div className="hidden sm:flex items-center gap-2 p-1 glass-card rounded-full border border-white/10">
                 <img
-                  src={user.avatar || '/brand/logo-oraculos.png'}
+                  src={user.avatar || '/brand/logo-bruxo-sao-cipriano.png'}
                   alt={user.name}
                   className="w-8 h-8 rounded-full object-cover border border-[#d4af37]/40"
                 />
@@ -547,7 +547,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setCurrentTab }) => 
                 }`}
               >
                 <Compass className="w-4 h-4 text-amber-400" />
-                10 Oráculos & Especialistas
+                11 Oráculos & Especialistas
               </a>
 
               <a

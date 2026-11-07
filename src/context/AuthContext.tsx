@@ -655,7 +655,7 @@ const syncMinuteBalance = (
     normalizedBalance < 0
   ) {
     console.error(
-      '[ORACULOS.TS] Saldo inválido recebido do servidor.',
+      '[Bruxo São Cipriano Oráculos] Saldo inválido recebido do servidor.',
       minutes,
     );
 

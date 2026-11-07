@@ -6,8 +6,8 @@ import crypto from 'crypto';
 const PNG_MAGIC = Buffer.from([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]);
 const ICO_MAGIC = Buffer.from([0x00, 0x00, 0x01, 0x00]);
 
-const BRAND_PATH = path.resolve(__dirname, '../public/brand/logo-oraculos.png');
-const IMAGE_PATH = path.resolve(__dirname, '../public/image/logo-oraculo.ts.png');
+const BRAND_PATH = path.resolve(__dirname, '../public/brand/logo-bruxo-sao-cipriano.png');
+const IMAGE_PATH = path.resolve(__dirname, '../public/image/logo-bruxo-sao-cipriano.png');
 const FAVICON_ICO_PATH = path.resolve(__dirname, '../public/favicon.ico');
 const FAVICON_PNG_PATH = path.resolve(__dirname, '../public/favicon.png');
 const APPLE_TOUCH_PATH = path.resolve(__dirname, '../public/apple-touch-icon.png');
@@ -34,8 +34,8 @@ function checkPng(filePath: string, expectedWidth?: number, expectedHeight?: num
   }
 }
 
-describe('VALIDAÇÃO DE ATIVOS BINÁRIOS OFICIAIS (LOGO, ÍCONES E PWA ORACULOS.TS)', () => {
-  it('1. Deve validar que o arquivo public/brand/logo-oraculos.png é um binário PNG genuíno e não corrompido', () => {
+describe('VALIDAÇÃO DE ATIVOS BINÁRIOS OFICIAIS (LOGO, ÍCONES E PWA Bruxo São Cipriano Oráculos)', () => {
+  it('1. Deve validar que o arquivo public/brand/logo-bruxo-sao-cipriano.png é um binário PNG genuíno e não corrompido', () => {
     expect(fs.existsSync(BRAND_PATH)).toBe(true);
 
     const buf = fs.readFileSync(BRAND_PATH);
@@ -55,13 +55,13 @@ expect(width).toBe(300);
 expect(height).toBe(300);
 
 const sha256 = crypto.createHash('sha256').update(buf).digest('hex');
-expect(sha256).toBe('56ed6355889ee8b008b640fc56a3cd7f2937c7aac1a772b0dd1f6c7d79afb1ac');
+expect(sha256).toBe('f4733ef11397877ca9071d11611205cf75b62a453b21e197b00479f57faa181b');
 
 
 
  });
 
-  it('2. Deve validar que public/image/logo-oraculo.ts.png é rigorosamente idêntico byte a byte ao logo oficial', () => {
+  it('2. Deve validar que public/image/logo-bruxo-sao-cipriano.png é rigorosamente idêntico byte a byte ao logo oficial', () => {
     expect(fs.existsSync(IMAGE_PATH)).toBe(true);
 
     const bufBrand = fs.readFileSync(BRAND_PATH);

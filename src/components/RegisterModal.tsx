@@ -224,10 +224,10 @@ const [resetMessage, setResetMessage] =
         <div className="text-center mb-5">
           <div className="flex justify-center mb-3">
             <img
-              src="/brand/logo-oraculos.png?v=20260831"
-              alt="ORACULOS.TS Logo"
+              src="/brand/logo-bruxo-sao-cipriano.png?v=20260831"
+              alt="Bruxo São Cipriano Oráculos Logo"
               onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = 'https://portalvipbrasil.com.br/wp-content/uploads/2026/07/logo-oraculos.png';
+                (e.currentTarget as HTMLImageElement).src = '/image/logo-bruxo-sao-cipriano.png';
               }}
               className="w-14 h-14 object-contain rounded-xl border border-[#d4af37]/40 shadow-lg bg-[#06060c] p-1"
             />
@@ -235,7 +235,7 @@ const [resetMessage, setResetMessage] =
 
           <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-amber-200 to-amber-400">
             {mode === 'login'
-              ? 'Entrar no ORACULOS.TS'
+              ? 'Entrar no Bruxo São Cipriano Oráculos'
               : 'Cadastro de Consulente'}
           </h2>
 

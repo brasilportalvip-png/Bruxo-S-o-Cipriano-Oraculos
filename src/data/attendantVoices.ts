@@ -1,5 +1,5 @@
 /**
- * ORACULOS.TS — A voz única de cada atendente
+ * Bruxo São Cipriano Oráculos — A voz única de cada atendente
  *
  * Cada atendente tem um jeito próprio de conversar: como cumprimenta, como
  * chama o consulente, o ritmo das frases, as expressões que só ele(a) usa,

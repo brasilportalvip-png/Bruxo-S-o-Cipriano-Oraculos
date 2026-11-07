@@ -31,7 +31,7 @@ describe('V10 — Páginas prontas para Google e Bing', () => {
       expect(decod(descricao).length, `${p.caminho} descrição`).toBeLessThanOrEqual(156);
       expect((html.match(/<h1/g) || []).length, `${p.caminho} h1`).toBe(1);
       expect((html.match(/rel="canonical"/g) || []).length, `${p.caminho} canonical`).toBe(1);
-      expect(html, p.caminho).toContain(`<link rel="canonical" href="https://oraculos-ts.vercel.app${p.caminho}" />`);
+      expect(html, p.caminho).toContain(`<link rel="canonical" href="https://bruxo-s-o-cipriano-oraculos.vercel.app${p.caminho}" />`);
       for (const bloco of html.match(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g) || []) {
         JSON.parse(bloco.replace(/^<script[^>]*>/, '').replace(/<\/script>$/, ''));
       }
@@ -49,8 +49,8 @@ describe('V10 — Páginas prontas para Google e Bing', () => {
   it('sitemaps saem da mesma fonte e trazem as páginas novas', () => {
     const s = gerarSitemaps(paginas);
     expect(s['sitemap.xml']).toContain('sitemap-blog.xml');
-    expect(s['sitemap-blog.xml']).toContain('https://oraculos-ts.vercel.app/blog/significado-das-cartas-do-baralho-cigano');
-    expect(s['sitemap-static.xml']).toContain('<loc>https://oraculos-ts.vercel.app/termos</loc>');
+    expect(s['sitemap-blog.xml']).toContain('https://bruxo-s-o-cipriano-oraculos.vercel.app/blog/significado-das-cartas-do-baralho-cigano');
+    expect(s['sitemap-static.xml']).toContain('<loc>https://bruxo-s-o-cipriano-oraculos.vercel.app/termos</loc>');
     expect(s['sitemap.txt'].trim().split('\n').length).toBe(paginas.length);
   });
 });

@@ -101,7 +101,7 @@ export const HelpAndPrivacy: React.FC = () => {
 
   const handleExportDataJson = () => {
     const exportPayload = {
-      plataforma: 'ORACULOS.TS',
+      plataforma: 'Bruxo São Cipriano Oráculos',
       dataExportacao: new Date().toISOString(),
       leiGeralProtecaoDados: 'Lei Nº 13.709/2018 (LGPD)',
       usuario: {
@@ -139,7 +139,7 @@ export const HelpAndPrivacy: React.FC = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email: user?.email || ticketEmail || 'anonimo@oraculos.ts',
+          email: user?.email || ticketEmail || 'anonimo@bruxosaocipriano.com.br',
           name: user?.name || 'Titular LGPD',
           subject: 'Solicitação Formal de Exclusão de Conta e Anonimização de Dados (LGPD)',
           message: `O titular ${user?.name || 'Consulente'} (ID: ${user?.id || 'N/A'}) solicitou a exclusão e anonimização de todos os seus dados pessoais com base no Art. 18 da Lei 13.709/2018.`,

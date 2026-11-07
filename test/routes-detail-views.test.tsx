@@ -34,7 +34,7 @@ describe('TESTES DE ROTAS INDIVIDUAIS: Especialistas, Artigos, Oráculos e 404',
       </AuthProvider>
     );
 
-    expect(screen.getByText('Helena da Luz')).toBeTruthy();
+    expect(screen.getByText('Rosália de Évora')).toBeTruthy();
     expect(screen.getByText(/Taróloga e Mestra em Baralho Cigano/)).toBeTruthy();
     expect(screen.getByText('R$ 3.50')).toBeTruthy();
   });
@@ -73,7 +73,7 @@ describe('TESTES DE ROTAS INDIVIDUAIS: Especialistas, Artigos, Oráculos e 404',
     );
 
     expect(screen.getAllByText(/O Portal do Tarot em 2026/)[0]).toBeTruthy();
-    expect(screen.getByText('Helena da Luz')).toBeTruthy();
+    expect(screen.getByText('Rosália de Évora')).toBeTruthy();
   });
 
   it('4. ArticleDetailPage deve renderizar 404 se o slug do artigo não existir', () => {

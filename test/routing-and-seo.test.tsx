@@ -100,21 +100,21 @@ describe('SEOHead de produção', () => {
         title="Tarot Online"
         description="Descrição específica da rota."
         canonicalPath="/oraculos/tarot?utm_source=teste#secao"
-        ogImage="/brand/logo-oraculos.png"
+        ogImage="/brand/logo-bruxo-sao-cipriano.png"
         ogImageAlt="Logo oficial"
       />
     );
 
     await waitFor(() => {
-      expect(document.title).toBe('Tarot Online | ORACULOS.TS');
+      expect(document.title).toBe('Tarot Online | Bruxo São Cipriano Oráculos');
       expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(
-        'https://oraculos-ts.vercel.app/oraculos/tarot'
+        'https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/tarot'
       );
       expect(document.querySelector('meta[property="og:url"]')?.getAttribute('content')).toBe(
-        'https://oraculos-ts.vercel.app/oraculos/tarot'
+        'https://bruxo-s-o-cipriano-oraculos.vercel.app/oraculos/tarot'
       );
       expect(document.querySelector('meta[name="twitter:image"]')?.getAttribute('content')).toBe(
-        'https://oraculos-ts.vercel.app/brand/logo-oraculos.png'
+        'https://bruxo-s-o-cipriano-oraculos.vercel.app/brand/logo-bruxo-sao-cipriano.png'
       );
     });
   });

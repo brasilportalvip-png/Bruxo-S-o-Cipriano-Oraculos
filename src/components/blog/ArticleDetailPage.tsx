@@ -37,7 +37,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
   };
 
   const handleShareWhatsApp = () => {
-    const text = encodeURIComponent(`✨ Sabedoria dos Oráculos: ${post.title}\n\nLeia o artigo completo no Portal ORACULOS.TS:\n${window.location.href}`);
+    const text = encodeURIComponent(`✨ Sabedoria dos Oráculos: ${post.title}\n\nLeia o artigo completo no Portal Bruxo São Cipriano Oráculos:\n${window.location.href}`);
     window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
   };
 
@@ -65,11 +65,11 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
           },
           publisher: {
             '@type': 'Organization',
-            name: 'ORACULOS.TS',
-            url: 'https://oraculos-ts.vercel.app',
+            name: 'Bruxo São Cipriano Oráculos',
+            url: 'https://bruxo-s-o-cipriano-oraculos.vercel.app',
           },
           datePublished: post.date,
-          mainEntityOfPage: `https://oraculos-ts.vercel.app${canonicalUrl}`,
+          mainEntityOfPage: `https://bruxo-s-o-cipriano-oraculos.vercel.app${canonicalUrl}`,
           inLanguage: 'pt-BR',
         }]}
       />

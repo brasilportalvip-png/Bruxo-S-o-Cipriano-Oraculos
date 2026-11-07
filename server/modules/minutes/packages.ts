@@ -134,7 +134,7 @@ async function ensureDefaultPackages(): Promise<void> {
   await batch.commit();
 
   console.log(
-    '[ORACULOS.TS] Pacotes padrão gravados no Firestore.',
+    '[Bruxo São Cipriano Oráculos] Pacotes padrão gravados no Firestore.',
   );
 }
 

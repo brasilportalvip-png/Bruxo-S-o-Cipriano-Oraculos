@@ -11,7 +11,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onGoHome }) => {
     <div className="py-16 text-center max-w-xl mx-auto space-y-6">
       <SEOHead
         title="Página Não Encontrada (Erro 404)"
-        description="A página solicitada não foi encontrada ou foi movida no portal ORACULOS.TS."
+        description="A página solicitada não foi encontrada ou foi movida no portal Bruxo São Cipriano Oráculos."
         canonicalPath="/404"
         noIndex
       />

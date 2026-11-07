@@ -20,7 +20,7 @@ O **tarot sim ou não** é a forma mais rápida de consultar as cartas: você fa
 
 ## Como funciona o tarot sim ou não
 
-Na tiragem de sim ou não, o oraculista concentra a sua pergunta e abre o jogo. Cada arcano tem uma energia que **abre**, **fecha** ou **pede cautela**. A resposta final nasce da carta principal combinada com as que vêm ao lado — e, no ORACULOS.TS, também dos seus **dados natal** (nome de solteiro e data de nascimento) e da energia do dia em que o jogo é aberto.
+Na tiragem de sim ou não, o oraculista concentra a sua pergunta e abre o jogo. Cada arcano tem uma energia que **abre**, **fecha** ou **pede cautela**. A resposta final nasce da carta principal combinada com as que vêm ao lado — e, no Bruxo São Cipriano Oráculos, também dos seus **dados natal** (nome de solteiro e data de nascimento) e da energia do dia em que o jogo é aberto.
 
 ## Cartas que costumam dizer SIM
 
@@ -53,7 +53,7 @@ Na tiragem de sim ou não, o oraculista concentra a sua pergunta e abre o jogo. 
 ---
 
 > 🔮 **QUER UMA RESPOSTA DE SIM OU NÃO AGORA?**
-> Converse ao vivo com uma taróloga do ORACULOS.TS por chat ou vídeo, com sigilo total. Você paga só os minutos que usar.
+> Converse ao vivo com uma taróloga do Bruxo São Cipriano Oráculos por chat ou vídeo, com sigilo total. Você paga só os minutos que usar.
 >
 > 👉 **[CONSULTAR O TAROT AGORA](/oraculos/tarot)**
 
@@ -66,8 +66,8 @@ Na tiragem de sim ou não, o oraculista concentra a sua pergunta e abre o jogo. 
 **Posso perguntar várias vezes a mesma coisa?** O ideal é perguntar uma vez e ouvir o conselho. Repetir a pergunta por ansiedade costuma confundir a leitura.
     `,
     category: 'tarot',
-    author: 'Helena da Luz',
-    reviewer: 'Aura Celeste',
+    author: 'Rosália de Évora',
+    reviewer: 'Justina das Sete Velas',
     date: '31/10/2026',
     publishedAt: '2026-10-31T09:00:00.000-03:00',
     updatedAt: '2026-10-31T09:00:00.000-03:00',
@@ -155,8 +155,8 @@ No Baralho Cigano as cartas **conversam entre si**. O Coração ao lado do Anel 
 ---
     `,
     category: 'cigano',
-    author: 'Soraya Lenormand',
-    reviewer: 'Mestre Zahir do Oriente',
+    author: 'Cigana Esmeralda do Caminho',
+    reviewer: 'Cigano Vladimir das Estradas',
     date: '31/10/2026',
     publishedAt: '2026-10-31T10:00:00.000-03:00',
     updatedAt: '2026-10-31T10:00:00.000-03:00',
@@ -186,7 +186,7 @@ No Baralho Cigano as cartas **conversam entre si**. O Coração ao lado do Anel 
 
 ## Como o tarot responde se ele vai voltar
 
-Uma boa leitura de reconciliação olha três coisas: **o que ele sente hoje**, **o que impede a volta** e **o desfecho indicado**. No ORACULOS.TS a leitura cruza os **dados natal dos dois** — o seu nome de solteira e data de nascimento e os dele — com a energia do dia, o que deixa a resposta muito mais precisa do que uma tiragem genérica.
+Uma boa leitura de reconciliação olha três coisas: **o que ele sente hoje**, **o que impede a volta** e **o desfecho indicado**. No Bruxo São Cipriano Oráculos a leitura cruza os **dados natal dos dois** — o seu nome de solteira e data de nascimento e os dele — com a energia do dia, o que deixa a resposta muito mais precisa do que uma tiragem genérica.
 
 ## Cartas que indicam volta
 
@@ -224,8 +224,8 @@ Uma boa leitura de reconciliação olha três coisas: **o que ele sente hoje**, 
 **E se eu não souber a data de nascimento dele?** A leitura ainda é feita, mas com a data ela fica muito mais completa.
     `,
     category: 'tarot',
-    author: 'Iara das Águas',
-    reviewer: 'Helena da Luz',
+    author: 'Dona Laurinda da Fonte',
+    reviewer: 'Rosália de Évora',
     date: '31/10/2026',
     publishedAt: '2026-10-31T11:00:00.000-03:00',
     updatedAt: '2026-10-31T11:00:00.000-03:00',
@@ -288,8 +288,8 @@ Além do Orixá de cabeça, o jogo revela **caminhos abertos e fechados**, prote
 **Posso ter mais de um Orixá?** Sim. Há o Orixá de cabeça (o principal) e os que caminham junto (juntó).
     `,
     category: 'buzios',
-    author: 'Mãe Serena de Oya',
-    reviewer: 'Mãe Nadja',
+    author: 'Mãe Josefa da Ventania',
+    reviewer: 'Mãe Conceição da Cachoeira',
     date: '31/10/2026',
     publishedAt: '2026-10-31T12:00:00.000-03:00',
     updatedAt: '2026-10-31T12:00:00.000-03:00',
@@ -347,7 +347,7 @@ A **numerologia do nome** revela talentos, desafios e a forma como você se expr
 
 ## Nome + data de nascimento: o mapa completo
 
-O nome mostra **como você se expressa**; a data de nascimento mostra o **caminho de vida**. Juntos, com o **dia pessoal** de hoje, eles formam o mapa que os numerólogos do ORACULOS.TS usam para responder perguntas como "qual o melhor dia para assinar o contrato?".
+O nome mostra **como você se expressa**; a data de nascimento mostra o **caminho de vida**. Juntos, com o **dia pessoal** de hoje, eles formam o mapa que os numerólogos do Bruxo São Cipriano Oráculos usam para responder perguntas como "qual o melhor dia para assinar o contrato?".
 
 ---
 
@@ -359,8 +359,8 @@ O nome mostra **como você se expressa**; a data de nascimento mostra o **caminh
 ---
     `,
     category: 'numerologia',
-    author: 'Gabriel Áurea',
-    reviewer: 'Guilherme Solis',
+    author: 'Frei Tomé dos Números',
+    reviewer: 'Mestre Anselmo de Antioquia',
     date: '31/10/2026',
     publishedAt: '2026-10-31T13:00:00.000-03:00',
     updatedAt: '2026-10-31T13:00:00.000-03:00',
@@ -390,7 +390,7 @@ O nome mostra **como você se expressa**; a data de nascimento mostra o **caminh
 
 ## Como funciona a leitura para emprego
 
-No ORACULOS.TS, a leitura para emprego cruza:
+No Bruxo São Cipriano Oráculos, a leitura para emprego cruza:
 
 - **Seus dados natal** (nome de solteiro e data de nascimento);
 - **A data da entrevista** — "amanhã tenho entrevista" ou "daqui 4 dias" — com a energia exata daquele dia;
@@ -427,8 +427,8 @@ Assim a leitura não é só "vai dar certo?", mas **como** e **quando**.
 ---
     `,
     category: 'tarot',
-    author: 'Guilherme Solis',
-    reviewer: 'Helena da Luz',
+    author: 'Mestre Anselmo de Antioquia',
+    reviewer: 'Rosália de Évora',
     date: '31/10/2026',
     publishedAt: '2026-10-31T14:00:00.000-03:00',
     updatedAt: '2026-10-31T14:00:00.000-03:00',

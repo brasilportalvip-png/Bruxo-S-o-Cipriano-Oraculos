@@ -47,8 +47,8 @@ export const SpecialistDetailPage: React.FC<SpecialistDetailPageProps> = ({
             jobTitle: consultant.title,
             description: consultant.bio,
             image: consultant.avatar,
-            url: `https://oraculos-ts.vercel.app${canonicalUrl}`,
-            worksFor: { '@type': 'Organization', name: 'ORACULOS.TS', url: 'https://oraculos-ts.vercel.app' },
+            url: `https://bruxo-s-o-cipriano-oraculos.vercel.app${canonicalUrl}`,
+            worksFor: { '@type': 'Organization', name: 'Bruxo São Cipriano Oráculos', url: 'https://bruxo-s-o-cipriano-oraculos.vercel.app' },
           },
           breadcrumbJsonLd([
             { nome: 'Especialistas', caminho: '/especialistas' },

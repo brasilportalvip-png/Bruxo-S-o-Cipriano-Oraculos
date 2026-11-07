@@ -7,7 +7,7 @@ import {
   normalizarOracleProfileId,
 } from '../src/oracle-engine';
 
-describe('BATERIA DE TESTES DOS 11 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (ORACULOS.TS)', () => {
+describe('BATERIA DE TESTES DOS 11 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (Bruxo São Cipriano Oráculos)', () => {
   beforeEach(() => {
     process.env.NODE_ENV = 'test';
     delete process.env.STRICT_AUTH;
@@ -121,7 +121,7 @@ describe('BATERIA DE TESTES DOS 11 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (OR
 
   // TEST 6: API Rejeita Oráculo Não Autorizado para o Consultor (403)
   it('6. Deve proibir com HTTP 403 o uso de oráculo não autorizado para o consultor', async () => {
-    // Helena da Luz (c1) possui especialidades 'tarot', 'cigano', 'mesaradionica' -> não autorizada para 'runas'
+    // Rosália de Évora (c1) possui especialidades 'tarot', 'cigano', 'mesaradionica' -> não autorizada para 'runas'
     const res = await request(app)
       .post('/api/ai/oracle-interpretation')
       .set('x-user-id', 'usr-client-1')
@@ -153,7 +153,7 @@ describe('BATERIA DE TESTES DOS 11 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (OR
 
   // TEST 8: Chat Virtual Rejeita Oráculo Não Autorizado (403)
   it('8. Deve proibir com HTTP 403 oráculo não autorizado para atendente virtual', async () => {
-    // Soraya Lenormand (ai_c3) está autorizada para 'cigano' -> não para 'astrologia'
+    // Cigana Esmeralda do Caminho (ai_c3) está autorizada para 'cigano' -> não para 'astrologia'
     const res = await request(app)
       .post('/api/ai/virtual-attendant-chat')
       .set('x-user-id', 'usr-client-1')

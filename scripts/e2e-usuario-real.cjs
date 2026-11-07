@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ORACULOS.TS — Teste de usuário real
+ * Bruxo São Cipriano Oráculos — Teste de usuário real
  *
  * Sobe a versão de produção (dist/server.cjs) e abre um navegador Chromium de
  * verdade, navegando como um cliente faria — no computador (1366px) e no
@@ -90,7 +90,7 @@ async function testarPagina(page, aparelho, pagina) {
     // O que o robô do Google/Bing recebe ANTES de executar JavaScript
     const bruto = await fetch(`${BASE}${pagina.url}`).then((r) => r.text()).catch(() => '');
     const canonicalBruto = (bruto.match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || '';
-    const esperado = `https://oraculos-ts.vercel.app${pagina.url === '/' ? '/' : pagina.url}`;
+    const esperado = `https://bruxo-s-o-cipriano-oraculos.vercel.app${pagina.url === '/' ? '/' : pagina.url}`;
     const textoBruto = (bruto.split('<div id="root">')[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
     registrar(
       aparelho.nome,
@@ -157,7 +157,7 @@ async function testarPagina(page, aparelho, pagina) {
       info.descricao.length >= 120 && info.descricao.length <= 156,
       `${info.descricao.length} caracteres`,
     );
-    registrar(aparelho.nome, pagina.nome, 'canonical', info.canonical.startsWith('https://oraculos-ts.vercel.app'), info.canonical);
+    registrar(aparelho.nome, pagina.nome, 'canonical', info.canonical.startsWith('https://bruxo-s-o-cipriano-oraculos.vercel.app'), info.canonical);
     let jsonOk = info.jsonld.length > 0;
     for (const bloco of info.jsonld) {
       try {
@@ -283,9 +283,9 @@ function gerarRelatorio() {
     )
     .join('\n');
   const total = resultados.length;
-  const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Teste de usuário real — ORACULOS.TS</title>
+  const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Teste de usuário real — Bruxo São Cipriano Oráculos</title>
 <style>body{font-family:system-ui,sans-serif;background:#0b0813;color:#eee;padding:24px}h1{color:#d4af37}table{border-collapse:collapse;width:100%;font-size:13px}td,th{border-bottom:1px solid #2a2440;padding:6px 8px;text-align:left}tr.erro{background:#3a1220}tr.aviso{background:#3a2e10}tr.aviso td:first-child{color:#fbbf24}tr.ok td:first-child{color:#4ade80}tr.erro td:first-child{color:#f87171}a{color:#d4af37}.resumo{font-size:18px;margin:12px 0 20px}</style></head>
-<body><h1>Teste de usuário real — ORACULOS.TS</h1><div class="resumo">${total - falhas - avisos} de ${total} verificações aprovadas ${
+<body><h1>Teste de usuário real — Bruxo São Cipriano Oráculos</h1><div class="resumo">${total - falhas - avisos} de ${total} verificações aprovadas ${
     falhas ? `— <b style="color:#f87171">${falhas} problema(s) grave(s)</b>` : '— <b style="color:#4ade80">nenhum problema grave</b>'
   }${avisos ? ` · <b style="color:#fbbf24">${avisos} aviso(s) de melhoria</b>` : ''}<br><small>${new Date().toLocaleString('pt-BR')} · computador 1366px e celular 390px · Chromium</small></div>
 <table><tr><th></th><th>Aparelho</th><th>Página</th><th>Verificação</th><th>Detalhe</th><th>Print</th></tr>${linhas}</table></body></html>`;

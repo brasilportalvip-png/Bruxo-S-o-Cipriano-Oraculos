@@ -1,9 +1,9 @@
 import type React from 'react';
 
-export const DEFAULT_CONSULTANT_AVATAR = '/brand/logo-oraculos.png?v=20260831';
-export const DEFAULT_FEMALE_AVATAR = '/consultants/aura-celeste.webp';
-export const DEFAULT_MALE_AVATAR = '/consultants/guilherme-solis.webp';
-export const DEFAULT_USER_AVATAR = '/brand/logo-oraculos.png?v=20260831';
+export const DEFAULT_CONSULTANT_AVATAR = '/brand/logo-bruxo-sao-cipriano.png?v=20260831';
+export const DEFAULT_FEMALE_AVATAR = '/consultants/justina-sete-velas.webp';
+export const DEFAULT_MALE_AVATAR = '/consultants/mestre-anselmo-antioquia.webp';
+export const DEFAULT_USER_AVATAR = '/brand/logo-bruxo-sao-cipriano.png?v=20260831';
 
 /**
  * Retorna o avatar fallback apropriado respeitando o gênero do consultor

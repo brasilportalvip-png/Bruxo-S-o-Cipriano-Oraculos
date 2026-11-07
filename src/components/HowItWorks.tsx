@@ -13,7 +13,7 @@ export const HowItWorks: React.FC = () => {
           <HelpCircle className="w-4 h-4 gold-accent" />
           Transparência & Tecnologia
         </div>
-        <h1 className="font-serif text-3xl sm:text-4xl font-light text-white">Como Funciona a ORACULOS.TS</h1>
+        <h1 className="font-serif text-3xl sm:text-4xl font-light text-white">Como Funciona a Bruxo São Cipriano Oráculos</h1>
         <p className="text-xs sm:text-sm text-gray-400 font-light">
           Sua consulta de Tarot, Búzios e Astrologia sem complicações em 3 passos simples.
         </p>
