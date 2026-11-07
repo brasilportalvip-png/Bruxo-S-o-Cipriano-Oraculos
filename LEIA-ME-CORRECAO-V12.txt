@@ -1,0 +1,52 @@
+BRUXO SAO CIPRIANO ORACULOS - V12: ORACULO DE SAO CIPRIANO (11o ORACULO)
+
+COMO INSTALAR
+1. Extraia o ZIP nos Downloads (botao direito > Extrair tudo).
+2. Dois cliques em INSTALAR_TESTAR_E_ABRIR_PR_V12.cmd
+3. Ele baixa o projeto, aplica a V12, instala, roda TODOS os testes, gera a versao
+   de producao e abre o Pull Request.
+4. Quando os testes do GitHub ficarem verdes, clique em "Merge pull request".
+
+O QUE ENTRA NO SITE
+- Novo oraculo: ORACULO DE SAO CIPRIANO, o primeiro da lista de oraculos.
+  Pagina propria: /oraculos/sao-cipriano (com texto para o Google, FAQ e sitemap).
+- Baralho iberico de 40 cartas (As a 7, Valete, Dama e Rei), com os dois sistemas do
+  "Grande Livro de S. Cypriano ou Thesouro do Feiticeiro":
+    * Cruz de Sao Cipriano ("Modo de deitar as cartas tal e qual as deitava S. Cipriano")
+      4 cartas em cruz - usada em perguntas de trabalho, dinheiro e assuntos gerais.
+    * Cartomancia Cruzada - 9 casas em cruz - usada em perguntas de amor, familia,
+      inveja e intrigas.
+  Cada carta guarda o dizer antigo do livro ("uma prenda", "brevemente", "enredo"...)
+  e a traducao para o portugues de hoje.
+- A IA (Gemini) recebe a mesa pronta e escreve a leitura juntando as cartas em frases,
+  como o livro manda, com a voz do consultor.
+- Novo consultor virtual: BRUXO CIPRIANO (ai_c21), com a foto da arte do Bruxo,
+  voz propria ("Sao Cipriano seja comigo", "Que Sao Cipriano te guarde") e autorizado
+  somente para o Oraculo de Sao Cipriano.
+- Imagem do blog/compartilhamento: /blog/sao-cipriano.svg
+- Pesquisa completa das fontes em docs/oraculo-sao-cipriano.json
+
+SEGURANCA DA LEITURA
+- O livro registra combinacoes de "morte" (4 de Ouros + 4 ou 5 de Espadas). O site
+  NUNCA anuncia morte: a IA fala so em atencao a saude e sugere procurar um medico.
+- Nada de amarracao, dominacao ou feitico contra alguem; nada de promessa de retorno,
+  riqueza ou cura. Livre-arbitrio preservado.
+
+HONESTIDADE COM A FONTE
+- Os significados das cartas vem do livro (conferidos em transcricoes).
+- O numero exato de cartas de cada cruz nao foi confirmado no exemplar original,
+  entao as disposicoes de 4 e 9 cartas estao marcadas como ADAPTACAO no codigo.
+
+CORRECAO IMPORTANTE QUE JA VEM JUNTO
+- O repositorio estava SEM o package-lock.json. Sem ele o "npm ci" do GitHub falha
+  e o CI nunca fica verde. O arquivo foi trazido do Oraculos.ts (dependencias identicas).
+
+TESTES
+- test/v12-sao-cipriano.test.ts (baralho, dizeres do livro, sistemas, mesa repetivel,
+  seguranca, motor geral, SEO, rotas, consultor e autorizacao).
+- Testes antigos atualizados de 10 para 11 oraculos e de 20 para 21 atendentes.
+
+O QUE AINDA NAO MUDOU (PROXIMA ETAPA)
+- Nome, logotipo, cores, dominio (oraculos-ts.vercel.app), Firebase (projeto "oraculots")
+  e pacote Android ainda sao os do Oraculos.ts. ATENCAO: enquanto o Firebase nao for
+  trocado, este site usa o MESMO banco de dados do Oraculos.ts em producao.

@@ -10,6 +10,14 @@ export interface OracleCategoryInfo {
 }
 
 export const ORACLE_CATEGORIES: Record<OracleType, OracleCategoryInfo> = {
+  saocipriano: {
+    type: 'saocipriano',
+    name: 'Oráculo de São Cipriano',
+    shortDesc: 'As cartas do Grande Livro de São Cipriano: a cruz do feiticeiro e a cartomancia cruzada.',
+    iconName: 'Flame',
+    color: '#B91C1C',
+    bgGradient: 'from-red-700/25 to-black/40',
+  },
   tarot: {
     type: 'tarot',
     name: 'Tarot',

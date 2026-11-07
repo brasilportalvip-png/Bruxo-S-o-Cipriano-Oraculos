@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
+    <loc>https://oraculos-ts.vercel.app/especialistas/ai_c21</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://oraculos-ts.vercel.app/consultants/bruxo-cipriano.webp</image:loc>
+      <image:title>Bruxo Cipriano — Mestre das Cartas do Grande Livro de São Cipriano</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://oraculos-ts.vercel.app/especialistas/ai_c1</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>

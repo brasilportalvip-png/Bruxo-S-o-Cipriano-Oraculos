@@ -36,8 +36,8 @@ describe('V8 — SEO no padrão Yoast', () => {
     }
   });
 
-  it('os 10 oráculos têm palavra-chave no título e na descrição, e FAQ', () => {
-    expect(SLUGS_ORACULOS).toHaveLength(10);
+  it('os 11 oráculos têm palavra-chave no título e na descrição, e FAQ', () => {
+    expect(SLUGS_ORACULOS).toHaveLength(11);
     for (const slug of SLUGS_ORACULOS) {
       const o = seoOraculo(slug)!;
       expect(o.titulo.length, slug).toBeLessThanOrEqual(60);

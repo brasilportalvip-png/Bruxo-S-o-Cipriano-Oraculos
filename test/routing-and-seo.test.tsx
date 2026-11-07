@@ -27,6 +27,8 @@ describe('roteamento público canônico', () => {
     expect(oracleTypeFromSlug('baralho-cigano')).toBe('cigano');
     expect(oracleTypeFromSlug('i-ching')).toBe('iching');
     expect(oracleTypeFromSlug('mesa-radionica')).toBe('mesaradionica');
+    expect(canonicalOracleSlug('saocipriano')).toBe('sao-cipriano');
+    expect(oracleTypeFromSlug('sao-cipriano')).toBe('saocipriano');
   });
 
   it('normaliza aliases sem criar conteúdo duplicado', () => {

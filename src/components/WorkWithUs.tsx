@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { BriefcaseBusiness, CheckCircle2, Upload, Camera, Trash2, Image as ImageIcon, Loader2 } from 'lucide-react';
 import { auth } from '../firebase';
 
-const ORACLES = ['tarot', 'cigano', 'astrologia', 'numerologia', 'buzios', 'ifa', 'runas', 'iching', 'cristais', 'mesaradionica'];
+const ORACLES = ['tarot', 'cigano', 'astrologia', 'numerologia', 'buzios', 'ifa', 'runas', 'iching', 'cristais', 'mesaradionica', 'saocipriano'];
 
 export const WorkWithUs: React.FC = () => {
   const [form, setForm] = useState({

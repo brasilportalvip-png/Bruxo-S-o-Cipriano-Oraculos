@@ -143,6 +143,7 @@ export const AdminDashboard: React.FC = () => {
     'i-ching': '#6366F1',
     cristais: '#EC4899',
     'mesa-radionica': '#14B8A6',
+    'sao-cipriano': '#B91C1C',
   };
 
   const oracleCounts: Record<string, number> = {};

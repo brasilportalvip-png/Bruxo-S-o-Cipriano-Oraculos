@@ -183,7 +183,7 @@ describe('V7 — Linguagem: magia preservada', () => {
 });
 
 describe('V7 — Personalidade única de cada atendente', () => {
-  it('todos os 20 atendentes virtuais têm voz própria e diferente', () => {
+  it('todos os 21 atendentes virtuais têm voz própria e diferente', () => {
     for (const p of VIRTUAL_PROFILES) {
       expect(VOZES_ATENDENTES[p.id], p.id).toBeDefined();
     }

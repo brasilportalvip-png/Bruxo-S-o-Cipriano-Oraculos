@@ -39,6 +39,7 @@ export const ORACLE_SLUG_BY_TYPE: Record<OracleType, string> = {
   iching: 'i-ching',
   cristais: 'cristais',
   mesaradionica: 'mesa-radionica',
+  saocipriano: 'sao-cipriano',
 };
 
 const ORACLE_TYPE_BY_SLUG: Record<string, OracleType> = {
@@ -55,6 +56,9 @@ const ORACLE_TYPE_BY_SLUG: Record<string, OracleType> = {
   cristais: 'cristais',
   'mesa-radionica': 'mesaradionica',
   mesaradionica: 'mesaradionica',
+  'sao-cipriano': 'saocipriano',
+  saocipriano: 'saocipriano',
+  cipriano: 'saocipriano',
 };
 
 const STATIC_NAVIGATION: Record<string, NavigationTarget> = {

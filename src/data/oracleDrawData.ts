@@ -470,6 +470,83 @@ export const ORACLE_DRAW_DATA: Record<string, DrawnSymbol[]> = {
       keywords: ['Matriz Original', 'Geometria Sagrada', 'Cura Quântica', 'Sincronicidade'],
     },
   ],
+  saocipriano: [
+    {
+      name: 'Ás de Ouros — Uma Prenda',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Pela cruz de São Cipriano, chega um presente: algo bom que vem às mãos de quem pergunta.',
+      keywords: ['Presente', 'Ganho', 'Boa Sorte', 'Recebimento'],
+    },
+    {
+      name: '2 de Ouros — Brevemente',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'O que se espera não tarda: o livro de São Cipriano diz que vem em breve.',
+      keywords: ['Rapidez', 'Em Breve', 'Movimento', 'Notícia'],
+    },
+    {
+      name: '3 de Copas — Boas Palavras',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Palavras boas a caminho: elogio, conversa franca ou boa notícia falada.',
+      keywords: ['Boas Notícias', 'Conversa', 'Elogio', 'Harmonia'],
+    },
+    {
+      name: '2 de Copas — Reconciliação',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Na cartomancia cruzada, o que estava afastado procura o caminho de volta.',
+      keywords: ['Reconciliação', 'Reencontro', 'Perdão', 'União'],
+    },
+    {
+      name: '5 de Espadas — Enredo',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Na cartomancia cruzada, alerta de intriga: alguém mexe os fios por trás.',
+      keywords: ['Intriga', 'Fofoca', 'Cautela', 'Proteção'],
+    },
+    {
+      name: '7 de Ouros — Dinheiros Grandes',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Pela cruz de São Cipriano, sinal de dinheiro em maior quantidade.',
+      keywords: ['Prosperidade', 'Fortuna', 'Abundância', 'Ganho'],
+    },
+  ],
+
+  'sao-cipriano': [
+    {
+      name: 'Ás de Ouros — Uma Prenda',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Pela cruz de São Cipriano, chega um presente: algo bom que vem às mãos de quem pergunta.',
+      keywords: ['Presente', 'Ganho', 'Boa Sorte', 'Recebimento'],
+    },
+    {
+      name: '2 de Ouros — Brevemente',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'O que se espera não tarda: o livro de São Cipriano diz que vem em breve.',
+      keywords: ['Rapidez', 'Em Breve', 'Movimento', 'Notícia'],
+    },
+    {
+      name: '3 de Copas — Boas Palavras',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Palavras boas a caminho: elogio, conversa franca ou boa notícia falada.',
+      keywords: ['Boas Notícias', 'Conversa', 'Elogio', 'Harmonia'],
+    },
+    {
+      name: '2 de Copas — Reconciliação',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Na cartomancia cruzada, o que estava afastado procura o caminho de volta.',
+      keywords: ['Reconciliação', 'Reencontro', 'Perdão', 'União'],
+    },
+    {
+      name: '5 de Espadas — Enredo',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Na cartomancia cruzada, alerta de intriga: alguém mexe os fios por trás.',
+      keywords: ['Intriga', 'Fofoca', 'Cautela', 'Proteção'],
+    },
+    {
+      name: '7 de Ouros — Dinheiros Grandes',
+      category: 'Oráculo de São Cipriano',
+      meaning: 'Pela cruz de São Cipriano, sinal de dinheiro em maior quantidade.',
+      keywords: ['Prosperidade', 'Fortuna', 'Abundância', 'Ganho'],
+    },
+  ],
 };
 
 export function drawSymbolForOracle(oracleType: string): DrawnSymbol {

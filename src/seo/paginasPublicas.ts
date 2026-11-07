@@ -54,6 +54,7 @@ const NOMES_ORACULOS: Record<string, string> = {
   'i-ching': 'I Ching',
   cristais: 'Cristais',
   'mesa-radionica': 'Mesa Radiônica',
+  'sao-cipriano': 'Oráculo de São Cipriano',
 };
 
 const SLUG_POR_TIPO: Record<string, string> = {
@@ -67,6 +68,7 @@ const SLUG_POR_TIPO: Record<string, string> = {
   iching: 'i-ching',
   cristais: 'cristais',
   mesaradionica: 'mesa-radionica',
+  saocipriano: 'sao-cipriano',
 };
 
 function absoluto(caminho: string): string {

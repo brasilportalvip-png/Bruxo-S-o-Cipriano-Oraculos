@@ -11,6 +11,8 @@ export const BLOG_CATEGORY_FALLBACK_IMAGES: Record<string, string> = {
   lenormand: '/blog/baralho-cigano.svg',
   mesaradionica: '/blog/mesa-radionica.svg',
   'mesa-radionica': '/blog/mesa-radionica.svg',
+  saocipriano: '/blog/sao-cipriano.svg',
+  'sao-cipriano': '/blog/sao-cipriano.svg',
   buzios: '/blog/jogo-buzios.svg',
   'jogo-buzios': '/blog/jogo-buzios.svg',
   ifa: '/blog/jogo-buzios.svg',
@@ -36,6 +38,7 @@ export function normalizeBlogCategory(category?: string): string {
     .replace(/[\u0300-\u036f]/g, '')
     .trim();
 
+  if (clean.includes('cipriano') || clean.includes('feiticeiro') || clean.includes('bruxo')) return 'saocipriano';
   if (clean.includes('tarot')) return 'tarot';
   if (clean.includes('cigano') || clean.includes('lenormand')) return 'cigano';
   if (clean.includes('radionica') || clean.includes('radiestesia') || clean.includes('pendulo')) return 'mesaradionica';

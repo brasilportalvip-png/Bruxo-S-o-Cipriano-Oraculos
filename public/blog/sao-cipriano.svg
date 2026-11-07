@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgCipriano" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a0505"/>
+      <stop offset="55%" stop-color="#140202"/>
+      <stop offset="100%" stop-color="#050000"/>
+    </linearGradient>
+    <linearGradient id="goldC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="50%" stop-color="#c9a24a"/>
+      <stop offset="100%" stop-color="#7c5a12"/>
+    </linearGradient>
+    <radialGradient id="glowC" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#7f1d1d" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgCipriano)"/>
+  <circle cx="600" cy="315" r="360" fill="url(#glowC)"/>
+  <g fill="none" stroke="#b91c1c" stroke-width="1.5" opacity="0.45">
+    <circle cx="600" cy="315" r="250"/>
+    <circle cx="600" cy="315" r="232"/>
+  </g>
+  <!-- Cruz de cartas -->
+  <g stroke="url(#goldC)" stroke-width="3" fill="#1c0808">
+    <rect x="555" y="95" width="90" height="135" rx="8"/>
+    <rect x="420" y="245" width="90" height="135" rx="8"/>
+    <rect x="690" y="245" width="90" height="135" rx="8"/>
+    <rect x="555" y="400" width="90" height="135" rx="8"/>
+  </g>
+  <g font-family="Georgia, serif" text-anchor="middle" fill="url(#goldC)">
+    <text x="600" y="178" font-size="44">♦</text>
+    <text x="465" y="328" font-size="44" fill="#dc2626">♥</text>
+    <text x="735" y="328" font-size="44">♠</text>
+    <text x="600" y="483" font-size="44">♣</text>
+  </g>
+  <g stroke="url(#goldC)" stroke-width="4" stroke-linecap="round">
+    <line x1="600" y1="262" x2="600" y2="368"/>
+    <line x1="560" y1="300" x2="640" y2="300"/>
+  </g>
+  <text x="600" y="600" font-family="Georgia, serif" font-size="30" text-anchor="middle" fill="url(#goldC)" letter-spacing="4">ORÁCULO DE SÃO CIPRIANO</text>
+</svg>

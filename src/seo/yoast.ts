@@ -227,6 +227,13 @@ const BASE_ORACULOS: Record<string, { nome: string; palavraChave: string; titulo
     descricao:
       'Mesa radiônica online: análise dos sete campos energéticos, bloqueios e prioridades com orientação prática para destravar sua vida. Atendimento ao vivo.',
   },
+  'sao-cipriano': {
+    nome: 'Oráculo de São Cipriano',
+    palavraChave: 'cartas de são cipriano',
+    titulo: 'Cartas de São Cipriano Online: Oráculo do Bruxo',
+    descricao:
+      'Cartas de São Cipriano online: a cruz do feiticeiro e a cartomancia cruzada do Grande Livro de São Cipriano, com o baralho de 40 cartas. Consulte o bruxo.',
+  },
 };
 
 export function seoOraculo(slug: string): SeoOraculo | null {

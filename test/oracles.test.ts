@@ -7,16 +7,16 @@ import {
   normalizarOracleProfileId,
 } from '../src/oracle-engine';
 
-describe('BATERIA DE TESTES DOS 10 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (ORACULOS.TS)', () => {
+describe('BATERIA DE TESTES DOS 11 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (ORACULOS.TS)', () => {
   beforeEach(() => {
     process.env.NODE_ENV = 'test';
     delete process.env.STRICT_AUTH;
   });
 
-  // TEST 1: Registros dos 10 Oráculos
-  it('1. Deve ter exatamente os 10 oráculos registrados no ORACLE_PROFILES', () => {
+  // TEST 1: Registros dos 11 Oráculos
+  it('1. Deve ter exatamente os 11 oráculos registrados no ORACLE_PROFILES', () => {
     const profilesKeys = Object.keys(ORACLE_PROFILES);
-    expect(profilesKeys).toHaveLength(10);
+    expect(profilesKeys).toHaveLength(11);
     expect(profilesKeys).toEqual(
       expect.arrayContaining([
         'tarot',
@@ -29,6 +29,7 @@ describe('BATERIA DE TESTES DOS 10 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (OR
         'i-ching',
         'cristais',
         'mesa-radionica',
+        'sao-cipriano',
       ])
     );
   });
@@ -50,11 +51,14 @@ describe('BATERIA DE TESTES DOS 10 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (OR
     expect(normalizarOracleProfileId('cristais')).toBe('cristais');
     expect(normalizarOracleProfileId('mesa-radionica')).toBe('mesa-radionica');
     expect(normalizarOracleProfileId('mesaradionica')).toBe('mesa-radionica');
+    expect(normalizarOracleProfileId('sao-cipriano')).toBe('sao-cipriano');
+    expect(normalizarOracleProfileId('saocipriano')).toBe('sao-cipriano');
+    expect(normalizarOracleProfileId('São Cipriano')).toBe('sao-cipriano');
     expect(normalizarOracleProfileId('invalido')).toBeNull();
   });
 
-  // TEST 3: Execução dos Builders de cada um dos 10 Oráculos
-  it('3. Deve executar com sucesso os builders especializados de todos os 10 oráculos', () => {
+  // TEST 3: Execução dos Builders de cada um dos 11 Oráculos
+  it('3. Deve executar com sucesso os builders especializados de todos os 11 oráculos', () => {
     const inputSample = {
       fullName: 'Camila Fernandes de Souza',
       birthDate: '1994-08-12',
@@ -74,6 +78,7 @@ describe('BATERIA DE TESTES DOS 10 ORÁCULOS E AUTORIZAÇÕES DE CONSULTORES (OR
       'i-ching',
       'cristais',
       'mesa-radionica',
+      'sao-cipriano',
     ];
 
     for (const oracleId of oraclesToTest) {

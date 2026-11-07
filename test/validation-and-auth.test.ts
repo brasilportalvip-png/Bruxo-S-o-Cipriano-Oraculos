@@ -20,7 +20,7 @@ describe('TESTES DE VALIDAÇÃO, AUTENTICAÇÃO E SINCRONIZAÇÃO (COMPLEMENTO C
   });
 
   // 1. Sucesso na validação de entrada de todos os 10 oráculos
-  it('1. Deve validar com sucesso a entrada de dados completos para todos os 10 oráculos', () => {
+  it('1. Deve validar com sucesso a entrada de dados completos para todos os 11 oráculos', () => {
     const oracles = [
       'tarot',
       'baralho-cigano',
@@ -32,6 +32,7 @@ describe('TESTES DE VALIDAÇÃO, AUTENTICAÇÃO E SINCRONIZAÇÃO (COMPLEMENTO C
       'i-ching',
       'cristais',
       'mesa-radionica',
+      'sao-cipriano',
     ];
 
     for (const oracle of oracles) {

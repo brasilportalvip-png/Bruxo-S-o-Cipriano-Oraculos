@@ -1,0 +1,224 @@
+{
+  "titulo": "Oráculo de São Cipriano — Cartomancia do Grande Livro de S. Cypriano",
+  "versao": "1.0",
+  "data": "2026-11-07",
+  "aviso_historico": "Os métodos abaixo vêm de 'O Grande Livro de S. Cypriano ou Thesouro do Feiticeiro' (Livraria Económica, Lisboa, c. 1890-1895; exemplar na Biblioteca Nacional de Portugal). O próprio livro atribui os métodos a São Cipriano, mas não há prova histórica de que o santo os usasse: são tradição editorial ibérica do século XIX.",
+  "aviso_uso": "Conteúdo de tradição popular, para fins culturais e de entretenimento. Não substitui orientação médica, jurídica ou financeira.",
+  "legenda_status": {
+    "fonte": "Texto do livro, conferido em duas ou mais transcrições independentes.",
+    "fonte_conferir": "Texto do livro segundo uma transcrição; falta conferir no exemplar original (BNP).",
+    "divergente": "As transcrições/edições não concordam; ver nota.",
+    "adaptacao": "Não está no livro: adaptação moderna feita para o site funcionar. Sempre identificada.",
+    "pendente": "Existe no livro, mas o texto ainda não foi transcrito aqui."
+  },
+  "baralho": {
+    "tipo": "Baralho português/espanhol de 40 cartas",
+    "como_montar_com_baralho_comum": "Use um baralho comum e retire os 8, 9 e 10 de cada naipe (e os coringas). Ficam: Ás, 2, 3, 4, 5, 6, 7, Valete, Dama e Rei de cada naipe = 40 cartas.",
+    "naipes": ["ouros", "copas", "espadas", "paus"],
+    "valores": ["as", "2", "3", "4", "5", "6", "7", "valete", "dama", "rei"]
+  },
+
+  "sistemas": [
+    {
+      "id": "cipriano_classico",
+      "nome": "Modo de deitar as cartas tal e qual as deitava S. Cipriano",
+      "localizacao_no_livro": "Parte 'Poderes ocultos. Cartomancia, orações e esconjuros', item V (p. 105 na edição Penguin/Livros do Brasil; 1.ª parte na edição Livraria Económica). Seguido do item VI, 'Responso que se deve dizer antes de deitar as cartas'.",
+      "status_geral": "fonte_conferir",
+      "significados": {
+        "ouros": {
+          "as":  {"original": "Uma prenda",          "atual": "Um presente",                     "status": "fonte"},
+          "2":   {"original": "Brevemente",          "atual": "Em breve",                        "status": "fonte"},
+          "3":   {"original": "Com alegria",         "atual": "Com alegria",                     "status": "fonte_conferir"},
+          "4":   {"original": "Igreja",              "atual": "Igreja (casamento, missa, funeral, conforme a combinação)", "status": "fonte_conferir"},
+          "5":   {"original": "Novidade",            "atual": "Uma novidade",                    "status": "fonte_conferir"},
+          "6":   {"original": "Dinheiros pequenos",  "atual": "Pouco dinheiro",                  "status": "fonte_conferir"},
+          "7":   {"original": "Dinheiros grandes",   "atual": "Muito dinheiro",                  "status": "fonte_conferir"}
+        },
+        "espadas": {
+          "as":  {"original": "Afirma",              "atual": "Confirma (reforça o que está ao lado)", "status": "fonte_conferir"},
+          "2":   {"original": "Cortando",            "atual": "Corte, interrupção",              "status": "fonte_conferir"},
+          "3":   {"original": "Más palavras",        "atual": "Palavras ruins, ofensa, fofoca",  "status": "fonte_conferir"},
+          "4":   {"original": "Na cama",             "atual": "Na cama (repouso, intimidade ou doença, conforme a combinação)", "status": "fonte_conferir"},
+          "5":   {"original": "Doença",              "atual": "Doença",                          "status": "fonte_conferir"},
+          "6":   {"original": "Desvio",              "atual": "Desvio, mudança de rumo",         "status": "fonte_conferir"},
+          "7":   {"original": "Paixão d'alma",       "atual": "Tristeza profunda, desgosto",     "status": "fonte_conferir"}
+        },
+        "copas": {
+          "as":  {"original": "Fandango",            "atual": "Festa, baile",                    "status": "fonte_conferir"},
+          "2":   {"original": "Uma carta",           "atual": "Uma carta, uma mensagem",         "status": "fonte_conferir"},
+          "3":   {"original": "Boas palavras",       "atual": "Palavras boas, elogio, boa notícia falada", "status": "fonte_conferir"},
+          "4":   {"original": "Pela porta da rua",   "atual": "Pela porta da rua (alguém que chega ou sai)", "status": "fonte_conferir"},
+          "5":   {"original": "Lágrimas",            "atual": "Choro",                           "status": "fonte_conferir"},
+          "6":   {"original": "Por caminhos",        "atual": "Por caminhos, viagem",            "status": "fonte_conferir"},
+          "7":   {"original": "Comidas e bebidas",   "atual": "Comida e bebida, banquete",       "status": "fonte_conferir"}
+        },
+        "paus": {
+          "as":  {"original": "Por noite",           "atual": "À noite",                         "status": "fonte_conferir"},
+          "2":   {"original": "Caminhos vagarosos",  "atual": "Caminho demorado",                "status": "fonte_conferir"},
+          "3":   {"original": "Caminhos breves",     "atual": "Caminho rápido",                  "status": "fonte_conferir"},
+          "4":   {"original": "Nesta casa",          "atual": "Nesta casa",                      "status": "fonte_conferir"},
+          "5":   {"original": "Com cinco sentidos",  "atual": "Com toda a atenção",              "status": "fonte_conferir"},
+          "6":   {"original": "Zelos",               "atual": "Ciúmes",                          "status": "fonte_conferir"},
+          "7":   {"original": "Com muito gosto",     "atual": "Com muito gosto, com prazer",     "status": "fonte_conferir"}
+        }
+      },
+      "figuras": {
+        "dama_espadas":  {"original": "Mulher de má língua", "atual": "Mulher fofoqueira ou de má fama", "status": "fonte_conferir"},
+        "rei_espadas":   {"original": "Homem da justiça",    "atual": "Homem ligado à justiça (juiz, advogado, polícia)", "status": "fonte_conferir"},
+        "valete_espadas":{"original": "Pensamento desse homem", "atual": "O pensamento do Rei de Espadas", "status": "fonte_conferir"},
+        "dama_ouros":    {"original": "Mulher que consulta", "atual": "A consulente (quem pergunta, se for mulher)", "status": "fonte_conferir"},
+        "rei_ouros":     {"original": "Homem de quem se quer saber", "atual": "O homem sobre quem se pergunta", "status": "fonte_conferir"},
+        "valete_ouros":  {"original": "Pensamento desse homem", "atual": "O pensamento do Rei de Ouros", "status": "fonte_conferir"},
+        "regra_geral":   {"texto": "As outras figuras (Copas e Paus) são outras pessoas envolvidas na consulta. O Valete é sempre o pensamento da pessoa representada pelo Rei do mesmo naipe.", "status": "fonte_conferir"}
+      },
+      "combinacoes": [
+        {"cartas": ["4_ouros", "4_espadas"], "original": "Igreja + na cama: morte", "status": "fonte_conferir",
+         "nota_site": "Crença registrada no livro. No site, tratar como 'preocupação séria com saúde' e nunca anunciar morte."},
+        {"cartas": ["4_ouros", "5_espadas"], "original": "Igreja + doença: morte", "status": "fonte_conferir",
+         "nota_site": "Idem: não anunciar morte; sugerir cuidado e procurar médico."},
+        {"cartas": ["2_copas", "4_ouros"], "original": "Carta + igreja: casamento", "status": "fonte_conferir"}
+      ],
+      "metodo": {
+        "passos": [
+          {"n": 1, "texto": "Dizer o Responso (item VI do livro) antes de deitar as cartas.", "status": "pendente"},
+          {"n": 2, "texto": "Baralhar bem as 40 cartas.", "status": "fonte_conferir"},
+          {"n": 3, "texto": "Cortar o baralho em cruz.", "status": "fonte_conferir"},
+          {"n": 4, "texto": "Deitar as cartas em cruz, conforme a figura do livro.", "status": "fonte_conferir"},
+          {"n": 5, "texto": "Ler juntando os significados das cartas vizinhas numa frase. Exemplo do livro: 3 de Copas + Ás de Ouros = 'boas palavras' + 'uma prenda' → 'boas palavras com um presente'.", "status": "fonte_conferir"}
+        ],
+        "segunda_abertura": {"texto": "O livro descreve uma segunda abertura com 21 cartas, 8 laterais e 3 restantes.", "status": "pendente"},
+        "tiragem_do_site": {
+          "nome": "Cruz de 4 cartas",
+          "status": "adaptacao",
+          "nota": "O livro manda deitar 'em cruz' mas o número exato de cartas não está confirmado. Esta cruz de 4 cartas é uma versão simplificada para o site.",
+          "posicoes": [
+            {"n": 1, "lugar": "topo"},
+            {"n": 2, "lugar": "esquerda"},
+            {"n": 3, "lugar": "direita"},
+            {"n": 4, "lugar": "baixo"}
+          ],
+          "leitura": "Ler 1→2→3→4 como uma frase, ao estilo do livro."
+        }
+      }
+    },
+
+    {
+      "id": "cartomancia_cruzada",
+      "nome": "Cartomancia cruzada: maneira de deitar as cartas, até hoje ignorada e usada por S. Cipriano",
+      "localizacao_no_livro": "2.ª parte (p. 210 na edição Penguin/Livros do Brasil). Também reproduzida no 'São Cipriano Capa Preta' de N. A. Molina (edição brasileira).",
+      "lenda_de_origem": "O livro diz que o método foi achado num manuscrito escondido no quarto da casa pobre onde Cipriano viveu antes de ser condenado. Algumas edições trocam Cipriano pela Feiticeira de Évora. Trata-se de lenda do próprio livro.",
+      "status_geral": "fonte",
+      "significados": {
+        "copas": {
+          "as": {"original": "Constrangimento", "atual": "Pressão, coação (às vezes violência)", "status": "fonte"},
+          "2":  {"original": "Reconciliação",   "atual": "Reconciliação",       "status": "fonte"},
+          "3":  {"original": "Simpatia",        "atual": "Simpatia, afeto",     "status": "fonte"},
+          "4":  {"original": "Banquete",        "atual": "Banquete, festa",     "status": "fonte"},
+          "5":  {"original": "Ciúmes",          "atual": "Ciúmes",              "status": "fonte"},
+          "6":  {"original": "Demora",          "atual": "Demora, atraso",      "status": "fonte"},
+          "7":  {"original": "Surpresa",        "atual": "Surpresa",            "status": "fonte"}
+        },
+        "espadas": {
+          "as": {"original": "Paixão",          "atual": "Paixão (sofrimento ou amor intenso)", "status": "fonte_conferir"},
+          "2":  {"original": "Correspondência", "atual": "Cartas, mensagens",   "status": "fonte"},
+          "3":  {"original": "Localidade",      "atual": "Um lugar, mudança de lugar", "status": "fonte_conferir"},
+          "4":  {"original": "No lar",          "atual": "Em casa, na família", "status": "fonte_conferir"},
+          "5":  {"original": "Enredo",          "atual": "Intriga, fofoca, armação", "status": "fonte"},
+          "6":  {"original": "Brevidade",       "atual": "Rapidez, em breve",   "status": "fonte"},
+          "7":  {"original": "Desgostos",       "atual": "Desgostos, tristezas","status": "fonte_conferir"}
+        },
+        "ouros": {
+          "as": {"original": "Promessas",       "atual": "Promessas",           "status": "fonte_conferir"},
+          "2":  {"original": "Matrimónio",      "atual": "Casamento",           "status": "fonte_conferir"},
+          "3":  {"original": "Mimo de amor",    "atual": "Carinho, presente de amor", "status": "fonte"},
+          "4":  {"original": "Apartamento",     "atual": "Separação, afastamento (no português antigo 'apartamento' = separação, não imóvel)", "status": "fonte"},
+          "5":  {"original": "Sedução",         "atual": "Sedução",             "status": "fonte_conferir"},
+          "6":  {"original": "Fortuna",         "atual": "Sorte, fortuna",      "status": "fonte_conferir"},
+          "7":  {"original": "Riqueza",         "atual": "Riqueza",             "status": "fonte_conferir"}
+        },
+        "paus": {
+          "as": {"original": "Vício",           "atual": "Vício",               "status": "divergente",
+                 "nota": "Uma transcrição dá 'vício' na lista, mas a advertência final de outra chama o Ás de Paus de 'cativeiro'. Conferir no original."},
+          "2":  {"original": "Traição",         "atual": "Traição",             "status": "fonte_conferir"},
+          "3":  {"original": "Desordem",        "atual": "Confusão, briga",     "status": "fonte_conferir"},
+          "4":  {"original": "Leviandade",      "atual": "Leviandade, imprudência", "status": "fonte_conferir"},
+          "5":  {"original": "Fora de casa",    "atual": "Fora de casa",        "status": "fonte_conferir"},
+          "6":  {"original": "Cativeiro",       "atual": "Prisão, dependência, estar preso a algo", "status": "fonte_conferir"},
+          "7":  {"original": "Obstáculo",       "atual": "Obstáculo",           "status": "fonte_conferir"}
+        }
+      },
+      "figuras": {
+        "valete": {"original": "O pensamento de um senhor a quem se queira marcar", "atual": "O pensamento de um homem da consulta", "status": "fonte_conferir"},
+        "dama":   {"original": "Uma senhora a quem se deseja marcar", "atual": "Uma mulher da consulta", "status": "fonte_conferir"},
+        "rei":    {"original": "O corpo de um senhor (sua pessoa) a quem se deseja marcar", "atual": "Um homem da consulta, em pessoa", "status": "fonte_conferir"},
+        "exemplo_do_livro": "Dama de Ouros = 'esta mulher'; Rei de Ouros = 'este homem'.",
+        "regra_especial": {"texto": "Ao deitar para uma mulher solteira ou viúva, o Rei de Copas que cair nas casas 14, 22, 23, 24 ou 32 significa pretendente ou amante.", "status": "fonte_conferir",
+                           "nota": "Essa regra pressupõe uma mesa numerada de pelo menos 32 casas; a disposição exata não foi confirmada."}
+      },
+      "advertencia_final_do_livro": [
+        "O 3 de Ouros (mimo de amor) pode significar carinhos e afagos, ou então um presente.",
+        "O Ás de Copas (constrangimento) às vezes significa violência (por exemplo, uma mulher violenta).",
+        "O 2 de Espadas (correspondência) pode representar uma carta."
+      ],
+      "exemplo_resolvido": {
+        "cartas": ["dama_ouros", "4_ouros", "5_copas", "5_espadas", "6_espadas", "2_copas", "rei_ouros", "7_copas"],
+        "leitura_atualizada": "Esta mulher se separou por causa de ciúmes provocados pela intriga de alguém, mas em breve vai se reconciliar com este homem e trazer-lhe uma surpresa.",
+        "status": "fonte"
+      },
+      "oracoes": {
+        "ao_baralhar": {"texto": "São Cipriano seja comigo!", "gesto": "Benzer-se com as cartas na mão direita: testa, peito, ombro esquerdo, ombro direito.", "status": "fonte"},
+        "invocacao": {"texto": "…que estas cartas me digam a verdade, pelo poder de São Cipriano, hoje santo e outrora feiticeiro, para sua glória e satisfação da minha alma.", "status": "fonte_conferir",
+                      "nota": "O início da oração está truncado nas transcrições."}
+      },
+      "metodo": {
+        "o_que_se_sabe": [
+          {"texto": "Usa o baralho de 40 cartas; parte das cartas é separada antes da leitura (uma transcrição fala em 32 cartas usadas).", "status": "divergente"},
+          {"texto": "As cartas são deitadas em forma de cruz e lidas formando frases com os significados, como no exemplo resolvido.", "status": "fonte"},
+          {"texto": "Diz-se 'São Cipriano seja comigo!' benzendo-se com as cartas restantes depois de deitar as primeiras.", "status": "fonte"}
+        ],
+        "versoes_divergentes": [
+          "Espelho de Circe (2020): 27 cartas em 9 casas de 3 cartas; a casa central é deitada primeiro e lida por último.",
+          "Apostila 'Cartomancia Cruzada de São Cipriano': usa 24 cartas; os Ases e Setes (8 'cartas tentações') formam o centro da cruz.",
+          "Livro Original (transcrição pdfcoffee): menciona casas numeradas até 32."
+        ],
+        "tiragem_do_site": {
+          "nome": "Cruz de 9 casas",
+          "status": "adaptacao",
+          "nota": "Baseada na versão do Espelho de Circe (moderna), simplificada para 1 carta por casa. Não é o texto do livro.",
+          "posicoes": [
+            {"n": 1, "sentido": "A questão"},
+            {"n": 2, "sentido": "O passado"},
+            {"n": 3, "sentido": "O que levou à situação"},
+            {"n": 4, "sentido": "O momento presente"},
+            {"n": 5, "sentido": "O caminho a seguir"},
+            {"n": 6, "sentido": "O que fazer"},
+            {"n": 7, "sentido": "Futuro próximo"},
+            {"n": 8, "sentido": "Futuro mais distante"},
+            {"n": 9, "sentido": "Desfecho ou conselho"}
+          ]
+        }
+      }
+    }
+  ],
+
+  "outras_edicoes": [
+    {"nome": "São Cipriano Capa Preta (N. A. Molina, Brasil)", "resumo": "Edição brasileira com outro método: o baralho é partido em 5 montes em cruz, depois disposto em 5 carreiras de 8 cartas, com orações a São Cipriano em cada etapa; a sorte só deve ser tirada uma vez por mês para cada pessoa. Os significados das cartas são diferentes dos do Grande Livro.", "status": "fora_do_escopo"}
+  ],
+
+  "fora_do_escopo": {
+    "Secreta Cypriani (Bodleian, MS Digby 30)": "Texto mágico latino medieval. Não é um oráculo de cartas.",
+    "Clavis Inferni (Wellcome MS 2000)": "Grimório do século XVIII com selos e cifras. Não é um oráculo de cartas."
+  },
+
+  "prompt_para_ia": "Você é o intérprete do Oráculo de São Cipriano do site. Você recebe: a pergunta do consulente, o sistema usado e as cartas sorteadas com seus significados ORIGINAIS e ATUAIS. Regras: (1) Use apenas os significados fornecidos; não invente significados de Tarot ou de outros baralhos. (2) Faça como o livro: junte os significados das cartas na ordem em que saíram, formando frases, e depois escreva uma mensagem curta, clara e acolhedora em português do Brasil. (3) Cite o significado antigo entre aspas quando ajudar ('o Ás de Ouros diz: uma prenda'). (4) Nunca anuncie morte, doença grave, gravidez ou desfechos jurídicos como certos. Se sair uma combinação de morte do livro, fale apenas em 'atenção à saúde' e sugira procurar um médico. (5) Não dê conselhos financeiros ou médicos. (6) Termine lembrando, numa linha, que é uma leitura de tradição popular. Responda em no máximo 180 palavras.",
+
+  "fontes": [
+    {"titulo": "O Grande Livro de S. Cypriano ou Thesouro do Feiticeiro — Biblioteca Nacional de Portugal (exemplar digitalizado)", "url": "https://bndigital.bnportugal.gov.pt/"},
+    {"titulo": "O Grande Livro de São Cipriano — excerto com índice (Penguin Livros)", "url": "https://penguinlivros.pt/wp-content/uploads/2024/05/O_Grande_Livro_de_Sao_Cipriano_ExcertoSITE.pdf"},
+    {"titulo": "José Leitão, The Book of St. Cyprian: The Sorcerer's Treasure (Hadean Press, 2014) — tradução comentada da edição Livraria Económica", "url": "https://www.hadeanpress.com/shop-books/p/sorcerers-treasure"},
+    {"titulo": "Inês Teixeira Barreto, Da Mandinga à Macumba (PUC-SP, 2022)", "url": "https://repositorio.pucsp.br/bitstream/handle/25966/1/In%c3%aas%20Teixeira%20Barreto.pdf"},
+    {"titulo": "O Livro Original de São Cipriano — transcrição (pdfcoffee)", "url": "https://pdfcoffee.com/o-livro-original-de-sao-cipriano-pdf-free.html"},
+    {"titulo": "São Cipriano Capa Preta, N. A. Molina — transcrição (pdfcoffee)", "url": "https://pdfcoffee.com/sao-cipriano-capa-preta-n-a-molina-livropostal-versao-final-pdf-free.html"},
+    {"titulo": "Espelho de Circe — São Cipriano seja comigo!", "url": "https://www.espelhodecirce.com.br/post/s%C3%A3o-cipriano-seja-comigo"}
+  ]
+}

@@ -34,7 +34,8 @@ const VALID_ORACLES = new Set([
   'runas',
   'i-ching',
   'cristais',
-  'mesa-radionica'
+  'mesa-radionica',
+  'sao-cipriano'
 ]);
 
 function normalizarTexto(valor: unknown): string {

@@ -16,7 +16,8 @@ export {
   buildRunasSupremas,
   buildIChingSupremo,
   buildCristaisSupremos,
-  buildMesaRadionicaSuprema
+  buildMesaRadionicaSuprema,
+  buildSaoCiprianoSupremo
 } from './profiles/index.js';
 
 export type {

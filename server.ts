@@ -1576,6 +1576,7 @@ app.get('/sitemap-oraculos.xml', (_req: Request, res: Response) => {
   <url><loc>https://oraculos-ts.vercel.app/oraculos/i-ching</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://oraculos-ts.vercel.app/oraculos/cristais</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://oraculos-ts.vercel.app/oraculos/mesa-radionica</loc><lastmod>2026-08-14T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://oraculos-ts.vercel.app/oraculos/sao-cipriano</loc><lastmod>2026-11-07T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 </urlset>`
   );
 });
@@ -7877,6 +7878,7 @@ if (
       tarot: '/blog/tarot-arcanos.svg',
       cigano: '/blog/baralho-cigano.svg',
       mesaradionica: '/blog/mesa-radionica.svg',
+      saocipriano: '/blog/sao-cipriano.svg',
       buzios: '/blog/jogo-buzios.svg',
       astrologia: '/blog/astrologia-mapa.svg',
       limpeza: '/blog/limpeza-espiritual.svg',

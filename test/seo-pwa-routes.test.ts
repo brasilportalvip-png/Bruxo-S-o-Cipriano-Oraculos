@@ -61,7 +61,7 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
     expect(res.text).toContain('<loc>https://oraculos-ts.vercel.app/privacidade</loc>');
   });
 
-  it('GET /sitemap-oraculos.xml deve conter todos os 10 oráculos canônicos', async () => {
+  it('GET /sitemap-oraculos.xml deve conter todos os 11 oráculos canônicos', async () => {
     const res = await request(app).get('/sitemap-oraculos.xml');
     expect(res.status).toBe(200);
     const oracles = [
@@ -75,6 +75,7 @@ describe('SEO, Sitemaps XML, Robots, PWA & Android TWA Validation', () => {
       'i-ching',
       'cristais',
       'mesa-radionica',
+      'sao-cipriano',
     ];
     for (const oracle of oracles) {
       expect(res.text).toContain(`https://oraculos-ts.vercel.app/oraculos/${oracle}`);
