@@ -1,12 +1,19 @@
-BRUXO SAO CIPRIANO ORACULOS - V13: O SITE NOVO DE VERDADE (NOME, LOGO, FUNDO, EQUIPE E EFEITOS)
+BRUXO SAO CIPRIANO ORACULOS - V14: SITE NOVO (NOME, LOGO, FUNDO, EQUIPE E EFEITOS) COM AS FOTOS ORIGINAIS
 
-ESTE PACOTE JA CONTEM A V12 (Oraculo de Sao Cipriano). Se o PR da V12 ainda estiver aberto,
-pode fechar sem mesclar: o PR da V13 traz tudo.
+ESTE PACOTE JA CONTEM A V12 E A V13. Se algum PR da V12 ou V13 ainda estiver aberto,
+pode fechar sem mesclar: o PR da V14 traz tudo.
+
+NOVIDADE DA V14 - FOTOS DA EQUIPE
+- Voltaram as fotos que o site ja tinha. Os nomes novos da equipe continuam.
+- O Bruxo Cipriano segue com o rosto da arte do logo.
+- Os retratos ilustrados da V13 foram apagados.
+- Conferido: 27 fotos de 27 pessoas diferentes. O teste de ERRO FATAL agora barra
+  nome repetido, arquivo repetido e tambem a MESMA FOTO salva com outro nome.
 
 COMO INSTALAR
 1. Extraia o ZIP nos Downloads (botao direito > Extrair tudo).
-2. Dois cliques em INSTALAR_TESTAR_E_ABRIR_PR_V13.cmd
-3. Ele baixa o projeto, aplica a V13, apaga as imagens e arquivos antigos, instala, roda TODOS
+2. Dois cliques em INSTALAR_TESTAR_E_ABRIR_PR_V14.cmd
+3. Ele baixa o projeto, aplica a V14, apaga as imagens e arquivos antigos, instala, roda TODOS
    os testes, o teste de usuario real e abre o Pull Request.
 4. Quando os testes do GitHub ficarem verdes, clique em "Merge pull request".
 
@@ -16,8 +23,7 @@ COMO INSTALAR
   llms.txt, sitemaps e imagens do blog. Nenhuma pagina cita mais o nome ou o endereco antigo
   (um teste automatico barra isso).
 - Endereco do site: https://bruxo-s-o-cipriano-oraculos.vercel.app
-  (e o endereco que a Vercel cria para o repositorio Bruxo-S-o-Cipriano-Oraculos.
-   Se o seu for outro, me avise que eu troco em um lugar so.)
+  (confirmado por voce).
 - Pagina inicial no Google: "Bruxo Sao Cipriano: Cartas, Tarot e Oraculos Online".
 
 2) LOGO, FUNDO, ICONES E IMAGEM DE COMPARTILHAMENTO (DAS SUAS ARTES)
@@ -46,12 +52,9 @@ COMO INSTALAR
   Guardia Brigida do Corvo, Sentinela Ebano da Mata Escura, Mestre Lazaro do Relicario,
   Rosalia de Evora, Mestre Joaquim dos Astros, Mae Josefa da Ventania, Teresa de Castela,
   Sabio Afonso do Norte e Dona Filomena das Cartas.
-- Cada um tem retrato proprio no estilo do Bruxo: figura encapuzada com a sua cor, simbolo
-  proprio (vela, corvo, chave, pentaculo, lua...) e moldura dourada.
-- Corrigido um erro que vinha do site-base: "Mae Serena de Oya" era o nome de DUAS pessoas.
-- As 26 fotos antigas foram APAGADAS do site.
-- Teste novo (v13-identidade-bruxo): ERRO FATAL se houver nome repetido, imagem repetida,
-  nome ou imagem do site-base, ou o nome/endereco antigo em qualquer pagina.
+- Cada um com a sua foto, sem nenhuma repetida.
+- Teste novo (v13-identidade-bruxo): ERRO FATAL se houver nome repetido, foto repetida
+  (mesmo com outro nome de arquivo), nome do site-base ou o nome/endereco antigo em qualquer pagina.
 - Autores e revisores do blog seguem os novos nomes.
 
 5) APP ANDROID
@@ -63,10 +66,6 @@ COMO INSTALAR
 - Removidos os instaladores e LEIA-ME V1 a V11 do Oraculos.ts: eles enviavam para o
   repositorio do Oraculos.ts e poderiam mexer no site antigo por engano.
 
-ATENCAO - O QUE SO VOCE PODE FAZER
-- BANCO DE DADOS: o arquivo firebase-applet-config.json ainda aponta para o projeto
-  "oraculots" (o MESMO banco do Oraculos.ts em producao: usuarios, saldos e pagamentos).
-  Crie um projeto novo no Firebase e coloque os dados nas variaveis VITE_FIREBASE_* e
-  FIREBASE_* da Vercel deste site (o codigo ja le essas variaveis primeiro). Depois me mande
-  os dados publicos (projectId, appId, apiKey) que eu atualizo o arquivo.
-- Mercado Pago e WhatsApp do Plano Especial continuam os mesmos do Oraculos.ts.
+FIREBASE
+- Continua o mesmo projeto do Oraculos.ts, como voce decidiu: contas, saldos e pagamentos
+  sao compartilhados entre os dois sites.

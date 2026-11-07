@@ -1,20 +1,20 @@
 @echo off
 setlocal EnableExtensions
-title BRUXO SAO CIPRIANO ORACULOS - V13
+title BRUXO SAO CIPRIANO ORACULOS - V14
 echo.
 echo ========================================================
-echo   BRUXO SAO CIPRIANO ORACULOS - V13
-echo   IDENTIDADE NOVA: NOME, LOGO, FUNDO, EQUIPE E EFEITOS
-echo   (ja inclui a V12: Oraculo de Sao Cipriano)
+echo   BRUXO SAO CIPRIANO ORACULOS - V14
+echo   SITE NOVO COM AS FOTOS ORIGINAIS DA EQUIPE
+echo   (ja inclui a V12 e a V13)
 echo ========================================================
 echo.
 
 set "PACOTE=%~dp0"
 set "PACOTE=%PACOTE:~0,-1%"
-set "ARQUIVOS=%PACOTE%\V13_ARQUIVOS"
-set "PATCH=%PACOTE%\v13-identidade-bruxo.patch"
-set "PROJETO=%PACOTE%\Bruxo-Cipriano-V13"
-set "BRANCH=feat/v13-identidade-bruxo"
+set "ARQUIVOS=%PACOTE%\V14_ARQUIVOS"
+set "PATCH=%PACOTE%\v14-bruxo-sao-cipriano.patch"
+set "PROJETO=%PACOTE%\Bruxo-Cipriano-V14"
+set "BRANCH=feat/v14-bruxo-sao-cipriano"
 set "REPO=brasilportalvip-png/Bruxo-S-o-Cipriano-Oraculos"
 
 echo Pasta do pacote : "%PACOTE%"
@@ -38,10 +38,10 @@ git -C "%PROJETO%" clean -fd -e node_modules || goto :clone_error
 
 cd /d "%PROJETO%" || goto :repo_error
 
-echo [2/11] Abrindo a branch da V13...
+echo [2/11] Abrindo a branch da V14...
 git switch -C "%BRANCH%" || goto :branch_error
 
-echo [3/11] Aplicando as atualizacoes da V13 (preserva o que mudou no site)...
+echo [3/11] Aplicando as atualizacoes da V14 (preserva o que mudou no site)...
 git apply --3way --whitespace=nowarn "%PATCH%" >nul 2>nul
 if not errorlevel 1 goto :aplicado
 echo   O projeto mudou desde o pacote; usando copia direta dos arquivos.
@@ -49,7 +49,7 @@ git reset --hard -q
 robocopy "%ARQUIVOS%" "%PROJETO%" /E /NFL /NDL /NJH /NJS /NP /R:2 /W:1
 if errorlevel 8 goto :copy_error
 :aplicado
-echo       Apagando imagens, nomes e instaladores antigos do Oraculos.ts...
+echo       Apagando arquivos antigos e os retratos ilustrados da V13...
 if exist "INSTALAR_E_ENVIAR_GITHUB.cmd" del /F /Q "INSTALAR_E_ENVIAR_GITHUB.cmd"
 if exist "INSTALAR_TESTAR_E_ABRIR_PR.cmd" del /F /Q "INSTALAR_TESTAR_E_ABRIR_PR.cmd"
 if exist "INSTALAR_TESTAR_E_ABRIR_PR_V10.cmd" del /F /Q "INSTALAR_TESTAR_E_ABRIR_PR_V10.cmd"
@@ -74,35 +74,37 @@ if exist "LEIA-ME-CORRECAO-V8.txt" del /F /Q "LEIA-ME-CORRECAO-V8.txt"
 if exist "LEIA-ME-CORRECAO-V9.txt" del /F /Q "LEIA-ME-CORRECAO-V9.txt"
 if exist "LEIA-ME-CORRECAO.txt" del /F /Q "LEIA-ME-CORRECAO.txt"
 if exist "public\brand\logo-oraculos.png" del /F /Q "public\brand\logo-oraculos.png"
-if exist "public\consultants\alexandre-cosmico.webp" del /F /Q "public\consultants\alexandre-cosmico.webp"
-if exist "public\consultants\anya-lunar.webp" del /F /Q "public\consultants\anya-lunar.webp"
-if exist "public\consultants\aura-celeste.webp" del /F /Q "public\consultants\aura-celeste.webp"
-if exist "public\consultants\clarice-mendonca.webp" del /F /Q "public\consultants\clarice-mendonca.webp"
-if exist "public\consultants\gabriel-aurea.webp" del /F /Q "public\consultants\gabriel-aurea.webp"
-if exist "public\consultants\guardia-morgana-lua.webp" del /F /Q "public\consultants\guardia-morgana-lua.webp"
-if exist "public\consultants\guardiao-rowan-mata.webp" del /F /Q "public\consultants\guardiao-rowan-mata.webp"
-if exist "public\consultants\guilherme-solis.webp" del /F /Q "public\consultants\guilherme-solis.webp"
-if exist "public\consultants\helena-da-luz.webp" del /F /Q "public\consultants\helena-da-luz.webp"
-if exist "public\consultants\iara-das-aguas.webp" del /F /Q "public\consultants\iara-das-aguas.webp"
-if exist "public\consultants\kaelen-runas.webp" del /F /Q "public\consultants\kaelen-runas.webp"
-if exist "public\consultants\livia-estelar.webp" del /F /Q "public\consultants\livia-estelar.webp"
-if exist "public\consultants\mae-nadja.webp" del /F /Q "public\consultants\mae-nadja.webp"
-if exist "public\consultants\mae-serena-humana.webp" del /F /Q "public\consultants\mae-serena-humana.webp"
-if exist "public\consultants\mae-serena-oya.webp" del /F /Q "public\consultants\mae-serena-oya.webp"
-if exist "public\consultants\mestra-jurema-terra.webp" del /F /Q "public\consultants\mestra-jurema-terra.webp"
-if exist "public\consultants\mestre-dante-sete-chaves.webp" del /F /Q "public\consultants\mestre-dante-sete-chaves.webp"
-if exist "public\consultants\mestre-gabriel-astros.webp" del /F /Q "public\consultants\mestre-gabriel-astros.webp"
-if exist "public\consultants\mestre-valerio.webp" del /F /Q "public\consultants\mestre-valerio.webp"
-if exist "public\consultants\mestre-zahir-oriente.webp" del /F /Q "public\consultants\mestre-zahir-oriente.webp"
-if exist "public\consultants\mistica-vania.webp" del /F /Q "public\consultants\mistica-vania.webp"
-if exist "public\consultants\naiara-dos-anjos.webp" del /F /Q "public\consultants\naiara-dos-anjos.webp"
-if exist "public\consultants\sabio-liam-nordic.webp" del /F /Q "public\consultants\sabio-liam-nordic.webp"
-if exist "public\consultants\samuel-sagrado.webp" del /F /Q "public\consultants\samuel-sagrado.webp"
-if exist "public\consultants\soraya-lenormand.webp" del /F /Q "public\consultants\soraya-lenormand.webp"
-if exist "public\consultants\yanis-mistico.webp" del /F /Q "public\consultants\yanis-mistico.webp"
 if exist "public\image\logo-oraculo.ts.png" del /F /Q "public\image\logo-oraculo.ts.png"
-copy /Y "%~f0" "%PROJETO%\INSTALAR_TESTAR_E_ABRIR_PR_V13.cmd" >nul
-copy /Y "%PACOTE%\LEIA-ME-CORRECAO-V13.txt" "%PROJETO%\LEIA-ME-CORRECAO-V13.txt" >nul
+if exist "public\consultants\justina-sete-velas.webp" del /F /Q "public\consultants\justina-sete-velas.webp"
+if exist "public\consultants\mestre-anselmo-antioquia.webp" del /F /Q "public\consultants\mestre-anselmo-antioquia.webp"
+if exist "public\consultants\cigana-esmeralda-caminho.webp" del /F /Q "public\consultants\cigana-esmeralda-caminho.webp"
+if exist "public\consultants\mestre-bartolomeu-pedras.webp" del /F /Q "public\consultants\mestre-bartolomeu-pedras.webp"
+if exist "public\consultants\mae-benedita-ventos.webp" del /F /Q "public\consultants\mae-benedita-ventos.webp"
+if exist "public\consultants\dona-laurinda-fonte.webp" del /F /Q "public\consultants\dona-laurinda-fonte.webp"
+if exist "public\consultants\frei-tome-numeros.webp" del /F /Q "public\consultants\frei-tome-numeros.webp"
+if exist "public\consultants\onix-encruzilhadas.webp" del /F /Q "public\consultants\onix-encruzilhadas.webp"
+if exist "public\consultants\ramiro-galiza.webp" del /F /Q "public\consultants\ramiro-galiza.webp"
+if exist "public\consultants\madalena-estrelas.webp" del /F /Q "public\consultants\madalena-estrelas.webp"
+if exist "public\consultants\mae-conceicao-cachoeira.webp" del /F /Q "public\consultants\mae-conceicao-cachoeira.webp"
+if exist "public\consultants\mestre-eusebio-livro.webp" del /F /Q "public\consultants\mestre-eusebio-livro.webp"
+if exist "public\consultants\irma-clemencia-anjos.webp" del /F /Q "public\consultants\irma-clemencia-anjos.webp"
+if exist "public\consultants\dom-rodrigo-pentaculo.webp" del /F /Q "public\consultants\dom-rodrigo-pentaculo.webp"
+if exist "public\consultants\mestra-isaura-ervas.webp" del /F /Q "public\consultants\mestra-isaura-ervas.webp"
+if exist "public\consultants\cigano-vladimir-estradas.webp" del /F /Q "public\consultants\cigano-vladimir-estradas.webp"
+if exist "public\consultants\selene-lua-vermelha.webp" del /F /Q "public\consultants\selene-lua-vermelha.webp"
+if exist "public\consultants\guardia-brigida-corvo.webp" del /F /Q "public\consultants\guardia-brigida-corvo.webp"
+if exist "public\consultants\sentinela-ebano-mata.webp" del /F /Q "public\consultants\sentinela-ebano-mata.webp"
+if exist "public\consultants\mestre-lazaro-relicario.webp" del /F /Q "public\consultants\mestre-lazaro-relicario.webp"
+if exist "public\consultants\rosalia-evora.webp" del /F /Q "public\consultants\rosalia-evora.webp"
+if exist "public\consultants\mestre-joaquim-astros.webp" del /F /Q "public\consultants\mestre-joaquim-astros.webp"
+if exist "public\consultants\mae-josefa-ventania.webp" del /F /Q "public\consultants\mae-josefa-ventania.webp"
+if exist "public\consultants\teresa-castela.webp" del /F /Q "public\consultants\teresa-castela.webp"
+if exist "public\consultants\sabio-afonso-norte.webp" del /F /Q "public\consultants\sabio-afonso-norte.webp"
+if exist "public\consultants\dona-filomena-cartas.webp" del /F /Q "public\consultants\dona-filomena-cartas.webp"
+if exist "INSTALAR_TESTAR_E_ABRIR_PR_V13.cmd" del /F /Q "INSTALAR_TESTAR_E_ABRIR_PR_V13.cmd"
+if exist "LEIA-ME-CORRECAO-V13.txt" del /F /Q "LEIA-ME-CORRECAO-V13.txt"
+copy /Y "%~f0" "%PROJETO%\INSTALAR_TESTAR_E_ABRIR_PR_V14.cmd" >nul
+copy /Y "%PACOTE%\LEIA-ME-CORRECAO-V14.txt" "%PROJETO%\LEIA-ME-CORRECAO-V14.txt" >nul
 
 echo [4/11] Instalando dependencias (pode demorar alguns minutos)...
 call npx -y npm@10.9.2 ci --no-audit --no-fund || goto :fail
@@ -134,11 +136,11 @@ git config user.email >nul 2>nul || git config user.email "279750991+brasilporta
 git config user.name >nul 2>nul || git config user.name "brasilportalvip-png"
 git config core.autocrlf false
 git add -A
-git commit -m "feat: identidade Bruxo Sao Cipriano Oraculos - nome, logo, fundo, equipe nova e efeitos (V13)" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01VZGem6phDhDezYVwwvUSXX" || goto :commit_error
+git commit -m "feat: Bruxo Sao Cipriano Oraculos - identidade nova com as fotos originais da equipe (V14)" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01VZGem6phDhDezYVwwvUSXX" || goto :commit_error
 git push -u --force origin "%BRANCH%" || goto :push_error
 
 where gh >nul 2>nul || goto :pr_browser
-gh pr create --repo "%REPO%" --base main --head "%BRANCH%" --title "V13: Bruxo Sao Cipriano Oraculos - nome, logo, fundo, equipe nova, efeitos (inclui V12)" --body-file "LEIA-ME-CORRECAO-V13.txt" >nul 2>nul
+gh pr create --repo "%REPO%" --base main --head "%BRANCH%" --title "V14: Bruxo Sao Cipriano Oraculos - identidade nova, fotos originais sem repeticao (inclui V12 e V13)" --body-file "LEIA-ME-CORRECAO-V14.txt" >nul 2>nul
 gh pr view "%BRANCH%" --repo "%REPO%" --web && goto :done
 :pr_browser
 start "" "https://github.com/%REPO%/compare/main...%BRANCH%?expand=1"
@@ -172,14 +174,14 @@ goto :stop
 echo ERRO: Node.js nao encontrado. Instale a versao 22 em https://nodejs.org e rode de novo.
 goto :stop
 :zip_error
-echo ERRO: a pasta V13_ARQUIVOS nao foi encontrada ao lado deste instalador.
+echo ERRO: a pasta V14_ARQUIVOS nao foi encontrada ao lado deste instalador.
 echo Extraia o ZIP inteiro (use "Extrair tudo") e rode o instalador de dentro da pasta extraida.
 goto :stop
 :clone_error
 echo ERRO: nao foi possivel baixar o projeto do GitHub. Verifique a internet e o login do GitHub.
 goto :stop
 :copy_error
-echo ERRO: falha ao copiar os arquivos da V13. Feche programas abertos nessa pasta e rode de novo.
+echo ERRO: falha ao copiar os arquivos da V14. Feche programas abertos nessa pasta e rode de novo.
 goto :stop
 :repo_error
 echo ERRO: nao foi possivel abrir a pasta do projeto.
