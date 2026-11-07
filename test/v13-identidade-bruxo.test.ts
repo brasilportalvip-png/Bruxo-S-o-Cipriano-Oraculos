@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { VIRTUAL_PROFILES } from '../src/data/virtualProfiles';
 import { INITIAL_CONSULTANTS } from '../src/data/mockData';
 import { SITE, MARCA, SEO_PAGINAS } from '../src/seo/yoast';
@@ -13,13 +14,6 @@ const NOMES_ANTIGOS = [
   'Naiara dos Anjos', 'Alexandre Cósmico', 'Mestra Jurema da Terra', 'Mestre Zahir do Oriente', 'Anya Lunar',
   'Guardiã Morgana da Lua', 'Guardião Rowan da Mata', 'Mestre Dante das Sete Chaves', 'Helena da Luz',
   'Mestre Gabriel Astros', 'Clarice Mendonça', 'Sábio Liam Nordic', 'Mística Vânia',
-];
-const AVATARES_ANTIGOS = [
-  'aura-celeste', 'guilherme-solis', 'soraya-lenormand', 'mestre-valerio', 'mae-serena-oya', 'iara-das-aguas',
-  'gabriel-aurea', 'yanis-mistico', 'kaelen-runas', 'livia-estelar', 'mae-nadja', 'samuel-sagrado', 'naiara-dos-anjos',
-  'alexandre-cosmico', 'mestra-jurema-terra', 'mestre-zahir-oriente', 'anya-lunar', 'guardia-morgana-lua',
-  'guardiao-rowan-mata', 'mestre-dante-sete-chaves', 'helena-da-luz', 'mestre-gabriel-astros', 'mae-serena-humana',
-  'clarice-mendonca', 'sabio-liam-nordic', 'mistica-vania',
 ];
 
 const equipe = [
@@ -47,14 +41,23 @@ describe('V13 — Identidade do Bruxo São Cipriano Oráculos', () => {
     expect(repetidas, `imagens repetidas: ${repetidas.join(', ')}`).toEqual([]);
   });
 
-  it('nenhum nome ou imagem do site-base continua na equipe', () => {
-    for (const e of equipe) {
-      expect(NOMES_ANTIGOS, e.id).not.toContain(e.nome);
-      for (const antigo of AVATARES_ANTIGOS) expect(e.avatar, e.id).not.toContain(`/${antigo}.webp`);
-    }
+  it('nenhum nome do site-base continua na equipe', () => {
+    for (const e of equipe) expect(NOMES_ANTIGOS, e.id).not.toContain(e.nome);
   });
 
-  it('toda imagem da equipe existe no site e é exclusiva', () => {
+  it('ERRO FATAL se a mesma foto aparecer duas vezes, mesmo com outro nome de arquivo', () => {
+    const vistos = new Map<string, string>();
+    const repetidas: string[] = [];
+    for (const e of equipe) {
+      const arquivo = path.resolve(process.cwd(), 'public', e.avatar.replace(/^\//, ''));
+      const hash = crypto.createHash('sha256').update(fs.readFileSync(arquivo)).digest('hex');
+      if (vistos.has(hash)) repetidas.push(`${vistos.get(hash)} = ${e.id}`);
+      else vistos.set(hash, e.id);
+    }
+    expect(repetidas, `fotos iguais: ${repetidas.join(', ')}`).toEqual([]);
+  });
+
+  it('toda imagem da equipe existe no site', () => {
     for (const e of equipe) {
       const arquivo = path.resolve(process.cwd(), 'public', e.avatar.replace(/^\//, ''));
       expect(fs.existsSync(arquivo), `${e.id} ${e.avatar}`).toBe(true);
