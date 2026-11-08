@@ -105,7 +105,7 @@ export function verifyConsultantOracleAuthorization(
         normalizedOracleId,
         statusCode: 403,
         code: 'ORACLE_UNAUTHORIZED_FOR_CONSULTANT',
-        message: `O atendente virtual '${virtualProfile.name}' não está autorizado para o oráculo '${normalizedOracleId}'.`,
+        message: `${virtualProfile.name} não atende o oráculo '${normalizedOracleId}'. Escolha outro especialista para este oráculo.`,
       };
     }
 
@@ -6560,7 +6560,7 @@ app.post(
             code:
               'DAILY_AI_LIMIT_EXCEEDED',
             message:
-              'Você atingiu o limite máximo de 30 interpretações oraculares por IA no dia.',
+              'Você atingiu o limite de 30 interpretações complementares no dia. Amanhã libera de novo.',
           },
         });
       }
@@ -6661,7 +6661,7 @@ app.post(
           userName: req.user?.name || 'Usuário',
           userRole: req.user?.role || 'user',
           action: 'PROMPT_INJECTION_BLOCKED',
-          details: 'Tentativa de injeção de instrução/bypass bloqueada pelo Escudo de Segurança de IA',
+          details: 'Tentativa de injeção de instrução/bypass bloqueada pelo Escudo de Segurança',
           ip: req.ip || '127.0.0.1',
           status: 'WARNING',
         });
@@ -6669,7 +6669,7 @@ app.post(
           success: false,
           error: {
             code: 'PROMPT_GUARD_BLOCKED',
-            message: 'Sua pergunta foi bloqueada pelo Escudo de Segurança de IA (Prompt Guard).',
+            message: 'Sua pergunta foi bloqueada pelo nosso escudo de segurança. Reescreva com outras palavras.',
           },
         });
       }
@@ -6704,7 +6704,7 @@ app.post(
         success: false,
         error: {
           code: 'GEMINI_UNAVAILABLE',
-          message: 'Serviço de IA temporariamente indisponível. Verifique a chave GEMINI_API_KEY no servidor.',
+          message: 'A interpretação está indisponível neste momento. Tente novamente em instantes.',
         },
       });
     }
@@ -6812,7 +6812,7 @@ INSTRUÇÕES DE INTERPRETAÇÃO:
           success: false,
           error: {
             code: 'GEMINI_EXECUTION_FAILED',
-            message: 'O modelo de inteligência artificial retornou uma resposta vazia ou insuficiente.',
+            message: 'A interpretação não veio completa. Tente novamente em instantes.',
           },
         });
       }
@@ -6876,7 +6876,7 @@ INSTRUÇÕES DE INTERPRETAÇÃO:
           code: 'GEMINI_EXECUTION_FAILED',
           message: isTimeout
             ? 'Tempo limite de resposta excedido na consulta ao Gemini.'
-            : 'Falha na comunicação direta com o serviço de inteligência artificial Gemini.',
+            : 'Não foi possível concluir a interpretação agora. Tente novamente em instantes.',
         },
       });
     } finally {
@@ -6942,7 +6942,7 @@ app.post('/api/ai/virtual-attendant-chat', requireAuth, async (req: Authenticate
         securityMetrics.promptInjectionsBlocked++;
         return res.status(400).json({
           success: false,
-          error: { code: 'PROMPT_GUARD_BLOCKED', message: 'Sua mensagem foi bloqueada pelo Escudo de Segurança de IA.' },
+          error: { code: 'PROMPT_GUARD_BLOCKED', message: 'Sua mensagem foi bloqueada pelo nosso escudo de segurança. Reescreva com outras palavras.' },
         });
       }
     }
@@ -6956,7 +6956,7 @@ app.post('/api/ai/virtual-attendant-chat', requireAuth, async (req: Authenticate
           success: false,
           error: {
             code: 'ATTENDANT_NOT_FOUND',
-            message: `Atendente virtual com ID '${attendantId}' não foi encontrado.`,
+            message: `Especialista '${attendantId}' não foi encontrado.`,
           },
         });
       }
@@ -6986,7 +6986,7 @@ app.post('/api/ai/virtual-attendant-chat', requireAuth, async (req: Authenticate
         success: false,
         error: {
           code: 'ORACLE_UNAUTHORIZED_FOR_CONSULTANT',
-          message: `O atendente virtual '${attendant.name}' não está autorizado para o oráculo '${normalizedOracleId}'.`,
+          message: `${attendant.name} não atende o oráculo '${normalizedOracleId}'. Escolha outro especialista para este oráculo.`,
         },
       });
     }
@@ -7043,7 +7043,7 @@ app.post('/api/ai/virtual-attendant-chat', requireAuth, async (req: Authenticate
     if (!ai) {
       return res.status(503).json({
         success: false,
-        error: { code: 'GEMINI_UNAVAILABLE', message: 'Serviço de IA indisponível. Verifique as configurações de servidor.' },
+        error: { code: 'GEMINI_UNAVAILABLE', message: 'O atendimento está se reconectando. Nenhum minuto foi descontado. Tente novamente em instantes.' },
       });
     }
 
@@ -7418,7 +7418,7 @@ if (
         'ALL_GEMINI_MODELS_UNAVAILABLE',
 
       message:
-        'Nossos atendentes virtuais estão se reconectando. Nenhum minuto foi descontado. Tente novamente em alguns instantes.',
+        'O atendimento está se reconectando. Nenhum minuto foi descontado. Tente novamente em alguns instantes.',
     },
   });
 }
@@ -7955,7 +7955,7 @@ app.post('/api/ai/moderate-and-support', async (req: Request, res: Response) => 
       suggestedAction = 'view_privacy_portal';
     } else if (lower.includes('consulta') || lower.includes('oráculo') || lower.includes('tarot') || lower.includes('atendente virtual')) {
       category = 'consultation';
-      reply = 'Nossos atendimentos combinam especialistas qualificados e atendentes virtuais inteligentes desenvolvidos com conhecimento oracular canônico. O débito é calculado com precisão de minutos reais consumidos e transparência absoluta. Você pode iniciar um atendimento selecionando seu oráculo favorito no Marketplace.';
+      reply = 'Nossa equipe de oraculistas atende cada oráculo com o seu próprio jogo, seus cálculos e o seu jeito de ler. O débito é calculado com precisão de minutos reais consumidos e transparência absoluta. Você pode iniciar um atendimento selecionando seu oráculo favorito no Marketplace.';
       suggestedAction = 'view_marketplace';
     } else {
       reply = 'Olá! O Assistente de Apoio Bruxo São Cipriano Oráculos está à sua disposição. Como podemos orientar sua experiência na plataforma hoje? Caso necessite de atendimento humano especializado, você pode registrar um ticket a qualquer momento.';

@@ -246,7 +246,7 @@ export const ConsultantShowcase: React.FC<Props> = ({
           >
             <h1 id="hero-titulo" className="leading-none">
               <span className="font-gotica block text-xl sm:text-4xl text-gray-100 drop-shadow">Bruxo</span>
-              <span className="font-gotica block text-[1.65rem] sm:text-6xl texto-ouro">São Cipriano</span>
+              <span className="font-gotica block text-[1.5rem] sm:text-5xl texto-ouro">São Cipriano</span>
               <span className="font-cinzel block text-[11px] sm:text-base font-black tracking-[0.4em] uppercase texto-sangue mt-1">
                 Oráculos
               </span>

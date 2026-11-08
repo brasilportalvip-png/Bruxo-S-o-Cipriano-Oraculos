@@ -603,7 +603,7 @@ window.location.assign('/');
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 font-bold text-amber-300">
                     <Sparkles className="w-4 h-4 text-amber-400" />
-                    <span>Copiloto de Interpretação Profunda</span>
+                    <span>Aprofundar a Leitura</span>
                   </div>
                   <button
                     onClick={() => setShowAiCopilot(false)}
