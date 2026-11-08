@@ -19,7 +19,7 @@ export const LEGAL_DOCS: Record<LegalDocType, {
       {
         title: '1. Objeto e Natureza dos Serviços',
         content: [
-          'A plataforma Bruxo São Cipriano Oráculos é um ecossistema digital que conecta consulentes a especialistas em artes oraculares e disponibiliza ferramentas virtuais de orientação intuitiva.',
+          'A plataforma Bruxo São Cipriano Oráculos é um ecossistema digital que conecta consulentes a especialistas em artes oraculares e disponibiliza ferramentas online de consulta oracular.',
           'Os atendimentos prestados têm caráter estritamente de aconselhamento intuitivo, autoconhecimento e reflexão espiritual. Nenhuma consulta substitui orientação médica, psicológica, jurídica ou financeira profissional.',
         ],
       },

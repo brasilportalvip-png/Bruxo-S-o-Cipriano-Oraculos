@@ -84,7 +84,8 @@
 }
 
 @layer utilities {
-  .font-gotica { font-family: 'UnifrakturMaguntia', 'Cinzel', 'Georgia', serif; letter-spacing: 0.01em; }
+  /* Nome da marca: letra clássica e mística, fácil de ler (a gótica antiga era difícil de entender). */
+  .font-gotica { font-family: 'Cinzel Decorative', 'Cinzel', 'Georgia', serif; font-weight: 700; letter-spacing: 0.02em; }
   .font-cinzel { font-family: 'Cinzel', 'Cormorant Garamond', 'Georgia', serif; }
   .mystical-gradient { background: radial-gradient(circle at 50% 25%, #3b0707 0%, #0a0202 70%); }
   .glass-card {
